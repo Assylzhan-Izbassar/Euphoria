@@ -81,6 +81,8 @@
                                             </button>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zPC-BV-fJm">
                                                 <rect key="frame" x="321" y="0.0" width="51" height="31"/>
+                                                <color key="onTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="thumbTintColor" red="0.99812668559999995" green="0.58741402629999995" blue="0.69803923369999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -474,6 +476,8 @@
                         <outlet property="artistName" destination="Prv-xr-YHu" id="3tC-QC-1Pc"/>
                         <outlet property="elapsedTime" destination="2li-Cg-sq1" id="c94-dL-9cY"/>
                         <outlet property="nextBtn" destination="iBh-If-Q9x" id="NSM-az-9sH"/>
+                        <outlet property="playPauseBtn" destination="X68-9Z-tdD" id="jAb-C8-yFq"/>
+                        <outlet property="previousBtn" destination="Gp2-8R-Kqx" id="V5N-NF-LEV"/>
                         <outlet property="remainingTime" destination="wX8-9j-0bg" id="9Ws-3H-nI0"/>
                         <outlet property="slider" destination="pjb-N1-wH8" id="wrb-wl-Hd6"/>
                         <outlet property="songPoster" destination="NZ2-K4-u5T" id="GnW-7p-uUY"/>

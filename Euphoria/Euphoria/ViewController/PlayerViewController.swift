@@ -16,7 +16,9 @@ class PlayerViewController: UIViewController, GradientBackground {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var elapsedTime: UILabel!
     @IBOutlet weak var remainingTime: UILabel!
+    @IBOutlet weak var playPauseBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var previousBtn: UIButton!
     
     private var player = AVAudioPlayer()
     private var timer: Timer?
@@ -35,6 +37,20 @@ class PlayerViewController: UIViewController, GradientBackground {
             setupPlayer(with: album.songs[playingIndex])
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        play()
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        stop()
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+    
+    // MARK: - Setup the Player
     
     // method that setting up the player with url
     private func setupPlayer(with song: Song) {
@@ -65,23 +81,96 @@ class PlayerViewController: UIViewController, GradientBackground {
         
     }
     
+    // MARK: - Player Actions
+    
     @objc private func updateProgressBar() {
+        slider.value = Float(player.currentTime)
         
+        elapsedTime.text = getFormattedTime(timeInterval: player.currentTime)
+        
+        let remTime = player.duration - player.currentTime
+        remainingTime.text = getFormattedTime(timeInterval: remTime)
+    }
+    
+    private func getFormattedTime(timeInterval: TimeInterval) -> String {
+        let mins = timeInterval / 60
+        let secs = timeInterval.truncatingRemainder(dividingBy: 60)
+        
+        let timeFormatter = NumberFormatter()
+        timeFormatter.minimumIntegerDigits = 2
+        timeFormatter.minimumFractionDigits = 0
+        timeFormatter.roundingMode = .down
+        
+        guard let minsString = timeFormatter.string(from: NSNumber(value: mins)), let secsString = timeFormatter.string(from: NSNumber(value: secs)) else {
+            return "00:00"
+        }
+        
+        return "\(minsString):\(secsString)"
+    }
+    
+    // healper functions that we call from outside
+    func play() {
+        slider.value = 0.0
+        slider.maximumValue = Float(player.duration)
+        player.play()
+        setPlayPauseIcon(isPlaying: player.isPlaying)
+    }
+    
+    func stop() {
+        player.stop()
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    private func setPlayPauseIcon(isPlaying: Bool) {
+        let config = UIImage.SymbolConfiguration(pointSize: 120)
+        
+        // ! here we also should change
+        playPauseBtn.setImage(UIImage(systemName: isPlaying ? "pause" : "pause", withConfiguration: config), for: .normal)
     }
     
     @IBAction func pause(_ sender: UIButton) {
+        if player.isPlaying {
+            player.pause()
+        } else {
+            player.play()
+        }
+        setPlayPauseIcon(isPlaying: player.isPlaying)
     }
     
     @IBAction func nextPressed(_ sender: UIButton) {
+        
+        playingIndex += 1
+        
+        if let album = album {
+            if playingIndex >= album.songs.count {
+                playingIndex = 0
+            }
+            setupPlayer(with: album.songs[playingIndex])
+            play()
+            setPlayPauseIcon(isPlaying: player.isPlaying)
+        }
     }
     
     @IBAction func previousPressed(_ sender: UIButton) {
+        playingIndex -= 1
+        
+        if playingIndex < 0 {
+            if let album = album {
+                playingIndex = album.songs.count - 1
+                setupPlayer(with: album.songs[playingIndex])
+                play()
+                setPlayPauseIcon(isPlaying: player.isPlaying)
+            }
+        }
     }
     
     @IBAction func progressBar(_ sender: UISlider) {
-        
+        player.currentTime = Float64(sender.value)
     }
 }
+
+// MARK: - Extensions
 
 extension PlayerViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
