@@ -17,7 +17,7 @@ extension Album {
         return [
             Album(name: "For training", songs: [
             ]),
-            Album(name: "For stady", songs: [
+            Album(name: "For study", songs: [
             ]),
             Album(name: "Sadly", songs: [
             ]),
