@@ -33,8 +33,8 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addCustomTabBarView()
-        hideTabBarBorders()
+//        addCustomTabBarView()
+//        hideTabBarBorders()
     }
     
     override func viewDidLayoutSubviews() {

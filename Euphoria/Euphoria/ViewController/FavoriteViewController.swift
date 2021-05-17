@@ -48,6 +48,17 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
     
     // here we can observe by clicking the cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(albums[indexPath.row].name)
+        
+        if let parentVC = self.parent as? TabBarViewController {
+            guard
+                let playerVC = parentVC.viewControllers?[3] as? PlayerViewController
+            else {
+                return
+            }
+            
+            playerVC.album = albums[0]
+            
+            parentVC.selectedIndex = 3
+        }
     }
 }

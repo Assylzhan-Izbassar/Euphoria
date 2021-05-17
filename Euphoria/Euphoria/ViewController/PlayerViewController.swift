@@ -25,7 +25,6 @@ class PlayerViewController: UIViewController, GradientBackground {
     private var playingIndex = 0
     
     var album: Album?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +34,7 @@ class PlayerViewController: UIViewController, GradientBackground {
         
         if let album = album {
             setupPlayer(with: album.songs[playingIndex])
+            setRounded(image: songPoster)
         }
     }
     
@@ -60,7 +60,7 @@ class PlayerViewController: UIViewController, GradientBackground {
         }
         
         if timer == nil {
-            timer = Timer(timeInterval: 0.0001, target: self, selector: #selector(updateProgressBar), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 0.0001, target: self, selector: #selector(updateProgressBar), userInfo: nil, repeats: true)
         }
         
         songTitle.text = song.name
@@ -83,7 +83,7 @@ class PlayerViewController: UIViewController, GradientBackground {
     
     // MARK: - Player Actions
     
-    @objc private func updateProgressBar() {
+    @objc func updateProgressBar() {
         slider.value = Float(player.currentTime)
         
         elapsedTime.text = getFormattedTime(timeInterval: player.currentTime)
@@ -108,7 +108,7 @@ class PlayerViewController: UIViewController, GradientBackground {
         return "\(minsString):\(secsString)"
     }
     
-    // healper functions that we call from outside
+    // helper functions that we call from outside
     func play() {
         slider.value = 0.0
         slider.maximumValue = Float(player.duration)
@@ -123,10 +123,10 @@ class PlayerViewController: UIViewController, GradientBackground {
     }
     
     private func setPlayPauseIcon(isPlaying: Bool) {
-        let config = UIImage.SymbolConfiguration(pointSize: 120)
+//        let config = UIImage.SymbolConfiguration(pointSize: 120)
         
         // ! here we also should change
-        playPauseBtn.setImage(UIImage(systemName: isPlaying ? "pause" : "pause", withConfiguration: config), for: .normal)
+        playPauseBtn.setImage(UIImage(named: isPlaying ? "pause" : "pause"), for: .normal)
     }
     
     @IBAction func pause(_ sender: UIButton) {
@@ -153,20 +153,27 @@ class PlayerViewController: UIViewController, GradientBackground {
     }
     
     @IBAction func previousPressed(_ sender: UIButton) {
+        
         playingIndex -= 1
         
-        if playingIndex < 0 {
-            if let album = album {
+        if let album = album {
+            if playingIndex < 0 {
                 playingIndex = album.songs.count - 1
-                setupPlayer(with: album.songs[playingIndex])
-                play()
-                setPlayPauseIcon(isPlaying: player.isPlaying)
             }
+            setupPlayer(with: album.songs[playingIndex])
+            play()
+            setPlayPauseIcon(isPlaying: player.isPlaying)
         }
     }
     
     @IBAction func progressBar(_ sender: UISlider) {
         player.currentTime = Float64(sender.value)
+    }
+    
+    @IBAction func back(_ sender: UIButton) {
+        if let parentVC = self.parent as? TabBarViewController {
+            parentVC.selectedIndex = 2
+        }
     }
 }
 
