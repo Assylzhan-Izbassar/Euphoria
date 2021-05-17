@@ -247,9 +247,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Popular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4N-dv-hth">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4N-dv-hth">
                                 <rect key="frame" x="20" y="76" width="145" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="42"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -322,6 +321,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TwX-p8-s0m"/>
                         <color key="backgroundColor" red="0.47592943910000002" green="0.44788664579999998" blue="0.90200114249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="TwX-p8-s0m" firstAttribute="trailing" secondItem="O4N-dv-hth" secondAttribute="trailing" constant="249" id="KN6-Ky-xZ2"/>
+                            <constraint firstItem="O4N-dv-hth" firstAttribute="top" secondItem="TwX-p8-s0m" secondAttribute="top" constant="32" id="RDI-Vz-b68"/>
+                            <constraint firstItem="O4N-dv-hth" firstAttribute="leading" secondItem="TwX-p8-s0m" secondAttribute="leading" constant="20" id="UvB-nU-6va"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="popular_icon" id="XhA-cy-WA5"/>
                     <connections>
