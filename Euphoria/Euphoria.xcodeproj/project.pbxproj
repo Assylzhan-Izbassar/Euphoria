@@ -24,10 +24,8 @@
 		FA5B81DD263B15700046F48A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B81DC263B15700046F48A /* SettingsViewController.swift */; };
 		FAC03E602652CE1E003C7A30 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E5F2652CE1E003C7A30 /* Genre.swift */; };
 		FAC03E632652CE8D003C7A30 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */; };
+		FAC03E672652D644003C7A30 /* Bowie-ArtofWar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */; };
 		FAEA2506264E3FB700D814D0 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA2505264E3FB700D814D0 /* FavoriteCollectionViewCell.swift */; };
-		FAEA2511264E6FEB00D814D0 /* Flepsy-SelfAwareness.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAEA250E264E6FEB00D814D0 /* Flepsy-SelfAwareness.mp3 */; };
-		FAEA2512264E6FEB00D814D0 /* DimodZho-NonStop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAEA250F264E6FEB00D814D0 /* DimodZho-NonStop.mp3 */; };
-		FAEA2513264E6FEB00D814D0 /* Bowie-ArtofWar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAEA2510264E6FEB00D814D0 /* Bowie-ArtofWar.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,10 +48,8 @@
 		FA5B81DC263B15700046F48A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FAC03E5F2652CE1E003C7A30 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bowie-ArtofWar.mp3"; sourceTree = "<group>"; };
 		FAEA2505264E3FB700D814D0 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
-		FAEA250E264E6FEB00D814D0 /* Flepsy-SelfAwareness.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Flepsy-SelfAwareness.mp3"; path = "../../../../../../../../../Downloads/Flepsy-SelfAwareness.mp3"; sourceTree = "<group>"; };
-		FAEA250F264E6FEB00D814D0 /* DimodZho-NonStop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "DimodZho-NonStop.mp3"; path = "../../../../../../../../../Downloads/DimodZho-NonStop.mp3"; sourceTree = "<group>"; };
-		FAEA2510264E6FEB00D814D0 /* Bowie-ArtofWar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Bowie-ArtofWar.mp3"; path = "../../../../../../../../../Downloads/Bowie-ArtofWar.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,9 +144,7 @@
 		FAEA250A264E6E4D00D814D0 /* ForTraining */ = {
 			isa = PBXGroup;
 			children = (
-				FAEA2510264E6FEB00D814D0 /* Bowie-ArtofWar.mp3 */,
-				FAEA250F264E6FEB00D814D0 /* DimodZho-NonStop.mp3 */,
-				FAEA250E264E6FEB00D814D0 /* Flepsy-SelfAwareness.mp3 */,
+				FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */,
 			);
 			path = ForTraining;
 			sourceTree = "<group>";
@@ -234,11 +228,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA382AB82632D1DA005AEB46 /* LaunchScreen.storyboard in Resources */,
-				FAEA2511264E6FEB00D814D0 /* Flepsy-SelfAwareness.mp3 in Resources */,
+				FAC03E672652D644003C7A30 /* Bowie-ArtofWar.mp3 in Resources */,
 				FA382AB52632D1DA005AEB46 /* Assets.xcassets in Resources */,
-				FAEA2512264E6FEB00D814D0 /* DimodZho-NonStop.mp3 in Resources */,
 				FA382AB32632D1D9005AEB46 /* Main.storyboard in Resources */,
-				FAEA2513264E6FEB00D814D0 /* Bowie-ArtofWar.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

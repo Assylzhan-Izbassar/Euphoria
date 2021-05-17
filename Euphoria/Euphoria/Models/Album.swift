@@ -16,9 +16,7 @@ extension Album {
     static func getAlbums() -> [Album] {
         return [
             Album(name: "For training", songs: [
-                Song(name: "Non stop", artistName: "DimodZho", posterUrl: "nonstop", fileName: "DimodZho-NonStop"),
-                Song(name: "Bowie", artistName: "Art of war", posterUrl: "artofwar", fileName: "Bowie-ArtofWar"),
-                Song(name: "Flepsy", artistName: "Awareness", posterUrl: "poster", fileName: "Flepsy-SelfAwareness")
+                Song(name: "Bowie", artistName: "Art of war", posterUrl: "artofwar", fileName: "Bowie-ArtofWar")
             ]),
             Album(name: "For study", songs: [
             ]),
