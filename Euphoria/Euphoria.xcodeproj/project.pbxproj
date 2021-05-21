@@ -133,9 +133,6 @@
 		FAEA2509264E6E3800D814D0 /* StaticSongCategories */ = {
 			isa = PBXGroup;
 			children = (
-				FAEA250D264E6E8200D814D0 /* Dance */,
-				FAEA250C264E6E7300D814D0 /* Sadly */,
-				FAEA250B264E6E6B00D814D0 /* ForStudy */,
 				FAEA250A264E6E4D00D814D0 /* ForTraining */,
 			);
 			path = StaticSongCategories;
@@ -147,27 +144,6 @@
 				FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */,
 			);
 			path = ForTraining;
-			sourceTree = "<group>";
-		};
-		FAEA250B264E6E6B00D814D0 /* ForStudy */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ForStudy;
-			sourceTree = "<group>";
-		};
-		FAEA250C264E6E7300D814D0 /* Sadly */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sadly;
-			sourceTree = "<group>";
-		};
-		FAEA250D264E6E8200D814D0 /* Dance */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Dance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
