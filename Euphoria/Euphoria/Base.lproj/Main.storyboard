@@ -247,12 +247,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4N-dv-hth">
-                                <rect key="frame" x="20" y="76" width="374" height="48.5"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="42"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPN-hC-sXt">
                                 <rect key="frame" x="0.0" y="132.5" width="414" height="680.5"/>
                                 <subviews>
@@ -324,17 +318,28 @@
                                     <constraint firstItem="n54-qq-JY9" firstAttribute="leading" secondItem="YPN-hC-sXt" secondAttribute="leading" id="y6B-9w-2MH"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="okk-GD-omg">
+                                <rect key="frame" x="20" y="76" width="374" height="48.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4N-dv-hth">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48.5"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="42"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TwX-p8-s0m"/>
                         <color key="backgroundColor" red="0.47592943910000002" green="0.44788664579999998" blue="0.90200114249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="TwX-p8-s0m" firstAttribute="bottom" secondItem="YPN-hC-sXt" secondAttribute="bottom" id="77r-F0-J8Y"/>
                             <constraint firstItem="YPN-hC-sXt" firstAttribute="trailing" secondItem="TwX-p8-s0m" secondAttribute="trailing" id="CEq-Aj-I7X"/>
-                            <constraint firstItem="YPN-hC-sXt" firstAttribute="top" secondItem="O4N-dv-hth" secondAttribute="bottom" constant="8" id="F54-un-d9T"/>
-                            <constraint firstItem="O4N-dv-hth" firstAttribute="leading" secondItem="TwX-p8-s0m" secondAttribute="leading" constant="20" id="JmE-Ce-ysA"/>
-                            <constraint firstItem="TwX-p8-s0m" firstAttribute="trailing" secondItem="O4N-dv-hth" secondAttribute="trailing" constant="20" id="OmH-wx-gNv"/>
-                            <constraint firstItem="O4N-dv-hth" firstAttribute="top" secondItem="TwX-p8-s0m" secondAttribute="top" constant="32" id="T9n-iR-WBK"/>
+                            <constraint firstItem="YPN-hC-sXt" firstAttribute="top" secondItem="okk-GD-omg" secondAttribute="bottom" constant="8" symbolic="YES" id="F2q-9N-EuA"/>
                             <constraint firstItem="YPN-hC-sXt" firstAttribute="leading" secondItem="TwX-p8-s0m" secondAttribute="leading" id="TBk-AD-hSK"/>
+                            <constraint firstItem="okk-GD-omg" firstAttribute="leading" secondItem="TwX-p8-s0m" secondAttribute="leading" constant="20" id="cwj-2A-bOm"/>
+                            <constraint firstItem="okk-GD-omg" firstAttribute="top" secondItem="TwX-p8-s0m" secondAttribute="top" constant="32" id="gaE-l5-a6H"/>
+                            <constraint firstItem="TwX-p8-s0m" firstAttribute="trailing" secondItem="okk-GD-omg" secondAttribute="trailing" constant="20" id="zco-kF-GAv"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="popular_icon" id="XhA-cy-WA5"/>
@@ -364,24 +369,29 @@
                                 <rect key="frame" x="0.0" y="133" width="414" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="x4n-Ai-yIA">
-                                    <size key="itemSize" width="171" height="169"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="x4n-Ai-yIA">
+                                    <size key="itemSize" width="160" height="160"/>
+                                    <size key="estimatedItemSize" width="160" height="160"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="36" minY="20" maxX="11" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoriteCollectionViewCell" id="VWp-yt-ABL" customClass="FavoriteCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                        <rect key="frame" x="36" y="20" width="160" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1Gv-P3-aqx">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="my_media_background" translatesAutoresizingMaskIntoConstraints="NO" id="g72-av-F22">
+                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For training" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irt-PF-Ab8">
                                                     <rect key="frame" x="0.0" y="66" width="160" height="28"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
-                                                    <color key="textColor" red="0.70196563010000002" green="0.7019521594" blue="0.70196127890000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -655,6 +665,7 @@
         <image name="back_btn" width="512" height="512"/>
         <image name="fav_icon" width="35" height="35"/>
         <image name="logo" width="512" height="512"/>
+        <image name="my_media_background" width="142" height="140"/>
         <image name="next" width="512" height="512"/>
         <image name="pause" width="512" height="512"/>
         <image name="player_icon" width="35" height="35"/>
