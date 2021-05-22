@@ -22,6 +22,7 @@
 		FA5B81D7263B14D90046F48A /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B81D6263B14D90046F48A /* FavoriteViewController.swift */; };
 		FA5B81DA263B154B0046F48A /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B81D9263B154B0046F48A /* PlayerViewController.swift */; };
 		FA5B81DD263B15700046F48A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B81DC263B15700046F48A /* SettingsViewController.swift */; };
+		FA6CEF7226592A860041116A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CEF7126592A860041116A /* CustomTabBar.swift */; };
 		FAC03E602652CE1E003C7A30 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E5F2652CE1E003C7A30 /* Genre.swift */; };
 		FAC03E632652CE8D003C7A30 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */; };
 		FAC03E672652D644003C7A30 /* Bowie-ArtofWar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */; };
@@ -46,6 +47,7 @@
 		FA5B81D6263B14D90046F48A /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		FA5B81D9263B154B0046F48A /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		FA5B81DC263B15700046F48A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FA6CEF7126592A860041116A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		FAC03E5F2652CE1E003C7A30 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bowie-ArtofWar.mp3"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				FAEA2505264E3FB700D814D0 /* FavoriteCollectionViewCell.swift */,
 				FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */,
+				FA6CEF7126592A860041116A /* CustomTabBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				FA5B81D1263B0B5E0046F48A /* SearchViewController.swift in Sources */,
 				FA382ACB2632EF47005AEB46 /* GradientBackground.swift in Sources */,
 				FA382AC72632ED8A005AEB46 /* TabBarViewController.swift in Sources */,
+				FA6CEF7226592A860041116A /* CustomTabBar.swift in Sources */,
 				FA5B81DD263B15700046F48A /* SettingsViewController.swift in Sources */,
 				FA382AAC2632D1D9005AEB46 /* AppDelegate.swift in Sources */,
 				FA14A746264DAD8800CF05F2 /* Song.swift in Sources */,

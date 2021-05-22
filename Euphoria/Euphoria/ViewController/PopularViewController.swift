@@ -9,8 +9,6 @@ import UIKit
 
 class PopularViewController: UIViewController, GradientBackground {
     
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     let genres = Genre.getGenre()
@@ -18,13 +16,12 @@ class PopularViewController: UIViewController, GradientBackground {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
-        self.setGradientBackground(view: view)
+//        self.setGradientBackground(view: view)
         
         
         collectionView.layer.shadowColor = UIColor.black.cgColor
         collectionView.layer.shadowRadius = 10.0
         collectionView.layer.shadowOpacity = 0.15
-        collectionView.layer.masksToBounds = false
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()

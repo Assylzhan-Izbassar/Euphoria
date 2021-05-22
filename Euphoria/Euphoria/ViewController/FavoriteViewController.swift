@@ -18,6 +18,8 @@ class FavoriteViewController: UIViewController, GradientBackground {
         
         self.setGradientBackground(view: view)
         
+//        collectionView.layer.masksToBounds = false
+        collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
@@ -60,5 +62,17 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
             
             parentVC.selectedIndex = 3
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top: 8, left: 23, bottom: 8, right: 23)
+        }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
     }
 }
