@@ -16,7 +16,7 @@ class PopularViewController: UIViewController, GradientBackground {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
-//        self.setGradientBackground(view: view)
+        self.setGradientBackground(view: view)
         
         
         collectionView.layer.shadowColor = UIColor.black.cgColor

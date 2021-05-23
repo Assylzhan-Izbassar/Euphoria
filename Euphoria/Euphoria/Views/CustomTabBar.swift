@@ -7,10 +7,10 @@
 
 import UIKit
 
-@IBDesignable class CustomTabBar: UITabBar {
+/*@IBDesignable*/ class CustomTabBar: UITabBar {
     
-    @IBInspectable var color: UIColor?
-    @IBInspectable var radii: CGFloat = 45.0
+    /*@IBInspectable*/ var color: UIColor?
+    /*@IBInspectable*/ var radii: CGFloat = 45.0
     
     private var shapeLayer: CALayer?
 
@@ -18,18 +18,17 @@ import UIKit
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         addShape()
-        self.backgroundColor = UIColor.clear.withAlphaComponent(0)
     }
     
     private func addShape() {
         let shapeLayer = CAShapeLayer()
 
         shapeLayer.path = createPath()
-        shapeLayer.strokeColor = UIColor.gray.withAlphaComponent(0.1).cgColor
+        shapeLayer.strokeColor = UIColor.gray.withAlphaComponent(0).cgColor
         shapeLayer.fillColor = color?.cgColor ?? UIColor.white.cgColor
         shapeLayer.lineWidth = 2
         shapeLayer.shadowColor = UIColor.black.cgColor
-        shapeLayer.shadowOffset = CGSize(width: 0   , height: -3);
+        shapeLayer.shadowOffset = CGSize(width: 0, height: -3);
         shapeLayer.shadowOpacity = 0.2
         shapeLayer.shadowPath =  UIBezierPath(roundedRect: bounds, cornerRadius: radii).cgPath
         
@@ -41,6 +40,7 @@ import UIKit
         }
 
         self.shapeLayer = shapeLayer
+        self.backgroundColor = UIColor.clear.withAlphaComponent(0)
     }
     
     private func createPath() -> CGPath {

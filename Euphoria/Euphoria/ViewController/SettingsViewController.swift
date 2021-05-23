@@ -11,7 +11,6 @@ class SettingsViewController: UIViewController, GradientBackground {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        self.setGradientBackground(view: view)
+        self.setGradientBackground(view: view)
     }
 }

@@ -29,7 +29,7 @@ class PlayerViewController: UIViewController, GradientBackground {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.setGradientBackground(view: view)
+        self.setGradientBackground(view: view)
         slider.tintColor = .white
         
         if let album = album {
