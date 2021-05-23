@@ -16,8 +16,9 @@ extension GradientBackground {
         let layer0 = CAGradientLayer()
 
         layer0.colors = [
-          UIColor(red: 1, green: 0.494, blue: 0.702, alpha: 1).cgColor,
-          UIColor(red: 0, green: 0.04, blue: 1, alpha: 0.49).cgColor
+            // 0.8784, 0.4941, 0.6941
+            UIColor(red: 1, green: 0.4941, blue: 0.6941, alpha: 1).cgColor,
+            UIColor(red: 0.46, green: 0.45, blue: 0.894, alpha: 1).cgColor
         ]
         
         layer0.frame = view.frame

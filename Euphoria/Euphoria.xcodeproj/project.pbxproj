@@ -25,6 +25,7 @@
 		FA6CEF7A265A85D50041116A /* CollectionCellDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CEF79265A85D50041116A /* CollectionCellDecoration.swift */; };
 		FA6CEF7D265A87460041116A /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CEF7C265A87460041116A /* BaseCollectionViewCell.swift */; };
 		FA6CEF82265A8CA50041116A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CEF81265A8CA50041116A /* TabBarViewController.swift */; };
+		FA6CEF86265AA30B0041116A /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CEF85265AA30B0041116A /* SearchCollectionViewCell.swift */; };
 		FAC03E602652CE1E003C7A30 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E5F2652CE1E003C7A30 /* Genre.swift */; };
 		FAC03E632652CE8D003C7A30 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */; };
 		FAC03E672652D644003C7A30 /* Bowie-ArtofWar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */; };
@@ -52,6 +53,7 @@
 		FA6CEF79265A85D50041116A /* CollectionCellDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellDecoration.swift; sourceTree = "<group>"; };
 		FA6CEF7C265A87460041116A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA6CEF81265A8CA50041116A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		FA6CEF85265AA30B0041116A /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAC03E5F2652CE1E003C7A30 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bowie-ArtofWar.mp3"; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				FAEA2505264E3FB700D814D0 /* FavoriteCollectionViewCell.swift */,
 				FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */,
 				FA6CEF7126592A860041116A /* CustomTabBar.swift */,
+				FA6CEF85265AA30B0041116A /* SearchCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				FA382AC12632D2FA005AEB46 /* IntroViewController.swift in Sources */,
 				FAC03E632652CE8D003C7A30 /* PopularCollectionViewCell.swift in Sources */,
 				FA14A74A264DADFB00CF05F2 /* Album.swift in Sources */,
+				FA6CEF86265AA30B0041116A /* SearchCollectionViewCell.swift in Sources */,
 				FAC03E602652CE1E003C7A30 /* Genre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

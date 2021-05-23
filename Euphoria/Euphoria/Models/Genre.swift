@@ -28,5 +28,14 @@ extension Genre {
             Genre(name: "Workout")
         ]
     }
+    
+    static func getSearchGenre() -> [Genre] {
+        return [
+            Genre(name: "All"),
+            Genre(name: "Tracks"),
+            Genre(name: "Artists"),
+            Genre(name: "Albums")
+        ]
+    }
 }
 
