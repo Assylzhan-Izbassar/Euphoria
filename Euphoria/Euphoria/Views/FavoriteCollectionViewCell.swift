@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteCollectionViewCell: UICollectionViewCell {
+class FavoriteCollectionViewCell: BaseCollectionViewCell{
     
     @IBOutlet weak var albumName: UILabel!
     

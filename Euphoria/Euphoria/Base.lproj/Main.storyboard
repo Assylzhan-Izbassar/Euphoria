@@ -303,21 +303,8 @@
                                                                 <constraint firstAttribute="bottom" secondItem="wQx-Kw-CPm" secondAttribute="bottom" constant="36" id="RUo-T2-Jtg"/>
                                                                 <constraint firstItem="wQx-Kw-CPm" firstAttribute="leading" secondItem="nBP-Ah-c2s" secondAttribute="leading" constant="8" id="ecW-0B-i9D"/>
                                                             </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="6"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                            </userDefinedRuntimeAttributes>
                                                         </collectionViewCellContentView>
-                                                        <color key="backgroundColor" red="1" green="0.621521871" blue="0.6059749727" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <size key="customSize" width="175" height="101"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="30"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <outlet property="genreName" destination="wQx-Kw-CPm" id="fwE-Xy-IkW"/>
                                                         </connections>
@@ -411,6 +398,9 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="160" height="160"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="la" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="albumName" destination="Irt-PF-Ab8" id="VlN-Bo-HPg"/>
                                         </connections>

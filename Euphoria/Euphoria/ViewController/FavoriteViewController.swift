@@ -17,7 +17,7 @@ class FavoriteViewController: UIViewController, GradientBackground {
         super.viewDidLoad()
         
         self.setGradientBackground(view: view)
-    
+        
         collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -37,6 +37,7 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
             return UICollectionViewCell()
         }
         
+        cell.makeRoundedCorners(30.0, 10.0, CGSize(width: 5, height: 10))
         cell.setup(with: albums[indexPath.row])
         
         return cell

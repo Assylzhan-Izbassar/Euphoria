@@ -7,11 +7,10 @@
 
 import UIKit
 
-class PopularCollectionViewCell: UICollectionViewCell {
+class PopularCollectionViewCell: BaseCollectionViewCell {
     @IBOutlet weak var genreName: UILabel!
     
     func configure(with genre: Genre) {
         genreName.text = genre.name
     }
 }
-

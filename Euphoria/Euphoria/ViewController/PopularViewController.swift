@@ -15,13 +15,9 @@ class PopularViewController: UIViewController, GradientBackground {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         self.setGradientBackground(view: view)
         
-        
-        collectionView.layer.shadowColor = UIColor.black.cgColor
-        collectionView.layer.shadowRadius = 10.0
-        collectionView.layer.shadowOpacity = 0.15
+        collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
@@ -40,6 +36,7 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
             return UICollectionViewCell()
         }
         
+        cell.makeRoundedCorners(30.0, 5.0, CGSize(width: 5.0, height: 10.0))
         cell.configure(with: genres[indexPath.row])
         
         return cell
@@ -49,8 +46,7 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
         return CGSize(width: 175, height: 101)
         
     }
-    
-    
+
     // here we can observe by clicking the cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(genres[indexPath.row].name)
