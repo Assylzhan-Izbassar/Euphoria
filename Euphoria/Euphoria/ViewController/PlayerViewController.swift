@@ -134,7 +134,7 @@ class PlayerViewController: UIViewController, GradientBackground {
 //        let config = UIImage.SymbolConfiguration(pointSize: 120)
         
         // ! here we also should change
-        playPauseBtn.setImage(UIImage(named: isPlaying ? "pause" : "pause"), for: .normal)
+        playPauseBtn.setImage(UIImage(named: isPlaying ? "play" : "pause"), for: .normal)
     }
     
     @IBAction func pause(_ sender: UIButton) {
