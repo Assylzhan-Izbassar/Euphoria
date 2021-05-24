@@ -30,15 +30,19 @@ class PlayerViewController: UIViewController, GradientBackground {
         super.viewDidLoad()
 
         self.setGradientBackground(view: view)
-        slider.tintColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // decorate playPauseBtn
+        playPauseBtn.layer.cornerRadius = playPauseBtn.frame.height / 2
+        playPauseBtn.clipsToBounds = true
+        
+        // about player
+        setRounded(image: songPoster)
         if let album = album {
             setupPlayer(with: album.songs[playingIndex])
-            setRounded(image: songPoster)
         }
     }
     

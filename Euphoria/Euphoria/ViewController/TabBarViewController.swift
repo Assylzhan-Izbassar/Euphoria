@@ -10,7 +10,12 @@ import UIKit
 class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeRoundedTabBar()
         
+        self.tabBar.unselectedItemTintColor = UIColor(red: 255/255.0, green: 150/255.0, blue: 178/255.0, alpha: 1.0)
+    }
+    
+    private func makeRoundedTabBar() {
         let transperentBlackColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.5)
 
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
