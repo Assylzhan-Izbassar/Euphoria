@@ -30,6 +30,7 @@
 		FAC03E632652CE8D003C7A30 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */; };
 		FAC03E672652D644003C7A30 /* Bowie-ArtofWar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */; };
 		FAEA2506264E3FB700D814D0 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA2505264E3FB700D814D0 /* FavoriteCollectionViewCell.swift */; };
+		FAFCB490265BB5C1000606FC /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCB48F265BB5C1000606FC /* PaddingTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bowie-ArtofWar.mp3"; sourceTree = "<group>"; };
 		FAEA2505264E3FB700D814D0 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAFCB48F265BB5C1000606FC /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */,
 				FA6CEF7126592A860041116A /* CustomTabBar.swift */,
 				FA6CEF85265AA30B0041116A /* SearchCollectionViewCell.swift */,
+				FAFCB48F265BB5C1000606FC /* PaddingTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				FA5B81DD263B15700046F48A /* SettingsViewController.swift in Sources */,
 				FA382AAC2632D1D9005AEB46 /* AppDelegate.swift in Sources */,
 				FA14A746264DAD8800CF05F2 /* Song.swift in Sources */,
+				FAFCB490265BB5C1000606FC /* PaddingTextField.swift in Sources */,
 				FA5B81D4263B14A10046F48A /* PopularViewController.swift in Sources */,
 				FA5B81DA263B154B0046F48A /* PlayerViewController.swift in Sources */,
 				FA6CEF7D265A87460041116A /* BaseCollectionViewCell.swift in Sources */,

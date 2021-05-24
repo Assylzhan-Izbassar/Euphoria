@@ -27,15 +27,30 @@ class SearchViewController: UIViewController, GradientBackground {
         
         // setting up the text field
         if let searchFieldImage = UIImage(named: "search_img") {
-            addLeftImageTo(searchTextField, searchFieldImage)
+            searchTextField.setLeftIcon(searchFieldImage)
+            makeRoundedTextField()
         }
     }
     
-    private func addLeftImageTo(_ textField: UITextField, _ image: UIImage) {
-        let leftImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: 33, height: 33))
-        leftImageView.image = image
-        textField.leftView = leftImageView
-        textField.leftViewMode = .always
+    private func makeRoundedTextField() {
+        
+        //Basic texfield Setup
+        searchTextField.borderStyle = .none
+        searchTextField.backgroundColor = .white
+
+        //To apply corner radius
+        searchTextField.layer.cornerRadius = searchTextField.frame.size.height / 2
+
+        //To apply border
+        searchTextField.layer.borderWidth = 0.25
+        searchTextField.layer.borderColor = UIColor.white.cgColor
+
+        //To apply Shadow
+        searchTextField.layer.shadowOpacity = 1
+        searchTextField.layer.shadowRadius = 0.0
+        searchTextField.layer.shadowPath = UIBezierPath(roundedRect: searchTextField.bounds, cornerRadius: searchTextField.layer.cornerRadius).cgPath
+        searchTextField.layer.shadowOffset = CGSize(width: 10.0, height: 15.0)
+        searchTextField.layer.shadowColor = UIColor(red: 255/255.0, green: 181/255.0, blue: 211/255.0, alpha: 1.0).cgColor
     }
 }
 
@@ -79,3 +94,20 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         return 23
     }
 }
+
+extension UITextField {
+    /// set icon of 33x33 with left padding of 15 px
+    func setLeftIcon(_ icon: UIImage) {
+        let padding = 26
+        let size = 33
+
+        let outerView = UIView(frame: CGRect(x: 0, y: 0, width: size+padding, height: size))
+        let iconView  = UIImageView(frame: CGRect(x: padding, y: 0, width: size, height: size))
+        iconView.image = icon
+        outerView.addSubview(iconView)
+
+        leftView = outerView
+        leftViewMode = .always
+    }
+}
+

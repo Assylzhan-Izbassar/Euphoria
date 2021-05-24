@@ -635,12 +635,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="xs2-YF-ahf">
                                 <rect key="frame" x="20" y="141" width="374" height="117"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="UOa-5I-sim">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist, song or playlist" clearsOnBeginEditing="YES" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="UOa-5I-sim" customClass="PaddingTextField" customModule="Euphoria" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="66"/>
+                                        <color key="tintColor" red="0.48798727990000001" green="0.43907403950000001" blue="0.9333763719" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="66" id="s2B-d9-dFI"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.95593363050000002" green="0.72068041559999996" blue="0.82353258129999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shy-Z3-YFh">
