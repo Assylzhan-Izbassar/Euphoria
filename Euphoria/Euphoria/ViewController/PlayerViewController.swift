@@ -31,6 +31,10 @@ class PlayerViewController: UIViewController, GradientBackground {
 
         self.setGradientBackground(view: view)
         slider.tintColor = .white
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if let album = album {
             setupPlayer(with: album.songs[playingIndex])
