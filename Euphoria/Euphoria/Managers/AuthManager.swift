@@ -10,7 +10,7 @@ import Foundation
 final class AuthManager {
     static let shared = AuthManager()
     
-    var isSigned: Bool { return false }
+    var isSigned: Bool { return true }
     private var accessToken: String? { return nil }
     private var refreshToken: String? { return nil }
     private var tokenExpirationDate: Date? { return nil }
