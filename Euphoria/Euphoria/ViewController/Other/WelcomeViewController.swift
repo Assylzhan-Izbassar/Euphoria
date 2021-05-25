@@ -31,5 +31,16 @@ class WelcomeViewController: UIViewController, GradientBackground {
     
     private func handleSignIn(success: Bool) {
         // Log user in or yell at them for error
+        guard success else {
+            let alert = UIAlertController(title: "Oops", message: "Something went wrong when signing in.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        if let secondVC = storyboard?.instantiateViewController(identifier: "TabBarViewController") {
+            secondVC.modalPresentationStyle = .fullScreen
+            self.present(secondVC, animated: true, completion: nil)
+        }
     }
 }

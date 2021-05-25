@@ -43,5 +43,13 @@ class AuthViewController: UIViewController, WKNavigationDelegate, GradientBackgr
         
         guard let code = components?.queryItems?.first(where: { $0.name == "code"})?.value
         else { return }
+        
+        webView.isHidden = true
+        
+        AuthManager.shared.exchangeCodeForToken(code: code, completion: { [weak self] success in
+            DispatchQueue.main.async {
+                self?.completionHandler?(success)
+            }
+        })
     }
 }
