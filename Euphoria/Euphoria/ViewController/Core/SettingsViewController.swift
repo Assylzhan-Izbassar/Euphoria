@@ -13,4 +13,8 @@ class SettingsViewController: UIViewController, GradientBackground {
         super.viewDidLoad()
         self.setGradientBackground(view: view)
     }
+    @IBAction func profilePressed(_ sender: UIButton) {
+        let vc = ProfileViewController()
+        present(vc, animated: true, completion: nil)
+    }
 }

@@ -16,6 +16,7 @@
 		FA2E690F265CD3A50009020D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E690E265CD3A50009020D /* User.swift */; };
 		FA2E6912265CD6C00009020D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6911265CD6C00009020D /* WelcomeViewController.swift */; };
 		FA2E6915265D10ED0009020D /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6914265D10ED0009020D /* AuthResponse.swift */; };
+		FA2E6918265D3EE50009020D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6917265D3EE50009020D /* ProfileViewController.swift */; };
 		FA382AAC2632D1D9005AEB46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA382AAB2632D1D9005AEB46 /* AppDelegate.swift */; };
 		FA382AAE2632D1D9005AEB46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA382AAD2632D1D9005AEB46 /* SceneDelegate.swift */; };
 		FA382AB32632D1D9005AEB46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA382AB12632D1D9005AEB46 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		FA2E690E265CD3A50009020D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA2E6911265CD6C00009020D /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		FA2E6914265D10ED0009020D /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		FA2E6917265D3EE50009020D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FA382AA82632D1D9005AEB46 /* Euphoria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Euphoria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA382AAB2632D1D9005AEB46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA382AAD2632D1D9005AEB46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				FA382AC02632D2FA005AEB46 /* IntroViewController.swift */,
 				FA2E6901265CD22D0009020D /* AuthViewController.swift */,
 				FA2E6911265CD6C00009020D /* WelcomeViewController.swift */,
+				FA2E6917265D3EE50009020D /* ProfileViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				FA5B81D4263B14A10046F48A /* PopularViewController.swift in Sources */,
 				FA5B81DA263B154B0046F48A /* PlayerViewController.swift in Sources */,
 				FA6CEF7D265A87460041116A /* BaseCollectionViewCell.swift in Sources */,
+				FA2E6918265D3EE50009020D /* ProfileViewController.swift in Sources */,
 				FA382AAE2632D1D9005AEB46 /* SceneDelegate.swift in Sources */,
 				FA5B81D7263B14D90046F48A /* FavoriteViewController.swift in Sources */,
 				FA2E6912265CD6C00009020D /* WelcomeViewController.swift in Sources */,

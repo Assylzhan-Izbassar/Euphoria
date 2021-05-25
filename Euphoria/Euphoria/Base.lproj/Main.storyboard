@@ -220,6 +220,15 @@
                                     <constraint firstItem="zLe-Q0-6lJ" firstAttribute="leading" secondItem="8p0-Bg-Ung" secondAttribute="leading" id="zdi-bK-LES"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUZ-Ke-pcT">
+                                <rect key="frame" x="342" y="83" width="52" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Profile"/>
+                                <connections>
+                                    <action selector="profilePressed:" destination="Fzj-M4-a23" eventType="touchUpInside" id="53l-0P-aYD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cVA-9z-oRw"/>
                         <color key="backgroundColor" red="0.46045130490000002" green="0.45208603139999998" blue="0.89415735009999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -228,8 +237,11 @@
                             <constraint firstItem="8p0-Bg-Ung" firstAttribute="leading" secondItem="cVA-9z-oRw" secondAttribute="leading" constant="22" id="EAe-1M-aQB"/>
                             <constraint firstItem="vF2-8j-mlW" firstAttribute="leading" secondItem="cVA-9z-oRw" secondAttribute="leading" constant="20" id="JYI-TW-sOr"/>
                             <constraint firstItem="cVA-9z-oRw" firstAttribute="trailing" secondItem="vF2-8j-mlW" secondAttribute="trailing" constant="242" id="Km3-kQ-I9c"/>
+                            <constraint firstItem="aUZ-Ke-pcT" firstAttribute="leading" secondItem="vF2-8j-mlW" secondAttribute="trailing" constant="170" id="Mlf-AC-vi0"/>
+                            <constraint firstItem="aUZ-Ke-pcT" firstAttribute="top" secondItem="cVA-9z-oRw" secondAttribute="top" constant="39" id="WOF-Hb-BmI"/>
                             <constraint firstItem="cVA-9z-oRw" firstAttribute="bottom" secondItem="8p0-Bg-Ung" secondAttribute="bottom" constant="154" placeholder="YES" id="hz6-kO-Rsq"/>
                             <constraint firstItem="8p0-Bg-Ung" firstAttribute="top" secondItem="zxa-M1-AoU" secondAttribute="top" constant="180" id="n9F-Tl-1AM"/>
+                            <constraint firstItem="cVA-9z-oRw" firstAttribute="trailing" secondItem="aUZ-Ke-pcT" secondAttribute="trailing" constant="20" id="pLk-hD-FHY"/>
                             <constraint firstItem="vF2-8j-mlW" firstAttribute="top" secondItem="cVA-9z-oRw" secondAttribute="top" constant="32" id="vSk-F5-ac4"/>
                         </constraints>
                     </view>
@@ -238,6 +250,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVi-bt-X6K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3179.7101449275365" y="683.70535714285711"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="czd-iy-LT5">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="B32-ce-oEm" customClass="ProfileViewController" customModule="Euphoria" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rbv-ut-VJh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2ME-ec-v4d"/>
+                        <color key="backgroundColor" red="0.46861177679999999" green="0.44338899850000002" blue="0.92161077260000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dbb-jE-XDF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2251" y="812"/>
         </scene>
         <!--Popular View Controller-->
         <scene sceneID="4RT-6F-cxf">
