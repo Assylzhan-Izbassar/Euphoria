@@ -28,7 +28,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.48798727990000001" green="0.43907403950000001" blue="0.9333763719" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5cY-X4-bCl" secondAttribute="bottom" constant="386" id="Brq-VQ-y9V"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T6j-Ag-e9w" secondAttribute="trailing" constant="115" id="CXr-7J-FVT"/>
@@ -43,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="346" y="88"/>
+            <point key="canvasLocation" x="-726" y="88"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="hYd-K4-Elc">
@@ -237,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVi-bt-X6K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2270" y="684"/>
+            <point key="canvasLocation" x="3179.7101449275365" y="683.70535714285711"/>
         </scene>
         <!--Popular View Controller-->
         <scene sceneID="4RT-6F-cxf">
@@ -345,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWI-7f-QFB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3228.985507246377" y="-254.46428571428569"/>
+            <point key="canvasLocation" x="4139.130434782609" y="-254.46428571428569"/>
         </scene>
         <!--Favorite View Controller-->
         <scene sceneID="mso-Ju-f2F">
@@ -423,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zn-gf-tku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4002.898550724638" y="87.723214285714278"/>
+            <point key="canvasLocation" x="4913.04347826087" y="87.723214285714278"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="4Ix-cY-jgI">
@@ -614,7 +614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Chi-2A-iqH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3228.985507246377" y="430.58035714285711"/>
+            <point key="canvasLocation" x="4139.130434782609" y="430.58035714285711"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="VT7-Td-jch">
@@ -730,7 +730,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8B-ku-XKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2269.5652173913045" y="-499.55357142857139"/>
+            <point key="canvasLocation" x="3179.7101449275365" y="-499.55357142857139"/>
+        </scene>
+        <!--Euphoria-->
+        <scene sceneID="JVC-Hd-dCD">
+            <objects>
+                <viewController id="50i-rE-7TS" customClass="WelcomeViewController" customModule="Euphoria" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qXt-sg-WIs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MtI-Sf-iFi"/>
+                        <color key="backgroundColor" red="0.48798727990000001" green="0.43907403950000001" blue="0.9333763719" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Euphoria" largeTitleDisplayMode="always" id="ceH-TD-TxN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BsX-Pl-3Mg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1204" y="88"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="FV7-NT-gF2">
@@ -752,7 +768,28 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Xo-E1-eWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1341" y="88"/>
+            <point key="canvasLocation" x="2250.7246376811595" y="87.723214285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hUk-eC-myn">
+            <objects>
+                <navigationController storyboardIdentifier="WelcomeViewController" automaticallyAdjustsScrollViewInsets="NO" id="z5b-uw-cjv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="nE0-gx-hmG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="50i-rE-7TS" kind="relationship" relationship="rootViewController" id="hGJ-ve-cJZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wc3-PR-WeH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="294" y="88"/>
         </scene>
     </scenes>
     <resources>
@@ -764,7 +801,7 @@
         <image name="my_media_background" width="142" height="140"/>
         <image name="next" width="45" height="45"/>
         <image name="pastel_texture" width="1342" height="475"/>
-        <image name="pause" width="90" height="90"/>
+        <image name="pause" width="512" height="512"/>
         <image name="player_icon" width="35" height="35"/>
         <image name="popular_icon" width="35" height="35"/>
         <image name="previous" width="45" height="45"/>
