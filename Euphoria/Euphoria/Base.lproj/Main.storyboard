@@ -741,14 +741,73 @@
                     <view key="view" contentMode="scaleToFill" id="qXt-sg-WIs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgm-rB-MTr">
+                                <rect key="frame" x="20" y="807" width="374" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="Cww-wL-bNw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Sign in with Spotify">
+                                    <color key="titleColor" red="0.9977759719" green="0.47339266540000002" blue="0.61960881950000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="odX-BV-Xh0" kind="show" id="Wgl-hX-avO"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MtI-Sf-iFi"/>
                         <color key="backgroundColor" red="0.48798727990000001" green="0.43907403950000001" blue="0.9333763719" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="fgm-rB-MTr" firstAttribute="leading" secondItem="MtI-Sf-iFi" secondAttribute="leading" constant="20" id="PCk-L6-Ln4"/>
+                            <constraint firstItem="fgm-rB-MTr" firstAttribute="bottom" secondItem="MtI-Sf-iFi" secondAttribute="bottom" id="TBR-tE-nMt"/>
+                            <constraint firstItem="MtI-Sf-iFi" firstAttribute="trailing" secondItem="fgm-rB-MTr" secondAttribute="trailing" constant="20" id="evO-7W-JqD"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Euphoria" largeTitleDisplayMode="always" id="ceH-TD-TxN"/>
+                    <navigationItem key="navigationItem" title="Euphoria" id="ceH-TD-TxN"/>
+                    <connections>
+                        <outlet property="signInBtn" destination="fgm-rB-MTr" id="M2u-4I-QOO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BsX-Pl-3Mg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1429" y="88"/>
+            <point key="canvasLocation" x="1428.985507246377" y="87.723214285714278"/>
+        </scene>
+        <!--Sign In-->
+        <scene sceneID="R0i-3g-n6C">
+            <objects>
+                <viewController id="odX-BV-Xh0" customClass="AuthViewController" customModule="Euphoria" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4sT-sO-5Ph">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQr-Cx-CMo">
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CmZ-uV-wOn"/>
+                        <color key="backgroundColor" red="0.50388139489999995" green="0.42612454300000002" blue="0.96475166079999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="bQr-Cx-CMo" firstAttribute="leading" secondItem="CmZ-uV-wOn" secondAttribute="leading" id="cZu-Np-PES"/>
+                            <constraint firstItem="bQr-Cx-CMo" firstAttribute="trailing" secondItem="CmZ-uV-wOn" secondAttribute="trailing" id="gYs-Pz-dNT"/>
+                            <constraint firstAttribute="bottom" secondItem="bQr-Cx-CMo" secondAttribute="bottom" id="nc2-zH-3lf"/>
+                            <constraint firstItem="bQr-Cx-CMo" firstAttribute="top" secondItem="CmZ-uV-wOn" secondAttribute="top" id="rjD-JE-NT8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sign In" id="MHQ-MM-Bss"/>
+                    <connections>
+                        <outlet property="webView" destination="bQr-Cx-CMo" id="BiX-aj-S4m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ig-cU-PUb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1429" y="812"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="FV7-NT-gF2">
@@ -780,6 +839,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="nE0-gx-hmG">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.50388139489999995" green="0.42612454300000002" blue="0.96475166079999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.48798727990000001" green="0.43907403950000001" blue="0.9333763719" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

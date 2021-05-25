@@ -6,24 +6,42 @@
 //
 
 import UIKit
+import WebKit
 
-class AuthViewController: UIViewController {
+class AuthViewController: UIViewController, WKNavigationDelegate, GradientBackground {
 
+    @IBOutlet weak var webView: WKWebView!
+    
+    public var completionHandler: ((Bool) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setGradientBackground(view: view)
+        
+        webView.navigationDelegate = self
+        
+        guard
+            let url = AuthManager.shared.signInURL
+        else {
+            return
+        }
+        
+        webView.load(URLRequest(url: url))
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        webView.frame = view.bounds
     }
-    */
-
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        guard let url = webView.url
+        else { return }
+        
+        // Exchange the code for access token
+        let components = URLComponents(string: url.absoluteString)
+        
+        guard let code = components?.queryItems?.first(where: { $0.name == "code"})?.value
+        else { return }
+    }
 }
