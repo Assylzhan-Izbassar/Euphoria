@@ -30,6 +30,19 @@ class SearchViewController: UIViewController, GradientBackground {
             searchTextField.setLeftIcon(searchFieldImage)
             makeRoundedTextField()
         }
+        
+        fetchData()
+    }
+    
+    private func fetchData() {
+        APICaller.shared.getNewReleases { (result) in
+            switch result {
+            case .success(_):
+                break
+            case .failure(_):
+                break
+            }
+        }
     }
     
     private func makeRoundedTextField() {

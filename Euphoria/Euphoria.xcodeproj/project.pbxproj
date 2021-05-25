@@ -29,6 +29,8 @@
 		FA5B81D7263B14D90046F48A /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B81D6263B14D90046F48A /* FavoriteViewController.swift */; };
 		FA5B81DA263B154B0046F48A /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B81D9263B154B0046F48A /* PlayerViewController.swift */; };
 		FA5B81DD263B15700046F48A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B81DC263B15700046F48A /* SettingsViewController.swift */; };
+		FA5DDB24265D784300E6C0F5 /* GenericImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DDB23265D784300E6C0F5 /* GenericImage.swift */; };
+		FA5DDB27265D796800E6C0F5 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DDB26265D796800E6C0F5 /* Artist.swift */; };
 		FA6CEF7226592A860041116A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CEF7126592A860041116A /* CustomTabBar.swift */; };
 		FA6CEF7A265A85D50041116A /* CollectionCellDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CEF79265A85D50041116A /* CollectionCellDecoration.swift */; };
 		FA6CEF7D265A87460041116A /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CEF7C265A87460041116A /* BaseCollectionViewCell.swift */; };
@@ -66,6 +68,8 @@
 		FA5B81D6263B14D90046F48A /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		FA5B81D9263B154B0046F48A /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		FA5B81DC263B15700046F48A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FA5DDB23265D784300E6C0F5 /* GenericImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericImage.swift; sourceTree = "<group>"; };
+		FA5DDB26265D796800E6C0F5 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		FA6CEF7126592A860041116A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		FA6CEF79265A85D50041116A /* CollectionCellDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellDecoration.swift; sourceTree = "<group>"; };
 		FA6CEF7C265A87460041116A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				FA14A749264DADFB00CF05F2 /* Album.swift */,
 				FA2E690E265CD3A50009020D /* User.swift */,
 				FA2E6914265D10ED0009020D /* AuthResponse.swift */,
+				FA5DDB23265D784300E6C0F5 /* GenericImage.swift */,
+				FA5DDB26265D796800E6C0F5 /* Artist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 				FA6CEF82265A8CA50041116A /* TabBarViewController.swift in Sources */,
 				FA6CEF7226592A860041116A /* CustomTabBar.swift in Sources */,
 				FA2E690C265CD3580009020D /* HapticsManager.swift in Sources */,
+				FA5DDB24265D784300E6C0F5 /* GenericImage.swift in Sources */,
 				FA5B81DD263B15700046F48A /* SettingsViewController.swift in Sources */,
 				FA2E6909265CD3380009020D /* APICaller.swift in Sources */,
 				FA382AAC2632D1D9005AEB46 /* AppDelegate.swift in Sources */,
@@ -305,6 +312,7 @@
 				FA2E6902265CD22D0009020D /* AuthViewController.swift in Sources */,
 				FA5B81D4263B14A10046F48A /* PopularViewController.swift in Sources */,
 				FA5B81DA263B154B0046F48A /* PlayerViewController.swift in Sources */,
+				FA5DDB27265D796800E6C0F5 /* Artist.swift in Sources */,
 				FA6CEF7D265A87460041116A /* BaseCollectionViewCell.swift in Sources */,
 				FA2E6918265D3EE50009020D /* ProfileViewController.swift in Sources */,
 				FA382AAE2632D1D9005AEB46 /* SceneDelegate.swift in Sources */,

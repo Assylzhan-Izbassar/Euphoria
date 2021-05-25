@@ -25,6 +25,7 @@ class IntroViewController: UIViewController, GradientBackground {
             
             // checking if a user is authorized
             if AuthManager.shared.isSigned {
+                AuthManager.shared.refreshAccessToken(completion: nil)
                 let secondVC = storyboard.instantiateViewController(identifier: "TabBarViewController")
                 secondVC.modalPresentationStyle = .fullScreen
                 
