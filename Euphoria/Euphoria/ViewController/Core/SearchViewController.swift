@@ -30,29 +30,6 @@ class SearchViewController: UIViewController, GradientBackground {
             searchTextField.setLeftIcon(searchFieldImage)
             makeRoundedTextField()
         }
-        
-        fetchData()
-    }
-    
-    private func fetchData() {
-        APICaller.shared.getRecommendedGenres(completion: { result in
-            switch result {
-            case .success(let model):
-                let genres = model.genres
-                var seeds = Set<String>()
-                
-                while seeds.count < 5 {
-                    if let randElement = genres.randomElement() {
-                        seeds.insert(randElement)
-                    }
-                }
-                APICaller.shared.getRecommendations(genres: seeds) { _ in
-                    
-                }
-            case .failure(_):
-                break
-            }
-        })
     }
     
     private func makeRoundedTextField() {
@@ -102,7 +79,23 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     
     // here we can observe by clicking the cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(collectionArray[indexPath.row].name)
+        let categoryName = collectionArray[indexPath.row].name
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        switch categoryName {
+        case "All":
+            let AllVC = storyboard.instantiateViewController(identifier: "AllViewController")
+            AllVC.modalPresentationStyle = .fullScreen
+            self.present(AllVC, animated: true, completion: nil)
+        case "Tracks":
+            break
+        case "Artists":
+            break
+        case "Albums":
+            break
+        default:
+            break
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

@@ -261,6 +261,7 @@
                         <viewLayoutGuide key="safeArea" id="2ME-ec-v4d"/>
                         <color key="backgroundColor" red="0.46861177679999999" green="0.44338899850000002" blue="0.92161077260000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="PGt-L7-lmA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dbb-jE-XDF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -760,6 +761,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8B-ku-XKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3179.7101449275365" y="-499.55357142857139"/>
+        </scene>
+        <!--All View Controller-->
+        <scene sceneID="4dI-39-fIo">
+            <objects>
+                <viewController storyboardIdentifier="AllViewController" id="q5L-eh-PJE" customClass="AllViewController" customModule="Euphoria" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mpD-No-gFa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bda-fH-wXn" userLabel="Back Btn">
+                                <rect key="frame" x="20" y="76" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="R9a-ur-K2T"/>
+                                    <constraint firstAttribute="width" constant="40" id="oM9-kd-bcO"/>
+                                </constraints>
+                                <state key="normal" image="back_btn"/>
+                                <connections>
+                                    <action selector="back:" destination="mqV-Uo-24U" eventType="touchUpInside" id="ag3-R2-1N3"/>
+                                    <action selector="backBtnPressed:" destination="q5L-eh-PJE" eventType="touchUpInside" id="QXs-rH-vR0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjz-gY-Z1h">
+                                <rect key="frame" x="20" y="124" width="374" height="48.5"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="42"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rst-Zm-eVy">
+                                <rect key="frame" x="0.0" y="180" width="414" height="716"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6qh-r4-cnO">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewReleaseCollectionViewCell" id="6qT-Yb-hBo" customClass="NewReleaseCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iIw-pF-7eA">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FeaturedPlaylistCollectionViewCell" id="S5B-NJ-zJt" customClass="FeaturedPlaylistCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
+                                        <rect key="frame" x="143" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="i8Q-37-LNe">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="RecommendedTrackCollectionViewCell" id="9a6-z0-GiN" customClass="RecommendedTrackCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
+                                        <rect key="frame" x="286" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tma-yV-pYv">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="M0i-xk-Eoh"/>
+                        <color key="backgroundColor" red="0.50388139489999995" green="0.42612454300000002" blue="0.96475166079999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="pjz-gY-Z1h" firstAttribute="leading" secondItem="M0i-xk-Eoh" secondAttribute="leading" constant="20" id="2di-jW-94x"/>
+                            <constraint firstItem="Bda-fH-wXn" firstAttribute="leading" secondItem="M0i-xk-Eoh" secondAttribute="leading" constant="20" id="QRI-Dc-Q1U"/>
+                            <constraint firstItem="Bda-fH-wXn" firstAttribute="top" secondItem="M0i-xk-Eoh" secondAttribute="top" constant="32" id="a79-wR-Gd9"/>
+                            <constraint firstItem="M0i-xk-Eoh" firstAttribute="trailing" secondItem="pjz-gY-Z1h" secondAttribute="trailing" constant="20" id="bDp-FS-zwd"/>
+                            <constraint firstItem="pjz-gY-Z1h" firstAttribute="top" secondItem="mpD-No-gFa" secondAttribute="topMargin" constant="80" id="zk2-lc-WHn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Rst-Zm-eVy" id="UhA-MU-mCI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Se-6T-ldT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4137.68115942029" y="-938.16964285714278"/>
         </scene>
         <!--Euphoria-->
         <scene sceneID="JVC-Hd-dCD">
