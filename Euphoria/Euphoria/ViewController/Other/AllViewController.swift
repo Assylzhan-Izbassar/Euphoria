@@ -58,10 +58,7 @@ class AllViewController: UIViewController, GradientBackground {
     }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
-        if let firstVC = storyboard?.instantiateViewController(identifier: "TabBarViewController") {
-            firstVC.modalPresentationStyle = .fullScreen
-            self.present(firstVC, animated: true, completion: nil)
-        }
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
