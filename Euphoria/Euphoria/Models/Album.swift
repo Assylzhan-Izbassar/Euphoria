@@ -27,6 +27,7 @@ struct Album: Codable {
     let name: String
     let release_date: String
     let total_tracks: Int
+    let external_urls: [String: String]
 }
 
 extension Album {

@@ -10,6 +10,8 @@
 		FA14A746264DAD8800CF05F2 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14A745264DAD8800CF05F2 /* Song.swift */; };
 		FA14A74A264DADFB00CF05F2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14A749264DADFB00CF05F2 /* Album.swift */; };
 		FA1758CF265E030500DC83B0 /* FeaturedPlaylistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1758CE265E030500DC83B0 /* FeaturedPlaylistResponse.swift */; };
+		FA1758D2265E53AC00DC83B0 /* RecomendationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1758D1265E53AC00DC83B0 /* RecomendationResponse.swift */; };
+		FA1758D5265E585D00DC83B0 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1758D4265E585D00DC83B0 /* Playlist.swift */; };
 		FA2E6902265CD22D0009020D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6901265CD22D0009020D /* AuthViewController.swift */; };
 		FA2E6906265CD3210009020D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6905265CD3210009020D /* AuthManager.swift */; };
 		FA2E6909265CD3380009020D /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6908265CD3380009020D /* APICaller.swift */; };
@@ -48,6 +50,8 @@
 		FA14A745264DAD8800CF05F2 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		FA14A749264DADFB00CF05F2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		FA1758CE265E030500DC83B0 /* FeaturedPlaylistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistResponse.swift; sourceTree = "<group>"; };
+		FA1758D1265E53AC00DC83B0 /* RecomendationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationResponse.swift; sourceTree = "<group>"; };
+		FA1758D4265E585D00DC83B0 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		FA2E6901265CD22D0009020D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FA2E6905265CD3210009020D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FA2E6908265CD3380009020D /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				FA5DDB23265D784300E6C0F5 /* GenericImage.swift */,
 				FA5DDB26265D796800E6C0F5 /* Artist.swift */,
 				FA1758CE265E030500DC83B0 /* FeaturedPlaylistResponse.swift */,
+				FA1758D1265E53AC00DC83B0 /* RecomendationResponse.swift */,
+				FA1758D4265E585D00DC83B0 /* Playlist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,11 +311,13 @@
 				FA6CEF82265A8CA50041116A /* TabBarViewController.swift in Sources */,
 				FA6CEF7226592A860041116A /* CustomTabBar.swift in Sources */,
 				FA2E690C265CD3580009020D /* HapticsManager.swift in Sources */,
+				FA1758D5265E585D00DC83B0 /* Playlist.swift in Sources */,
 				FA5DDB24265D784300E6C0F5 /* GenericImage.swift in Sources */,
 				FA5B81DD263B15700046F48A /* SettingsViewController.swift in Sources */,
 				FA2E6909265CD3380009020D /* APICaller.swift in Sources */,
 				FA382AAC2632D1D9005AEB46 /* AppDelegate.swift in Sources */,
 				FA14A746264DAD8800CF05F2 /* Song.swift in Sources */,
+				FA1758D2265E53AC00DC83B0 /* RecomendationResponse.swift in Sources */,
 				FA1758CF265E030500DC83B0 /* FeaturedPlaylistResponse.swift in Sources */,
 				FAFCB490265BB5C1000606FC /* PaddingTextField.swift in Sources */,
 				FA2E6915265D10ED0009020D /* AuthResponse.swift in Sources */,
