@@ -17,7 +17,7 @@ struct AlbumsResponse: Codable {
 }
 
 struct Album: Codable {
-    var songs: [Song]
+//    var songs: [Song]
     
     let artists: [Artist]
     let album_type: String
@@ -25,7 +25,7 @@ struct Album: Codable {
     let id: String
     let images: [GenericImage]
     let name: String
-    let release_date: Date
+    let release_date: String
     let total_tracks: Int
 }
 

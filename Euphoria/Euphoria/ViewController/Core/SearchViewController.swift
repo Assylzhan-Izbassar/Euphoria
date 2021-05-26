@@ -35,14 +35,24 @@ class SearchViewController: UIViewController, GradientBackground {
     }
     
     private func fetchData() {
-        APICaller.shared.getNewReleases { (result) in
+        APICaller.shared.getRecommendedGenres(completion: { result in
             switch result {
-            case .success(_):
-                break
+            case .success(let model):
+                let genres = model.genres
+                var seeds = Set<String>()
+                
+                while seeds.count < 5 {
+                    if let randElement = genres.randomElement() {
+                        seeds.insert(randElement)
+                    }
+                }
+                APICaller.shared.getRecommendations(genres: seeds) { _ in
+                    
+                }
             case .failure(_):
                 break
             }
-        }
+        })
     }
     
     private func makeRoundedTextField() {

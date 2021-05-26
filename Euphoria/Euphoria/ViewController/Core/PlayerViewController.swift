@@ -41,9 +41,9 @@ class PlayerViewController: UIViewController, GradientBackground {
         
         // about player
         setRounded(image: songPoster)
-        if let album = album {
-            setupPlayer(with: album.songs[playingIndex])
-        }
+//        if let album = album {
+//            setupPlayer(with: album.songs[playingIndex])
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -150,28 +150,28 @@ class PlayerViewController: UIViewController, GradientBackground {
         
         playingIndex += 1
         
-        if let album = album {
-            if playingIndex >= album.songs.count {
-                playingIndex = 0
-            }
-            setupPlayer(with: album.songs[playingIndex])
-            play()
-            setPlayPauseIcon(isPlaying: player.isPlaying)
-        }
+//        if let album = album {
+//            if playingIndex >= album.songs.count {
+//                playingIndex = 0
+//            }
+//            setupPlayer(with: album.songs[playingIndex])
+//            play()
+//            setPlayPauseIcon(isPlaying: player.isPlaying)
+//        }
     }
     
     @IBAction func previousPressed(_ sender: UIButton) {
         
         playingIndex -= 1
         
-        if let album = album {
-            if playingIndex < 0 {
-                playingIndex = album.songs.count - 1
-            }
-            setupPlayer(with: album.songs[playingIndex])
-            play()
-            setPlayPauseIcon(isPlaying: player.isPlaying)
-        }
+//        if let album = album {
+//            if playingIndex < 0 {
+//                playingIndex = album.songs.count - 1
+//            }
+//            setupPlayer(with: album.songs[playingIndex])
+//            play()
+//            setPlayPauseIcon(isPlaying: player.isPlaying)
+//        }
     }
     
     @IBAction func progressBar(_ sender: UISlider) {
