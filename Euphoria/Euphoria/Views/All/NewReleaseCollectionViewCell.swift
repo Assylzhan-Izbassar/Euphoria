@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewReleaseCollectionViewCell: UICollectionViewCell {
     static let identifier = "NewReleaseCollectionViewCell"
@@ -18,5 +19,6 @@ class NewReleaseCollectionViewCell: UICollectionViewCell {
         albumTitle.text = viewModel.name
         artistName.text = viewModel.artistName
         tracksCount.text = "Tracks: \(viewModel.numberOfTracks)"
+        albumImage.sd_setImage(with: viewModel.artWorkUrl, completed: nil)
     }
 }
