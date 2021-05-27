@@ -8,14 +8,15 @@
 import UIKit
 
 enum AllSectionType {
-    case newReleases // 0
-    case featuredPlaylists // 1
-    case recommendedTracks // 2
+    case newReleases(viewModels: [NewReleasesCellViewModel]) // 0
+    case featuredPlaylists(viewModels: [NewReleasesCellViewModel]) // 1
+    case recommendedTracks(viewModels: [NewReleasesCellViewModel]) // 2
 }
 
 class AllViewController: UIViewController, GradientBackground {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    private var sections = [AllSectionType]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class AllViewController: UIViewController, GradientBackground {
         
         configureCollectionView()
         
-//        fetchData()
+        fetchData()
     }
     
     private func configureCollectionView() {
@@ -34,8 +35,42 @@ class AllViewController: UIViewController, GradientBackground {
     }
     
     private func fetchData() {
+        
+        let group = DispatchGroup()
+        group.enter()
+        group.enter()
+        group.enter()
+        
+        var newReleases: NewReleasesResponse?
+        var featuredPlaylist: FeaturedPlaylistResponse?
+        var recommendationResponse: RecomendationResponse?
+        
         // New Releases
+        APICaller.shared.getNewReleases { (result) in
+            defer {
+                group.leave()
+            }
+            switch result {
+            case.success(let model):
+                newReleases = model
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
         // Featured Playlists
+        APICaller.shared.getFeaturedPlaylists { (result) in
+            defer {
+                group.leave()
+            }
+            switch result {
+            case.success(let model):
+                featuredPlaylist = model
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
         // Recommended Tracks
         APICaller.shared.getRecommendedGenres(completion: { result in
             switch result {
@@ -48,13 +83,48 @@ class AllViewController: UIViewController, GradientBackground {
                         seeds.insert(randElement)
                     }
                 }
-                APICaller.shared.getRecommendations(genres: seeds) { _ in
-                    
+                APICaller.shared.getRecommendations(genres: seeds) { recommendedResult in
+                    defer {
+                        group.leave()
+                    }
+                    switch recommendedResult {
+                    case .success(let model):
+                        recommendationResponse = model
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                 }
-            case .failure(_):
-                break
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         })
+        
+        group.notify(queue: .main) { [self] in
+            guard
+                let newAlbums  = newReleases?.albums.items,
+                let playlists = featuredPlaylist?.playlists.items,
+                let tracks = recommendationResponse?.tracks
+            else {
+                return
+            }
+            
+            self.configureModels(with: newAlbums, playlists: playlists, tracks: tracks)
+            
+            collectionView.reloadData()
+        }
+    }
+    
+    private func configureModels(with newAlbums: [Album], playlists: [Playlist], tracks: [Track]) {
+        
+        // Configure models
+        sections.append(.newReleases(viewModels: newAlbums.compactMap({
+            return NewReleasesCellViewModel(name: $0.name,
+                                            artWorkUrl: URL(string: $0.images.first?.url ?? ""),
+                                            numberOfTracks: $0.total_tracks,
+                                            artistName: $0.artists.first?.name ?? "No name")
+        })))
+        sections.append(.featuredPlaylists(viewModels: []))
+        sections.append(.recommendedTracks(viewModels: []))
     }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
@@ -65,25 +135,50 @@ class AllViewController: UIViewController, GradientBackground {
 extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        let type = sections[section]
+        switch type {
+        case .newReleases(let viewModels):
+            return viewModels.count
+        case .featuredPlaylists(let viewModels):
+            return viewModels.count
+        case .recommendedTracks(let viewModels):
+            return viewModels.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewReleaseCollectionViewCell.identifier, for: indexPath)
         
-        if indexPath.section == 0 {
-            cell.backgroundColor = .white
-        } else if indexPath.section == 1 {
+        let type = sections[indexPath.section]
+        switch type {
+        case .newReleases(let viewModels):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: NewReleaseCollectionViewCell.identifier,
+                    for: indexPath) as? NewReleaseCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configure(with: viewModels[indexPath.row])
+            return cell
+        case .featuredPlaylists(let viewModels):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: FeaturedPlaylistCollectionViewCell.identifier,
+                    for: indexPath) as? FeaturedPlaylistCollectionViewCell else {
+                return UICollectionViewCell()
+            }
             cell.backgroundColor = .systemPink
-        } else if indexPath.section == 2 {
-            cell.backgroundColor = .systemGray
+            return cell
+        case .recommendedTracks(let viewModels):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: RecommendedTrackCollectionViewCell.identifier,
+                    for: indexPath) as? RecommendedTrackCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.backgroundColor = .white
+            return cell
         }
-        
-        return cell
     }
     
     // to have diffrent section behave differently

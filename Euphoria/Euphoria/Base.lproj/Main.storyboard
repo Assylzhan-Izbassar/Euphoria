@@ -800,15 +800,64 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewReleaseCollectionViewCell" id="6qT-Yb-hBo" customClass="NewReleaseCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="7" y="0.0" width="400" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iIw-pF-7eA">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bdJ-AB-q0q">
+                                                    <rect key="frame" x="8" y="0.0" width="128" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="bdJ-AB-q0q" secondAttribute="height" multiplier="1:1" id="cDG-Cg-qBT"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9wd-kH-EYy">
+                                                    <rect key="frame" x="144" y="8" width="236" height="49.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fearless" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7O-QI-grx">
+                                                            <rect key="frame" x="0.0" y="0.0" width="236" height="21"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taylor Swift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zk-qk-Gje">
+                                                            <rect key="frame" x="0.0" y="29" width="236" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracks: 20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IA-Ui-dw4">
+                                                    <rect key="frame" x="144" y="99.5" width="248" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="9IA-Ui-dw4" secondAttribute="bottom" constant="8" id="9Ac-Gc-vr0"/>
+                                                <constraint firstAttribute="trailing" secondItem="9wd-kH-EYy" secondAttribute="trailing" constant="20" id="IIa-qy-f4K"/>
+                                                <constraint firstItem="bdJ-AB-q0q" firstAttribute="top" secondItem="iIw-pF-7eA" secondAttribute="top" id="Ld4-Z0-0MD"/>
+                                                <constraint firstItem="9wd-kH-EYy" firstAttribute="top" secondItem="iIw-pF-7eA" secondAttribute="top" constant="8" id="TDv-8t-zET"/>
+                                                <constraint firstItem="9wd-kH-EYy" firstAttribute="leading" secondItem="bdJ-AB-q0q" secondAttribute="trailing" constant="8" symbolic="YES" id="VIT-3E-jb8"/>
+                                                <constraint firstAttribute="bottom" secondItem="bdJ-AB-q0q" secondAttribute="bottom" id="cmX-lb-6NK"/>
+                                                <constraint firstAttribute="trailing" secondItem="9IA-Ui-dw4" secondAttribute="trailing" constant="8" id="rsu-wz-t3v"/>
+                                                <constraint firstItem="9IA-Ui-dw4" firstAttribute="leading" secondItem="bdJ-AB-q0q" secondAttribute="trailing" constant="8" symbolic="YES" id="w9K-GT-BQr"/>
+                                                <constraint firstItem="bdJ-AB-q0q" firstAttribute="leading" secondItem="iIw-pF-7eA" secondAttribute="leading" constant="8" id="yTm-kV-9Q7"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="400" height="128"/>
+                                        <connections>
+                                            <outlet property="albumImage" destination="bdJ-AB-q0q" id="brh-K8-Hhs"/>
+                                            <outlet property="albumTitle" destination="s7O-QI-grx" id="SXz-2n-pRq"/>
+                                            <outlet property="artistName" destination="7Zk-qk-Gje" id="f20-I6-S9H"/>
+                                            <outlet property="tracksCount" destination="9IA-Ui-dw4" id="Lqu-QG-viT"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FeaturedPlaylistCollectionViewCell" id="S5B-NJ-zJt" customClass="FeaturedPlaylistCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
-                                        <rect key="frame" x="143" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="138" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="i8Q-37-LNe">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -816,7 +865,7 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="RecommendedTrackCollectionViewCell" id="9a6-z0-GiN" customClass="RecommendedTrackCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
-                                        <rect key="frame" x="286" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="138" y="138" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tma-yV-pYv">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
