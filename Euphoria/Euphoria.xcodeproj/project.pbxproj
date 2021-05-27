@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA07E584265FA9B2008981AE /* FeaturedPlaylistCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07E583265FA9B2008981AE /* FeaturedPlaylistCellViewModel.swift */; };
+		FA07E587265FAB11008981AE /* RecommendationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07E586265FAB11008981AE /* RecommendationCellViewModel.swift */; };
 		FA14A746264DAD8800CF05F2 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14A745264DAD8800CF05F2 /* Song.swift */; };
 		FA14A74A264DADFB00CF05F2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14A749264DADFB00CF05F2 /* Album.swift */; };
 		FA1758CF265E030500DC83B0 /* FeaturedPlaylistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1758CE265E030500DC83B0 /* FeaturedPlaylistResponse.swift */; };
@@ -56,6 +58,8 @@
 		72393E7473C8C18AA415204B /* Pods_Euphoria.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Euphoria.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D098A1155C47A84593F64C36 /* Pods-Euphoria.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euphoria.release.xcconfig"; path = "Target Support Files/Pods-Euphoria/Pods-Euphoria.release.xcconfig"; sourceTree = "<group>"; };
 		E209D2BAF707286E9C15AA2C /* Pods-Euphoria.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euphoria.debug.xcconfig"; path = "Target Support Files/Pods-Euphoria/Pods-Euphoria.debug.xcconfig"; sourceTree = "<group>"; };
+		FA07E583265FA9B2008981AE /* FeaturedPlaylistCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistCellViewModel.swift; sourceTree = "<group>"; };
+		FA07E586265FAB11008981AE /* RecommendationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCellViewModel.swift; sourceTree = "<group>"; };
 		FA14A745264DAD8800CF05F2 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		FA14A749264DADFB00CF05F2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		FA1758CE265E030500DC83B0 /* FeaturedPlaylistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistResponse.swift; sourceTree = "<group>"; };
@@ -120,7 +124,6 @@
 				E209D2BAF707286E9C15AA2C /* Pods-Euphoria.debug.xcconfig */,
 				D098A1155C47A84593F64C36 /* Pods-Euphoria.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -163,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				FA1758E2265E7EA500DC83B0 /* NewReleasesCellViewModel.swift */,
+				FA07E583265FA9B2008981AE /* FeaturedPlaylistCellViewModel.swift */,
+				FA07E586265FAB11008981AE /* RecommendationCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 				FA5B81D1263B0B5E0046F48A /* SearchViewController.swift in Sources */,
 				FA2E690F265CD3A50009020D /* User.swift in Sources */,
 				FA382ACB2632EF47005AEB46 /* GradientBackground.swift in Sources */,
+				FA07E587265FAB11008981AE /* RecommendationCellViewModel.swift in Sources */,
 				FA6CEF82265A8CA50041116A /* TabBarViewController.swift in Sources */,
 				FA1758E6265EB15C00DC83B0 /* AllViewController.swift in Sources */,
 				FA1758DC265E7E3E00DC83B0 /* FeaturedPlaylistCollectionViewCell.swift in Sources */,
@@ -429,6 +435,7 @@
 				FA5B81D4263B14A10046F48A /* PopularViewController.swift in Sources */,
 				FA5B81DA263B154B0046F48A /* PlayerViewController.swift in Sources */,
 				FA5DDB27265D796800E6C0F5 /* Artist.swift in Sources */,
+				FA07E584265FA9B2008981AE /* FeaturedPlaylistCellViewModel.swift in Sources */,
 				FA6CEF7D265A87460041116A /* BaseCollectionViewCell.swift in Sources */,
 				FA2E6918265D3EE50009020D /* ProfileViewController.swift in Sources */,
 				FA382AAE2632D1D9005AEB46 /* SceneDelegate.swift in Sources */,

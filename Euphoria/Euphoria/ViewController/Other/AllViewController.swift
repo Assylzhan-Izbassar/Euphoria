@@ -9,8 +9,8 @@ import UIKit
 
 enum AllSectionType {
     case newReleases(viewModels: [NewReleasesCellViewModel]) // 0
-    case featuredPlaylists(viewModels: [NewReleasesCellViewModel]) // 1
-    case recommendedTracks(viewModels: [NewReleasesCellViewModel]) // 2
+    case featuredPlaylists(viewModels: [FeaturedPlaylistCellViewModel]) // 1
+    case recommendedTracks(viewModels: [RecommendationCellViewModel]) // 2
 }
 
 class AllViewController: UIViewController, GradientBackground {
@@ -123,8 +123,18 @@ class AllViewController: UIViewController, GradientBackground {
                                             numberOfTracks: $0.total_tracks,
                                             artistName: $0.artists.first?.name ?? "No name")
         })))
-        sections.append(.featuredPlaylists(viewModels: []))
-        sections.append(.recommendedTracks(viewModels: []))
+        sections.append(.featuredPlaylists(viewModels: playlists.compactMap({
+            return FeaturedPlaylistCellViewModel(
+                name: $0.name,
+                imageUrl: URL(string: $0.images.first?.url ?? ""),
+                creatorName: $0.owner.display_name)
+        })))
+        sections.append(.recommendedTracks(viewModels: tracks.compactMap({
+            return RecommendationCellViewModel(
+                name: $0.name,
+                artistName: $0.artists.first?.name,
+                artworkURL: URL(string: $0.album.images.first?.url ?? ""))
+        })))
     }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
@@ -168,7 +178,7 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                     for: indexPath) as? FeaturedPlaylistCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.backgroundColor = .systemPink
+            cell.configure(with: viewModels[indexPath.row])
             return cell
         case .recommendedTracks(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(
@@ -176,7 +186,7 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                     for: indexPath) as? RecommendedTrackCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.backgroundColor = .white
+            cell.configure(with: viewModels[indexPath.row])
             return cell
         }
     }

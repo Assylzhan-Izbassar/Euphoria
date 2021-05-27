@@ -9,4 +9,13 @@ import UIKit
 
 class RecommendedTrackCollectionViewCell: UICollectionViewCell {
     static let identifier = "RecommendedTrackCollectionViewCell"
+    @IBOutlet weak var trackImg: UIImageView!
+    @IBOutlet weak var trackTitleLabel: UILabel!
+    @IBOutlet weak var artistName: UILabel!
+    
+    func configure(with viewModel: RecommendationCellViewModel) {
+        trackTitleLabel.text = viewModel.name
+        artistName.text = viewModel.artistName
+        trackImg.sd_setImage(with: viewModel.artworkURL, completed: nil)
+    }
 }
