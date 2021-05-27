@@ -18,6 +18,8 @@ class AllViewController: UIViewController, GradientBackground {
     @IBOutlet weak var collectionView: UICollectionView!
     private var sections = [AllSectionType]()
     
+    private var newAlbums: [Album] = [], playlists: [Playlist] = [], tracks: [Track] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground(view: view)
@@ -116,6 +118,10 @@ class AllViewController: UIViewController, GradientBackground {
     
     private func configureModels(with newAlbums: [Album], playlists: [Playlist], tracks: [Track]) {
         
+        self.newAlbums = newAlbums
+        self.playlists = playlists
+        self.tracks = tracks
+        
         // Configure models
         sections.append(.newReleases(viewModels: newAlbums.compactMap({
             return NewReleasesCellViewModel(name: $0.name,
@@ -133,7 +139,7 @@ class AllViewController: UIViewController, GradientBackground {
             return RecommendationCellViewModel(
                 name: $0.name,
                 artistName: $0.artists.first?.name,
-                artworkURL: URL(string: $0.album.images.first?.url ?? ""))
+                artworkURL: URL(string: $0.album?.images.first?.url ?? ""))
         })))
     }
     
@@ -188,6 +194,33 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
             }
             cell.configure(with: viewModels[indexPath.row])
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let section = sections[indexPath.section]
+        
+        switch section {
+        case .newReleases:
+            let album = newAlbums[indexPath.row]
+            if let AlbumVC = storyboard?.instantiateViewController(identifier: "AlbumViewController") as? AlbumViewController {
+                AlbumVC.modalPresentationStyle = .fullScreen
+                AlbumVC.album = album
+                AlbumVC.albumName = album.name
+                self.present(AlbumVC, animated: true, completion: nil)
+            }
+        case .featuredPlaylists:
+            let playlist = playlists[indexPath.row]
+            if let PlaylistVC = storyboard?.instantiateViewController(identifier: "PlaylistViewController") as? PlaylistViewController {
+                PlaylistVC.modalPresentationStyle = .fullScreen
+                PlaylistVC.playlist = playlist
+                PlaylistVC.playlistTitle = playlist.name
+                self.present(PlaylistVC, animated: true, completion: nil)
+            }
+        case .recommendedTracks:
+            break
         }
     }
     
