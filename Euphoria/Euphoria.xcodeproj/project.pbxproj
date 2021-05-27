@@ -13,6 +13,8 @@
 		FA07E596265FF465008981AE /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07E595265FF465008981AE /* PlaylistViewController.swift */; };
 		FA07E599265FF95A008981AE /* AlbumDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07E598265FF95A008981AE /* AlbumDetailsResponse.swift */; };
 		FA07E59D26600128008981AE /* PlaylistDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07E59C26600128008981AE /* PlaylistDetailsResponse.swift */; };
+		FA07E5B9266014F2008981AE /* AlbumDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07E5B8266014F2008981AE /* AlbumDetailsCollectionViewCell.swift */; };
+		FA07E5BC26601AAD008981AE /* PlaylistDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07E5BB26601AAD008981AE /* PlaylistDetailsCollectionViewCell.swift */; };
 		FA14A746264DAD8800CF05F2 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14A745264DAD8800CF05F2 /* Song.swift */; };
 		FA14A74A264DADFB00CF05F2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14A749264DADFB00CF05F2 /* Album.swift */; };
 		FA1758CF265E030500DC83B0 /* FeaturedPlaylistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1758CE265E030500DC83B0 /* FeaturedPlaylistResponse.swift */; };
@@ -68,6 +70,8 @@
 		FA07E595265FF465008981AE /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		FA07E598265FF95A008981AE /* AlbumDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsResponse.swift; sourceTree = "<group>"; };
 		FA07E59C26600128008981AE /* PlaylistDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetailsResponse.swift; sourceTree = "<group>"; };
+		FA07E5B8266014F2008981AE /* AlbumDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA07E5BB26601AAD008981AE /* PlaylistDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA14A745264DAD8800CF05F2 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		FA14A749264DADFB00CF05F2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		FA1758CE265E030500DC83B0 /* FeaturedPlaylistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistResponse.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				FA1758D8265E7E2300DC83B0 /* NewReleaseCollectionViewCell.swift */,
 				FA1758DB265E7E3E00DC83B0 /* FeaturedPlaylistCollectionViewCell.swift */,
 				FA1758DE265E7E5800DC83B0 /* RecommendedTrackCollectionViewCell.swift */,
+				FA07E5B8266014F2008981AE /* AlbumDetailsCollectionViewCell.swift */,
+				FA07E5BB26601AAD008981AE /* PlaylistDetailsCollectionViewCell.swift */,
 			);
 			path = All;
 			sourceTree = "<group>";
@@ -437,11 +443,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1758E3265E7EA500DC83B0 /* NewReleasesCellViewModel.swift in Sources */,
+				FA07E5BC26601AAD008981AE /* PlaylistDetailsCollectionViewCell.swift in Sources */,
 				FA6CEF7A265A85D50041116A /* CollectionCellDecoration.swift in Sources */,
 				FA07E596265FF465008981AE /* PlaylistViewController.swift in Sources */,
 				FAEA2506264E3FB700D814D0 /* FavoriteCollectionViewCell.swift in Sources */,
 				FA1758DF265E7E5800DC83B0 /* RecommendedTrackCollectionViewCell.swift in Sources */,
 				FA5B81D1263B0B5E0046F48A /* SearchViewController.swift in Sources */,
+				FA07E5B9266014F2008981AE /* AlbumDetailsCollectionViewCell.swift in Sources */,
 				FA2E690F265CD3A50009020D /* User.swift in Sources */,
 				FA382ACB2632EF47005AEB46 /* GradientBackground.swift in Sources */,
 				FA07E599265FF95A008981AE /* AlbumDetailsResponse.swift in Sources */,

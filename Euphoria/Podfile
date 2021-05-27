@@ -7,7 +7,7 @@ target 'Euphoria' do
 
   # Pods for Euphoria
   pod 'SDWebImage'
-  pod 'Appirater'
+  # pod 'Appirater'
   pod 'Firebase/Analytics'
 
 end
