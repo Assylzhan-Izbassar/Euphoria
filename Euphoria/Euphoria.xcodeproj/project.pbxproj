@@ -52,6 +52,9 @@
 		FA6CEF7D265A87460041116A /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CEF7C265A87460041116A /* BaseCollectionViewCell.swift */; };
 		FA6CEF82265A8CA50041116A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CEF81265A8CA50041116A /* TabBarViewController.swift */; };
 		FA6CEF86265AA30B0041116A /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6CEF85265AA30B0041116A /* SearchCollectionViewCell.swift */; };
+		FA6D29E62660B71C0045BE8F /* PlaylistHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D29E52660B71C0045BE8F /* PlaylistHeaderCollectionReusableView.swift */; };
+		FA6D29E92660BB5E0045BE8F /* PlaylistHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D29E82660BB5E0045BE8F /* PlaylistHeaderViewModel.swift */; };
+		FA6D29ED2660CE250045BE8F /* TitleHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D29EC2660CE250045BE8F /* TitleHeaderCollectionReusableView.swift */; };
 		FAC03E602652CE1E003C7A30 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E5F2652CE1E003C7A30 /* Genre.swift */; };
 		FAC03E632652CE8D003C7A30 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */; };
 		FAC03E672652D644003C7A30 /* Bowie-ArtofWar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */; };
@@ -111,6 +114,9 @@
 		FA6CEF7C265A87460041116A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA6CEF81265A8CA50041116A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		FA6CEF85265AA30B0041116A /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA6D29E52660B71C0045BE8F /* PlaylistHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		FA6D29E82660BB5E0045BE8F /* PlaylistHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistHeaderViewModel.swift; sourceTree = "<group>"; };
+		FA6D29EC2660CE250045BE8F /* TitleHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FAC03E5F2652CE1E003C7A30 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bowie-ArtofWar.mp3"; sourceTree = "<group>"; };
@@ -187,11 +193,12 @@
 		FA1758D7265E7E0300DC83B0 /* All */ = {
 			isa = PBXGroup;
 			children = (
+				FA6D29EB2660CE060045BE8F /* Album */,
+				FA6D29E42660B6D70045BE8F /* Playlist */,
 				FA1758D8265E7E2300DC83B0 /* NewReleaseCollectionViewCell.swift */,
 				FA1758DB265E7E3E00DC83B0 /* FeaturedPlaylistCollectionViewCell.swift */,
 				FA1758DE265E7E5800DC83B0 /* RecommendedTrackCollectionViewCell.swift */,
-				FA07E5B8266014F2008981AE /* AlbumDetailsCollectionViewCell.swift */,
-				FA07E5BB26601AAD008981AE /* PlaylistDetailsCollectionViewCell.swift */,
+				FA6D29EC2660CE250045BE8F /* TitleHeaderCollectionReusableView.swift */,
 			);
 			path = All;
 			sourceTree = "<group>";
@@ -202,6 +209,7 @@
 				FA1758E2265E7EA500DC83B0 /* NewReleasesCellViewModel.swift */,
 				FA07E583265FA9B2008981AE /* FeaturedPlaylistCellViewModel.swift */,
 				FA07E586265FAB11008981AE /* RecommendationCellViewModel.swift */,
+				FA6D29E82660BB5E0045BE8F /* PlaylistHeaderViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -295,6 +303,23 @@
 				FA6CEF79265A85D50041116A /* CollectionCellDecoration.swift */,
 			);
 			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		FA6D29E42660B6D70045BE8F /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				FA07E5BB26601AAD008981AE /* PlaylistDetailsCollectionViewCell.swift */,
+				FA6D29E52660B71C0045BE8F /* PlaylistHeaderCollectionReusableView.swift */,
+			);
+			path = Playlist;
+			sourceTree = "<group>";
+		};
+		FA6D29EB2660CE060045BE8F /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				FA07E5B8266014F2008981AE /* AlbumDetailsCollectionViewCell.swift */,
+			);
+			path = Album;
 			sourceTree = "<group>";
 		};
 		FAEA2504264E3F6800D814D0 /* Views */ = {
@@ -443,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1758E3265E7EA500DC83B0 /* NewReleasesCellViewModel.swift in Sources */,
+				FA6D29E62660B71C0045BE8F /* PlaylistHeaderCollectionReusableView.swift in Sources */,
 				FA07E5BC26601AAD008981AE /* PlaylistDetailsCollectionViewCell.swift in Sources */,
 				FA6CEF7A265A85D50041116A /* CollectionCellDecoration.swift in Sources */,
 				FA07E596265FF465008981AE /* PlaylistViewController.swift in Sources */,
@@ -456,6 +482,7 @@
 				FA07E587265FAB11008981AE /* RecommendationCellViewModel.swift in Sources */,
 				FA6CEF82265A8CA50041116A /* TabBarViewController.swift in Sources */,
 				FA1758E6265EB15C00DC83B0 /* AllViewController.swift in Sources */,
+				FA6D29E92660BB5E0045BE8F /* PlaylistHeaderViewModel.swift in Sources */,
 				FA1758DC265E7E3E00DC83B0 /* FeaturedPlaylistCollectionViewCell.swift in Sources */,
 				FA6CEF7226592A860041116A /* CustomTabBar.swift in Sources */,
 				FA2E690C265CD3580009020D /* HapticsManager.swift in Sources */,
@@ -478,6 +505,7 @@
 				FA6CEF7D265A87460041116A /* BaseCollectionViewCell.swift in Sources */,
 				FA2E6918265D3EE50009020D /* ProfileViewController.swift in Sources */,
 				FA382AAE2632D1D9005AEB46 /* SceneDelegate.swift in Sources */,
+				FA6D29ED2660CE250045BE8F /* TitleHeaderCollectionReusableView.swift in Sources */,
 				FA5B81D7263B14D90046F48A /* FavoriteViewController.swift in Sources */,
 				FA2E6912265CD6C00009020D /* WelcomeViewController.swift in Sources */,
 				FA382AC12632D2FA005AEB46 /* IntroViewController.swift in Sources */,

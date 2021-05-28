@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PlaylistDetailsCollectionViewCell: UICollectionViewCell {
     
@@ -13,6 +14,11 @@ class PlaylistDetailsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var trackImg: UIImageView!
     @IBOutlet weak var trackTitle: UILabel!
-    @IBOutlet weak var artistName: NSLayoutConstraint!
+    @IBOutlet weak var artistName: UILabel!
     
+    func configure(with viewModel: RecommendationCellViewModel) {
+        trackTitle.text = viewModel.name
+        artistName.text = viewModel.artistName
+        trackImg.sd_setImage(with: viewModel.artworkURL, completed: nil)
+    }
 }

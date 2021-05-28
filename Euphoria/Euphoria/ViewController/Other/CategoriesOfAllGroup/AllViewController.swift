@@ -11,8 +11,19 @@ enum AllSectionType {
     case newReleases(viewModels: [NewReleasesCellViewModel]) // 0
     case featuredPlaylists(viewModels: [FeaturedPlaylistCellViewModel]) // 1
     case recommendedTracks(viewModels: [RecommendationCellViewModel]) // 2
+    
+    var title: String {
+        switch self {
+        case .newReleases:
+            return "New Released Albums"
+        case .featuredPlaylists:
+            return "Featured Playlists"
+        case .recommendedTracks:
+            return "Recommended"
+        }
+    }
 }
-
+    
 class AllViewController: UIViewController, GradientBackground {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -197,6 +208,22 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: TitleHeaderCollectionReusableView.identifier,
+                for: indexPath) as? TitleHeaderCollectionReusableView, kind == UICollectionView.elementKindSectionHeader
+        else {
+            return UICollectionReusableView()
+        }
+        
+        let section = indexPath.section
+        
+        header.configure(with: sections[section].title)
+        
+        return header
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
@@ -228,6 +255,13 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     private func layout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, environment -> NSCollectionLayoutSection? in
             
+            let supplementaryViews = [
+                NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50)),
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .top)
+            ]
+            
             if sectionIndex == 0 {
                 // Item
                 let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0)))
@@ -237,16 +271,17 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 // Group
                 // Vertical group inside the horizontal group
                 let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize:
-                                                                NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(360)),
-                                                             subitem: item,
-                                                             count: 3)
+                                                                        NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(360)),
+                                                                     subitem: item,
+                                                                     count: 3)
                 let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize:
                                                                             NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(360)),
-                                                             subitem: verticalGroup,
-                                                             count: 1)
+                                                                         subitem: verticalGroup,
+                                                                         count: 1)
                 
                 // Section
                 let section = NSCollectionLayoutSection(group: horizontalGroup)
+                section.boundarySupplementaryItems = supplementaryViews
                 section.orthogonalScrollingBehavior = .groupPaging
                 
                 return section
@@ -261,9 +296,9 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 // Group
                 // Vertical group inside the horizontal group
                 let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize:
-                                                                NSCollectionLayoutSize(widthDimension: .absolute(200), heightDimension: .absolute(400)),
-                                                             subitem: item,
-                                                             count: 2)
+                                                                        NSCollectionLayoutSize(widthDimension: .absolute(200), heightDimension: .absolute(400)),
+                                                                     subitem: item,
+                                                                     count: 2)
                 let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize:
                                                                             NSCollectionLayoutSize(widthDimension: .absolute(200), heightDimension: .absolute(400)),
                                                                          subitem: verticalGroup,
@@ -271,6 +306,7 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 
                 // Section
                 let section = NSCollectionLayoutSection(group: horizontalGroup)
+                section.boundarySupplementaryItems = supplementaryViews
                 section.orthogonalScrollingBehavior = .continuous
                 
                 return section
@@ -290,6 +326,7 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 
                 // Section
                 let section = NSCollectionLayoutSection(group: group)
+                section.boundarySupplementaryItems = supplementaryViews
                 
                 return section
             }
@@ -307,6 +344,7 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
             
             // Section
             let section = NSCollectionLayoutSection(group: group)
+            section.boundarySupplementaryItems = supplementaryViews
             
             return section
         }
