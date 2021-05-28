@@ -794,13 +794,13 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6qh-r4-cnO">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewReleaseCollectionViewCell" id="6qT-Yb-hBo" customClass="NewReleaseCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
-                                        <rect key="frame" x="7" y="0.0" width="400" height="128"/>
+                                        <rect key="frame" x="7" y="50" width="400" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iIw-pF-7eA">
                                             <rect key="frame" x="0.0" y="0.0" width="400" height="128"/>
@@ -857,7 +857,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FeaturedPlaylistCollectionViewCell" id="S5B-NJ-zJt" customClass="FeaturedPlaylistCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
-                                        <rect key="frame" x="107" y="138" width="200" height="200"/>
+                                        <rect key="frame" x="107" y="188" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="i8Q-37-LNe">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -902,7 +902,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="RecommendedTrackCollectionViewCell" id="9a6-z0-GiN" customClass="RecommendedTrackCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
-                                        <rect key="frame" x="7" y="348" width="400" height="80"/>
+                                        <rect key="frame" x="7" y="398" width="400" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tma-yV-pYv">
                                             <rect key="frame" x="0.0" y="0.0" width="400" height="80"/>
@@ -950,6 +950,27 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TitleHeaderCollectionReusableView" id="YjW-JG-jAq" customClass="TitleHeaderCollectionReusableView" customModule="Euphoria" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Releases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7O-Rt-BF1">
+                                            <rect key="frame" x="8" y="0.0" width="398" height="50"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
+                                            <color key="textColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="r7O-Rt-BF1" firstAttribute="leading" secondItem="YjW-JG-jAq" secondAttribute="leadingMargin" id="7qe-so-srf"/>
+                                        <constraint firstAttribute="bottom" secondItem="r7O-Rt-BF1" secondAttribute="bottom" id="81H-0W-Ofh"/>
+                                        <constraint firstItem="r7O-Rt-BF1" firstAttribute="trailing" secondItem="YjW-JG-jAq" secondAttribute="trailingMargin" id="bIF-jY-pZj"/>
+                                        <constraint firstItem="r7O-Rt-BF1" firstAttribute="top" secondItem="YjW-JG-jAq" secondAttribute="top" id="vmA-dp-8jB"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="headerTitle" destination="r7O-Rt-BF1" id="WcG-XH-3Nh"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="M0i-xk-Eoh"/>
@@ -983,6 +1004,8 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="9SD-vZ-7yT"/>
                                     <constraint firstAttribute="height" constant="40" id="RqC-JZ-bRw"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="WTo-To-bVF"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="i5D-X6-hc7"/>
                                 </constraints>
                                 <state key="normal" image="back_btn"/>
                                 <connections>
@@ -1029,13 +1052,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evermore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5N-l1-LL0">
                                                             <rect key="frame" x="0.0" y="0.0" width="306" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taylor Swift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tf9-Lf-Jug">
                                                             <rect key="frame" x="0.0" y="31.5" width="306" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -1096,8 +1119,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f44-uB-zF8" userLabel="Back Btn">
                                 <rect key="frame" x="20" y="76" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="emI-T9-Onb"/>
-                                    <constraint firstAttribute="height" constant="40" id="z2v-Se-TPS"/>
+                                    <constraint firstAttribute="height" constant="40" id="67s-SO-lSf"/>
+                                    <constraint firstAttribute="width" constant="40" id="p9m-yG-NVK"/>
                                 </constraints>
                                 <state key="normal" image="back_btn"/>
                                 <connections>
@@ -1115,13 +1138,13 @@
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c5y-Rv-gdz">
                                     <size key="itemSize" width="400" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="436" height="436"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="PlaylistDetailsCollectionViewCell" reuseIdentifier="PlaylistDetailsCollectionViewCell" id="7cI-g0-IxE" customClass="PlaylistDetailsCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
-                                        <rect key="frame" x="7" y="0.0" width="400" height="80"/>
+                                        <rect key="frame" x="7" y="436" width="400" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UBC-kg-1be">
                                             <rect key="frame" x="0.0" y="0.0" width="400" height="80"/>
@@ -1139,13 +1162,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Would You Do" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIS-iL-ADI">
                                                             <rect key="frame" x="0.0" y="0.0" width="306" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City High" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKa-2d-jbG">
                                                             <rect key="frame" x="0.0" y="31.5" width="306" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -1168,15 +1191,78 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="400" height="80"/>
                                         <connections>
-                                            <outlet property="artistName" destination="myc-hz-hmE" id="Kl8-3I-BJj"/>
+                                            <outlet property="artistName" destination="VKa-2d-jbG" id="nBA-2h-igf"/>
                                             <outlet property="trackImg" destination="pxG-EY-3zW" id="ZN0-oJ-sFA"/>
                                             <outlet property="trackTitle" destination="BIS-iL-ADI" id="aJZ-Gt-3Oj"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PlaylistHeaderCollectionReusableView" id="3Gr-eg-k1i" customClass="PlaylistHeaderCollectionReusableView" customModule="Euphoria" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="436"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3iU-QO-Wpd">
+                                            <rect key="frame" x="87" y="8" width="240" height="240"/>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Vp1-0U-bw1">
+                                            <rect key="frame" x="8" y="256" width="326" height="159.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="crying on the bedroom floor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zm6-rM-Zab">
+                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq9-eB-B5j">
+                                                    <rect key="frame" x="0.0" y="28" width="326" height="106.5"/>
+                                                    <string key="text">Get lyrics of Crying on the bedroom floor song you love. List contains Crying on the bedroom floor song lyrics of older one songs and hot new releases. Get known every word of your favorite song or start your own karaoke party tonight </string>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2P-EK-ukK">
+                                                    <rect key="frame" x="0.0" y="138.5" width="326" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoR-vW-ydL">
+                                            <rect key="frame" x="342" y="368" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="5d4-bc-Uxp"/>
+                                                <constraint firstAttribute="width" constant="60" id="Lu1-sR-HJh"/>
+                                            </constraints>
+                                            <state key="normal" image="pause"/>
+                                            <connections>
+                                                <action selector="playBtnPressed:" destination="3Gr-eg-k1i" eventType="touchUpInside" id="NKV-a2-wC4"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="MoR-vW-ydL" firstAttribute="leading" secondItem="Vp1-0U-bw1" secondAttribute="trailing" constant="8" symbolic="YES" id="03n-fO-Kij"/>
+                                        <constraint firstAttribute="trailing" secondItem="Vp1-0U-bw1" secondAttribute="trailing" constant="80" id="3Ie-cN-F7v"/>
+                                        <constraint firstItem="MoR-vW-ydL" firstAttribute="top" secondItem="3Gr-eg-k1i" secondAttribute="topMargin" constant="360" id="7sa-lZ-LeC"/>
+                                        <constraint firstItem="Vp1-0U-bw1" firstAttribute="leading" secondItem="3Gr-eg-k1i" secondAttribute="leading" constant="8" id="8da-3s-4na"/>
+                                        <constraint firstItem="3iU-QO-Wpd" firstAttribute="top" secondItem="3Gr-eg-k1i" secondAttribute="topMargin" id="8h9-HM-NpQ"/>
+                                        <constraint firstItem="MoR-vW-ydL" firstAttribute="bottom" secondItem="3Gr-eg-k1i" secondAttribute="bottomMargin" id="I12-0R-wRf"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3iU-QO-Wpd" secondAttribute="trailing" constant="79" id="Nuq-ea-wLm"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="MoR-vW-ydL" secondAttribute="trailing" constant="4" id="T4M-LE-Fga"/>
+                                        <constraint firstItem="Vp1-0U-bw1" firstAttribute="top" secondItem="3iU-QO-Wpd" secondAttribute="bottom" constant="8" symbolic="YES" id="aqJ-Pu-Qwo"/>
+                                        <constraint firstItem="3iU-QO-Wpd" firstAttribute="leading" secondItem="3Gr-eg-k1i" secondAttribute="leadingMargin" constant="79" id="k0Z-QX-eNJ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Vp1-0U-bw1" secondAttribute="bottom" constant="12.5" id="soZ-Kr-SPw"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="creator" destination="h2P-EK-ukK" id="unj-Nk-HGa"/>
+                                        <outlet property="headerImage" destination="3iU-QO-Wpd" id="XI1-mZ-aPc"/>
+                                        <outlet property="playlistDescription" destination="Fq9-eB-B5j" id="B3e-jf-5ko"/>
+                                        <outlet property="title" destination="Zm6-rM-Zab" id="uI5-EC-rIh"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="crying on the bedroom floor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0T-h1-iK5">
-                                <rect key="frame" x="85" y="76" width="244" height="56"/>
+                                <rect key="frame" x="80" y="76" width="255" height="56"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -1185,15 +1271,15 @@
                         <viewLayoutGuide key="safeArea" id="an7-BP-wKT"/>
                         <color key="backgroundColor" red="0.52367985250000004" green="0.41294628379999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="QBh-8x-ajK" firstAttribute="top" secondItem="f44-uB-zF8" secondAttribute="bottom" constant="24" id="395-ze-LAG"/>
+                            <constraint firstItem="f44-uB-zF8" firstAttribute="top" secondItem="an7-BP-wKT" secondAttribute="top" constant="32" id="6y8-bL-hwF"/>
                             <constraint firstAttribute="bottom" secondItem="QBh-8x-ajK" secondAttribute="bottom" id="AnS-Ww-c4g"/>
-                            <constraint firstItem="an7-BP-wKT" firstAttribute="trailing" secondItem="a0T-h1-iK5" secondAttribute="trailing" constant="85" id="BbA-gu-Lcz"/>
-                            <constraint firstItem="a0T-h1-iK5" firstAttribute="leading" secondItem="f44-uB-zF8" secondAttribute="trailing" constant="25" id="GAh-1h-peD"/>
-                            <constraint firstItem="f44-uB-zF8" firstAttribute="top" secondItem="an7-BP-wKT" secondAttribute="top" constant="32" id="Lk9-r4-nhr"/>
-                            <constraint firstItem="f44-uB-zF8" firstAttribute="leading" secondItem="an7-BP-wKT" secondAttribute="leading" constant="20" id="Zp6-5e-aI3"/>
+                            <constraint firstItem="QBh-8x-ajK" firstAttribute="top" secondItem="a0T-h1-iK5" secondAttribute="bottom" constant="8" symbolic="YES" id="BXr-VK-88Q"/>
+                            <constraint firstItem="f44-uB-zF8" firstAttribute="leading" secondItem="an7-BP-wKT" secondAttribute="leading" constant="20" id="ClN-z0-b5h"/>
+                            <constraint firstItem="a0T-h1-iK5" firstAttribute="leading" secondItem="f44-uB-zF8" secondAttribute="trailing" constant="20" id="FS2-cd-tQs"/>
+                            <constraint firstItem="an7-BP-wKT" firstAttribute="trailing" secondItem="a0T-h1-iK5" secondAttribute="trailing" constant="79" id="VWo-cx-yBQ"/>
                             <constraint firstItem="QBh-8x-ajK" firstAttribute="trailing" secondItem="an7-BP-wKT" secondAttribute="trailing" id="Ztp-vq-m7h"/>
                             <constraint firstItem="QBh-8x-ajK" firstAttribute="leading" secondItem="an7-BP-wKT" secondAttribute="leading" id="jQ2-QJ-NJB"/>
-                            <constraint firstItem="a0T-h1-iK5" firstAttribute="top" secondItem="an7-BP-wKT" secondAttribute="top" constant="32" id="pyY-iw-r7q"/>
+                            <constraint firstItem="a0T-h1-iK5" firstAttribute="top" secondItem="an7-BP-wKT" secondAttribute="top" constant="32" id="rK2-py-ccr"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1203,7 +1289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3GN-bm-fFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5732" y="-988"/>
+            <point key="canvasLocation" x="5731.884057971015" y="-988.39285714285711"/>
         </scene>
         <!--Euphoria-->
         <scene sceneID="JVC-Hd-dCD">
