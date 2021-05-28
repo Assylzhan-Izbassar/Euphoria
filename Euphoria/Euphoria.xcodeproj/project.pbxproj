@@ -58,6 +58,8 @@
 		FA6D29F02660EACB0045BE8F /* AlbumDetailsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D29EF2660EACB0045BE8F /* AlbumDetailsCellViewModel.swift */; };
 		FA6D29F42660EB800045BE8F /* AlbumHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D29F32660EB800045BE8F /* AlbumHeaderCollectionReusableView.swift */; };
 		FA6D29F72660EBEF0045BE8F /* AlbumHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D29F62660EBEF0045BE8F /* AlbumHeaderViewModel.swift */; };
+		FA6D29FB26610E620045BE8F /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D29FA26610E610045BE8F /* SearchResultViewController.swift */; };
+		FA6D29FE26610EB70045BE8F /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D29FD26610EB70045BE8F /* SearchResultCollectionViewCell.swift */; };
 		FAC03E602652CE1E003C7A30 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E5F2652CE1E003C7A30 /* Genre.swift */; };
 		FAC03E632652CE8D003C7A30 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */; };
 		FAC03E672652D644003C7A30 /* Bowie-ArtofWar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */; };
@@ -123,6 +125,8 @@
 		FA6D29EF2660EACB0045BE8F /* AlbumDetailsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsCellViewModel.swift; sourceTree = "<group>"; };
 		FA6D29F32660EB800045BE8F /* AlbumHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FA6D29F62660EBEF0045BE8F /* AlbumHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumHeaderViewModel.swift; sourceTree = "<group>"; };
+		FA6D29FA26610E610045BE8F /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		FA6D29FD26610EB70045BE8F /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAC03E5F2652CE1E003C7A30 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bowie-ArtofWar.mp3"; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				FA2E6901265CD22D0009020D /* AuthViewController.swift */,
 				FA2E6911265CD6C00009020D /* WelcomeViewController.swift */,
 				FA2E6917265D3EE50009020D /* ProfileViewController.swift */,
+				FA6D29FA26610E610045BE8F /* SearchResultViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				FA6CEF7126592A860041116A /* CustomTabBar.swift */,
 				FA6CEF85265AA30B0041116A /* SearchCollectionViewCell.swift */,
 				FAFCB48F265BB5C1000606FC /* PaddingTextField.swift */,
+				FA6D29FD26610EB70045BE8F /* SearchResultCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -478,10 +484,12 @@
 			files = (
 				FA1758E3265E7EA500DC83B0 /* NewReleasesCellViewModel.swift in Sources */,
 				FA6D29E62660B71C0045BE8F /* PlaylistHeaderCollectionReusableView.swift in Sources */,
+				FA6D29FB26610E620045BE8F /* SearchResultViewController.swift in Sources */,
 				FA07E5BC26601AAD008981AE /* PlaylistDetailsCollectionViewCell.swift in Sources */,
 				FA6CEF7A265A85D50041116A /* CollectionCellDecoration.swift in Sources */,
 				FA07E596265FF465008981AE /* PlaylistViewController.swift in Sources */,
 				FAEA2506264E3FB700D814D0 /* FavoriteCollectionViewCell.swift in Sources */,
+				FA6D29FE26610EB70045BE8F /* SearchResultCollectionViewCell.swift in Sources */,
 				FA1758DF265E7E5800DC83B0 /* RecommendedTrackCollectionViewCell.swift in Sources */,
 				FA6D29F72660EBEF0045BE8F /* AlbumHeaderViewModel.swift in Sources */,
 				FA5B81D1263B0B5E0046F48A /* SearchViewController.swift in Sources */,

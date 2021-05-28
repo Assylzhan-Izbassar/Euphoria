@@ -763,6 +763,67 @@
             </objects>
             <point key="canvasLocation" x="3179.7101449275365" y="-499.55357142857139"/>
         </scene>
+        <!--Search Result View Controller-->
+        <scene sceneID="Uyg-wU-tsS">
+            <objects>
+                <viewController storyboardIdentifier="SearchResultViewController" id="CAW-v4-2mE" customClass="SearchResultViewController" customModule="Euphoria" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3hZ-Js-BaG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="24" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aDe-1I-nO1" customClass="PaddingTextField" customModule="Euphoria" customModuleProvider="target">
+                                <rect key="frame" x="25" y="76" width="354" height="66"/>
+                                <color key="tintColor" red="0.48798727990000001" green="0.43907403950000001" blue="0.9333763719" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="Ww3-QT-eAe"/>
+                                </constraints>
+                                <color key="textColor" red="0.95593363050000002" green="0.72068041559999996" blue="0.82353258129999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </textField>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tdy-QW-iLf">
+                                <rect key="frame" x="0.0" y="187" width="414" height="709"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oQe-tN-JXa">
+                                    <size key="itemSize" width="380" height="80"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchResultCollectionViewCell" id="vkF-Q9-FDp" customClass="SearchResultCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
+                                        <rect key="frame" x="17" y="0.0" width="380" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Aa7-at-Cxp">
+                                            <rect key="frame" x="0.0" y="0.0" width="380" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="380" height="80"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Gdq-5E-Tuc"/>
+                        <color key="backgroundColor" red="0.55055046080000003" green="0.39661651850000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="tdy-QW-iLf" firstAttribute="leading" secondItem="Gdq-5E-Tuc" secondAttribute="leading" id="Kvg-ZF-oG8"/>
+                            <constraint firstItem="Gdq-5E-Tuc" firstAttribute="trailing" secondItem="aDe-1I-nO1" secondAttribute="trailing" constant="35" id="LzL-eP-KNK"/>
+                            <constraint firstItem="aDe-1I-nO1" firstAttribute="top" secondItem="Gdq-5E-Tuc" secondAttribute="top" constant="32" id="U4O-eu-viv"/>
+                            <constraint firstItem="tdy-QW-iLf" firstAttribute="trailing" secondItem="Gdq-5E-Tuc" secondAttribute="trailing" id="c96-tr-ZN5"/>
+                            <constraint firstAttribute="bottom" secondItem="tdy-QW-iLf" secondAttribute="bottom" id="p1d-dD-4DC"/>
+                            <constraint firstItem="aDe-1I-nO1" firstAttribute="leading" secondItem="Gdq-5E-Tuc" secondAttribute="leading" constant="25" id="s6H-Wi-poL"/>
+                            <constraint firstItem="tdy-QW-iLf" firstAttribute="top" secondItem="aDe-1I-nO1" secondAttribute="bottom" constant="45" id="sf6-mu-gaA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="tdy-QW-iLf" id="rBi-0m-dlJ"/>
+                        <outlet property="searchTextField" destination="aDe-1I-nO1" id="SrL-64-yqO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kkt-Ut-E3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3180" y="-1165"/>
+        </scene>
         <!--All View Controller-->
         <scene sceneID="4dI-39-fIo">
             <objects>

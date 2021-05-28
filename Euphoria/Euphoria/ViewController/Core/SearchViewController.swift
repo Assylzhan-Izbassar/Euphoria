@@ -30,6 +30,7 @@ class SearchViewController: UIViewController, GradientBackground {
             searchTextField.setLeftIcon(searchFieldImage)
             makeRoundedTextField()
         }
+        searchTextField.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
     }
     
     private func makeRoundedTextField() {
@@ -108,6 +109,15 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 23
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    @objc func myTargetFunction(textField: UITextField) {
+        if let searchResultVC = storyboard?.instantiateViewController(identifier: "SearchResultViewController") as? SearchResultViewController {
+            searchResultVC.modalPresentationStyle = .fullScreen
+            self.present(searchResultVC, animated: true, completion: nil)
+        }
     }
 }
 
