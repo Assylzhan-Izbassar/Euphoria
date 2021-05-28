@@ -28,16 +28,30 @@ class PlayerViewController: UIViewController, GradientBackground {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        playPauseBtn.layer.shadowColor = UIColor.black.cgColor
+        playPauseBtn.layer.shadowOffset = CGSize(width: 10, height: 10)
+        playPauseBtn.layer.shadowRadius = 35
+        playPauseBtn.layer.shadowOpacity = 0.25
+        songPoster.layer.shadowColor = UIColor.black.cgColor
+        songPoster.layer.shadowOffset = CGSize(width: 10, height: 10)
+        songPoster.layer.shadowRadius = 10
+        songPoster.layer.shadowOpacity = 1
+        nextBtn.layer.shadowColor = UIColor.black.cgColor
+        nextBtn.layer.shadowOffset = CGSize(width: 10, height: 10)
+        nextBtn.layer.shadowRadius = 35
+        nextBtn.layer.shadowOpacity = 0.25
+        previousBtn.layer.shadowColor = UIColor.black.cgColor
+        previousBtn.layer.shadowOffset = CGSize(width: 10, height: 10)
+        previousBtn.layer.shadowRadius = 35
+        previousBtn.layer.shadowOpacity = 0.25
         self.setGradientBackground(view: view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // decorate playPauseBtn
-        playPauseBtn.layer.cornerRadius = playPauseBtn.frame.height / 2
-        playPauseBtn.clipsToBounds = true
+        
+        
         
         // about player
         setRounded(image: songPoster)
