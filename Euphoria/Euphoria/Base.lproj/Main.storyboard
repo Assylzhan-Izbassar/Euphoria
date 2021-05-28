@@ -1208,7 +1208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPa-Av-v7x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4911.594202898551" y="-1323.2142857142856"/>
+            <point key="canvasLocation" x="4913" y="-1669"/>
         </scene>
         <!--Playlist View Controller-->
         <scene sceneID="XgB-th-4lN">
@@ -1393,7 +1393,123 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3GN-bm-fFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5731.884057971015" y="-988.39285714285711"/>
+            <point key="canvasLocation" x="4913" y="-988"/>
+        </scene>
+        <!--Category View Controller-->
+        <scene sceneID="DgV-D3-Zvy">
+            <objects>
+                <viewController storyboardIdentifier="CategoryViewController" id="eAN-6X-YVV" customClass="CategoryViewController" customModule="Euphoria" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="boW-cD-wsW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQu-KR-7ek" userLabel="Back Btn">
+                                <rect key="frame" x="20" y="76" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="dzx-xI-vuc"/>
+                                    <constraint firstAttribute="height" constant="40" id="wwA-le-pI9"/>
+                                </constraints>
+                                <state key="normal" image="back_btn"/>
+                                <connections>
+                                    <action selector="back:" destination="mqV-Uo-24U" eventType="touchUpInside" id="3be-ia-jjh"/>
+                                    <action selector="backBtnPressed:" destination="q5L-eh-PJE" eventType="touchUpInside" id="ohO-6R-jQS"/>
+                                    <action selector="backBtnPressed:" destination="eAN-6X-YVV" eventType="touchUpInside" id="ymm-8m-qAt"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZO8-PE-I0m">
+                                <rect key="frame" x="0.0" y="124" width="414" height="772"/>
+                                <color key="backgroundColor" red="0.66667312379999999" green="0.66665834189999995" blue="0.66666132209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wZb-cz-6M0">
+                                    <size key="itemSize" width="200" height="248"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlaylistCollectionViewCell" id="nwu-3Q-SZO" customClass="PlaylistCollectionViewCell" customModule="Euphoria" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="248"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9fZ-dA-UL3">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="248"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="luX-79-4KU">
+                                                    <rect key="frame" x="20" y="8" width="160" height="160"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="160" id="Jjc-Wr-oHE"/>
+                                                        <constraint firstAttribute="width" constant="160" id="cO5-Oa-id0"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WLu-hn-Mmw">
+                                                    <rect key="frame" x="10" y="176" width="180" height="62"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="crying on the bedroom floor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6f5-Zh-lln">
+                                                            <rect key="frame" x="33" y="0.0" width="114.5" height="43"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <color key="textColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6q6-Nk-obI">
+                                                            <rect key="frame" x="66.5" y="43" width="47.5" height="19"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="19" id="juu-HZ-rKU"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                            <color key="textColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WLu-hn-Mmw" firstAttribute="top" secondItem="luX-79-4KU" secondAttribute="bottom" constant="8" symbolic="YES" id="Ajh-wH-TWz"/>
+                                                <constraint firstAttribute="trailing" secondItem="luX-79-4KU" secondAttribute="trailing" constant="20" id="ERd-4A-PuS"/>
+                                                <constraint firstItem="luX-79-4KU" firstAttribute="leading" secondItem="9fZ-dA-UL3" secondAttribute="leading" constant="20" id="Roe-6T-XkM"/>
+                                                <constraint firstAttribute="trailing" secondItem="WLu-hn-Mmw" secondAttribute="trailing" constant="10" id="aTw-JG-jac"/>
+                                                <constraint firstItem="luX-79-4KU" firstAttribute="top" secondItem="9fZ-dA-UL3" secondAttribute="top" constant="8" id="bw0-wP-2sq"/>
+                                                <constraint firstItem="WLu-hn-Mmw" firstAttribute="leading" secondItem="9fZ-dA-UL3" secondAttribute="leading" constant="10" id="l1B-n9-Vwv"/>
+                                                <constraint firstAttribute="bottom" secondItem="WLu-hn-Mmw" secondAttribute="bottom" constant="10" id="uuA-2p-BB2"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="200" height="248"/>
+                                        <connections>
+                                            <outlet property="creator" destination="6q6-Nk-obI" id="5iY-8W-edm"/>
+                                            <outlet property="image" destination="luX-79-4KU" id="7Cr-v1-2Hk"/>
+                                            <outlet property="title" destination="6f5-Zh-lln" id="e74-7I-Obv"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="crying on the bedroom floor Spotify" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJC-ui-gHK">
+                                <rect key="frame" x="71" y="71" width="273" height="51"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="21"/>
+                                <color key="textColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OCA-rT-3tJ"/>
+                        <color key="backgroundColor" red="0.48798727990000001" green="0.43907403950000001" blue="0.9333763719" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="fJC-ui-gHK" firstAttribute="leading" secondItem="dQu-KR-7ek" secondAttribute="trailing" constant="11" id="AuI-ph-aa6"/>
+                            <constraint firstItem="ZO8-PE-I0m" firstAttribute="leading" secondItem="OCA-rT-3tJ" secondAttribute="leading" id="EiV-sP-4j1"/>
+                            <constraint firstItem="OCA-rT-3tJ" firstAttribute="trailing" secondItem="fJC-ui-gHK" secondAttribute="trailing" constant="70" id="Mlr-Xo-SN1"/>
+                            <constraint firstItem="ZO8-PE-I0m" firstAttribute="top" secondItem="dQu-KR-7ek" secondAttribute="bottom" constant="8" symbolic="YES" id="NKX-ZY-3VC"/>
+                            <constraint firstItem="dQu-KR-7ek" firstAttribute="leading" secondItem="OCA-rT-3tJ" secondAttribute="leading" constant="20" id="Xh7-kz-EFl"/>
+                            <constraint firstItem="fJC-ui-gHK" firstAttribute="top" secondItem="OCA-rT-3tJ" secondAttribute="top" constant="27" id="Xjy-h7-Fos"/>
+                            <constraint firstAttribute="bottom" secondItem="ZO8-PE-I0m" secondAttribute="bottom" id="bwJ-z8-dzg"/>
+                            <constraint firstItem="ZO8-PE-I0m" firstAttribute="top" secondItem="fJC-ui-gHK" secondAttribute="bottom" constant="2" id="rvG-Ln-eNB"/>
+                            <constraint firstItem="ZO8-PE-I0m" firstAttribute="trailing" secondItem="OCA-rT-3tJ" secondAttribute="trailing" id="szN-pB-ysa"/>
+                            <constraint firstItem="dQu-KR-7ek" firstAttribute="top" secondItem="OCA-rT-3tJ" secondAttribute="top" constant="32" id="t2C-t5-OlR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ZO8-PE-I0m" id="l6M-el-Qhq"/>
+                        <outlet property="headerTitle" destination="fJC-ui-gHK" id="fFf-tB-SJh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eA7-Ui-3us" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5602.898550724638" y="-485.49107142857139"/>
         </scene>
         <!--Euphoria-->
         <scene sceneID="JVC-Hd-dCD">

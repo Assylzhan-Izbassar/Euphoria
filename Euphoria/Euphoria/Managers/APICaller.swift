@@ -190,7 +190,7 @@ final class APICaller {
     }
     
     public func getCategoryPlaylist(category: Category, completion: @escaping (Result<[Playlist], Error>) -> Void) {
-        createRequest(with: URL(string: "\(Constants.baseApiUrl)/browse/categories/\(category.id)/playlists?limits=2"), type: .GET) { baseRequest in
+        createRequest(with: URL(string: "\(Constants.baseApiUrl)/browse/categories/\(category.id)/playlists?limits=30"), type: .GET) { baseRequest in
             let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))

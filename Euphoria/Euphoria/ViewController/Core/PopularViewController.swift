@@ -45,7 +45,6 @@ class PopularViewController: UIViewController, GradientBackground {
 extension PopularViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(categories.count)
         return categories.count
     }
     
@@ -67,7 +66,12 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
 
     // here we can observe by clicking the cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(categories[indexPath.row].name)
+        collectionView.deselectItem(at: indexPath, animated: true)
+        if let categoryVC = storyboard?.instantiateViewController(identifier: "CategoryViewController") as? CategoryViewController {
+            categoryVC.modalPresentationStyle = .fullScreen
+            categoryVC.category = categories[indexPath.row]
+            self.present(categoryVC, animated: true, completion: nil)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
