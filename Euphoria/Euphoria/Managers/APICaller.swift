@@ -169,6 +169,48 @@ final class APICaller {
         }
     }
     
+    // MARK: - Categories / Genres
+    
+    public func getCategories(completion: @escaping (Result<AllCategories, Error>) -> Void) {
+        createRequest(with: URL(string: "\(Constants.baseApiUrl)/browse/categories?limit=30"), type: .GET) { baseRequest in
+            let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode(AllCategories.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    public func getCategoryPlaylist(category: Category, completion: @escaping (Result<[Playlist], Error>) -> Void) {
+        createRequest(with: URL(string: "\(Constants.baseApiUrl)/browse/categories/\(category.id)/playlists?limits=2"), type: .GET) { baseRequest in
+            let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode(CategoryPlaylistResponse.self, from: data)
+                    let playlists = result.playlists.items
+                    print(playlists)
+                    completion(.success(playlists))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    
+    
     // MARK: - Private
     
     enum HTTPMethod: String {

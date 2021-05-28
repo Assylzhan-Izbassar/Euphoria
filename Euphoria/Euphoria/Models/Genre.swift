@@ -11,28 +11,27 @@ struct GenreResponse: Codable {
     let genres: [String]
 }
 
-struct Genre: Codable {
+struct Genre {
     var name: String
 }
 
+struct AllCategories: Codable {
+    let categories: CategoryResponse
+}
+
+struct CategoryResponse: Codable {
+    let items: [Category]
+    let total: Int
+}
+
+struct Category: Codable {
+    let id: String
+    let name: String
+    let icons: [GenericImage]
+}
+
+
 extension Genre {
-    static func getGenre() -> [Genre] {
-        return [
-            Genre(name: "All genres"),
-            Genre(name: "Alternative"),
-            Genre(name: "Blues"),
-            Genre(name: "Eastern"),
-            Genre(name: "Dubstep"),
-            Genre(name: "Jazz"),
-            Genre(name: "K-pop"),
-            Genre(name: "Pop music"),
-            Genre(name: "Dance"),
-            Genre(name: "Hip-hop"),
-            Genre(name: "Electronics"),
-            Genre(name: "Workout")
-        ]
-    }
-    
     static func getSearchGenre() -> [Genre] {
         return [
             Genre(name: "All"),
