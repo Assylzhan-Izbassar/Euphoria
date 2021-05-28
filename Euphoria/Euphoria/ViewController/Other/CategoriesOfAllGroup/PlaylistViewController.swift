@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlaylistViewController: UIViewController {
+class PlaylistViewController: UIViewController, GradientBackground {
     
     var playlist: Playlist?
 
@@ -19,6 +19,8 @@ class PlaylistViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setGradientBackground(view: view)
+        
         playlistTitleLabel.text = playlistTitle
         configureCollectionView()
         fetchPlaylistDetail()
@@ -119,7 +121,7 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
             // Needed for collection header
             section.boundarySupplementaryItems = [
                 NSCollectionLayoutBoundarySupplementaryItem(
-                    layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(436)),
+                    layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(375)),
                     elementKind: UICollectionView.elementKindSectionHeader,
                     alignment: .top)
             ]

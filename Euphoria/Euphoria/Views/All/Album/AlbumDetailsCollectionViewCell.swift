@@ -7,9 +7,13 @@
 
 import UIKit
 
-class AlbumDetailsCollectionViewCell: UICollectionViewCell {
+class AlbumDetailsCollectionViewCell: UICollectionViewCell, GradientBackground {
     static let identifier = "AlbumDetailsCollectionViewCell"
-    @IBOutlet weak var albumImg: UIImageView!
     @IBOutlet weak var trackName: UILabel!
     @IBOutlet weak var artistName: UILabel!
+
+    func configure(with viewModel: AlbumDetailsCellViewModel) {
+        trackName.text = viewModel.name
+        artistName.text = viewModel.artistName
+    }
 }

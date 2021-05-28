@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AlbumViewController: UIViewController {
+class AlbumViewController: UIViewController, GradientBackground {
 
     var album: Album?
     
@@ -15,11 +15,11 @@ class AlbumViewController: UIViewController {
     @IBOutlet weak var albumTitleLabel: UILabel!
     
     var albumName = ""
-    
-    private var viewModel =  [RecommendationCellViewModel]()
+    private var viewModels =  [AlbumDetailsCellViewModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setGradientBackground(view: view)
         
         albumTitleLabel.text = albumName
         configureCollectionView()
@@ -35,11 +35,16 @@ class AlbumViewController: UIViewController {
     
     private func fetchAlbumDetail() {
         if let album = album {
-            APICaller.shared.getAlbumDetails(for: album) { (result) in
+            APICaller.shared.getAlbumDetails(for: album) { [weak self](result) in
                 DispatchQueue.main.async {
                     switch result {
-                    case .success(_):
-                        break
+                    case .success(let model):
+                        self?.viewModels = model.tracks.items.compactMap({
+                            return AlbumDetailsCellViewModel(
+                                name: $0.name,
+                                artistName: $0.artists.first?.name ?? "No name")
+                        })
+                        self?.collectionView.reloadData()
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
@@ -56,15 +61,33 @@ class AlbumViewController: UIViewController {
 extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumDetailsCollectionViewCell.identifier, for: indexPath) as! AlbumDetailsCollectionViewCell
         
-        cell.backgroundColor = .red
+        cell.configure(with: viewModels[indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: AlbumHeaderCollectionReusableView.identifier,
+                for: indexPath) as? AlbumHeaderCollectionReusableView,
+              kind == UICollectionView.elementKindSectionHeader
+        else {
+            return UICollectionReusableView()
+        }
+        let headerModel = AlbumHeaderViewModel(title: album?.name,
+                                               artistName: album?.artists.first?.name,
+                                               releasedDate: album?.release_date,
+                                               imageUrl: URL(string: album?.images.first?.url ?? ""))
+        header.configure(with: headerModel)
+        
+        return header
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -87,7 +110,13 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
             
             // Section
             let section = NSCollectionLayoutSection(group: group)
-            
+            // Needed for collection header
+            section.boundarySupplementaryItems = [
+                NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(320)),
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .top)
+            ]
             return section
         }
         
