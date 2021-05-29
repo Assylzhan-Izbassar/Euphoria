@@ -25,6 +25,7 @@
 		FA1758DF265E7E5800DC83B0 /* RecommendedTrackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1758DE265E7E5800DC83B0 /* RecommendedTrackCollectionViewCell.swift */; };
 		FA1758E3265E7EA500DC83B0 /* NewReleasesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1758E2265E7EA500DC83B0 /* NewReleasesCellViewModel.swift */; };
 		FA1758E6265EB15C00DC83B0 /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1758E5265EB15C00DC83B0 /* AllViewController.swift */; };
+		FA18B3C32661DB4800E20AEE /* PlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18B3C22661DB4800E20AEE /* PlayerPresenter.swift */; };
 		FA2E6902265CD22D0009020D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6901265CD22D0009020D /* AuthViewController.swift */; };
 		FA2E6906265CD3210009020D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6905265CD3210009020D /* AuthManager.swift */; };
 		FA2E6909265CD3380009020D /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6908265CD3380009020D /* APICaller.swift */; };
@@ -62,7 +63,6 @@
 		FA6D29FE26610EB70045BE8F /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D29FD26610EB70045BE8F /* SearchResultCollectionViewCell.swift */; };
 		FAC03E602652CE1E003C7A30 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E5F2652CE1E003C7A30 /* Genre.swift */; };
 		FAC03E632652CE8D003C7A30 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */; };
-		FAC03E672652D644003C7A30 /* Bowie-ArtofWar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */; };
 		FAD0F4972661450E00093FD3 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0F4962661450E00093FD3 /* CategoryViewController.swift */; };
 		FAD0F49C2661493800093FD3 /* PlaylistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0F49B2661493800093FD3 /* PlaylistCollectionViewCell.swift */; };
 		FAEA2506264E3FB700D814D0 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA2505264E3FB700D814D0 /* FavoriteCollectionViewCell.swift */; };
@@ -92,6 +92,7 @@
 		FA1758DE265E7E5800DC83B0 /* RecommendedTrackCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTrackCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA1758E2265E7EA500DC83B0 /* NewReleasesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesCellViewModel.swift; sourceTree = "<group>"; };
 		FA1758E5265EB15C00DC83B0 /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
+		FA18B3C22661DB4800E20AEE /* PlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPresenter.swift; sourceTree = "<group>"; };
 		FA2E6901265CD22D0009020D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FA2E6905265CD3210009020D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FA2E6908265CD3380009020D /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -131,7 +132,6 @@
 		FA6D29FD26610EB70045BE8F /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAC03E5F2652CE1E003C7A30 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
-		FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bowie-ArtofWar.mp3"; sourceTree = "<group>"; };
 		FAD0F4962661450E00093FD3 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		FAD0F49B2661493800093FD3 /* PlaylistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAEA2505264E3FB700D814D0 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -230,6 +230,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		FA18B3C12661DB2000E20AEE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FA18B3C22661DB4800E20AEE /* PlayerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		FA2E68FE265CD1C80009020D /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,7 +296,7 @@
 		FA382AAA2632D1D9005AEB46 /* Euphoria */ = {
 			isa = PBXGroup;
 			children = (
-				FAEA2509264E6E3800D814D0 /* StaticSongCategories */,
+				FA18B3C12661DB2000E20AEE /* Presenter */,
 				FA14A744264DAD6F00CF05F2 /* Models */,
 				FA6CEF74265A54820041116A /* Interfaces */,
 				FA2E6904265CD3000009020D /* Managers */,
@@ -373,22 +381,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FAEA2509264E6E3800D814D0 /* StaticSongCategories */ = {
-			isa = PBXGroup;
-			children = (
-				FAEA250A264E6E4D00D814D0 /* ForTraining */,
-			);
-			path = StaticSongCategories;
-			sourceTree = "<group>";
-		};
-		FAEA250A264E6E4D00D814D0 /* ForTraining */ = {
-			isa = PBXGroup;
-			children = (
-				FAC03E662652D644003C7A30 /* Bowie-ArtofWar.mp3 */,
-			);
-			path = ForTraining;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -449,7 +441,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA382AB82632D1DA005AEB46 /* LaunchScreen.storyboard in Resources */,
-				FAC03E672652D644003C7A30 /* Bowie-ArtofWar.mp3 in Resources */,
 				FA382AB52632D1DA005AEB46 /* Assets.xcassets in Resources */,
 				FA382AB32632D1D9005AEB46 /* Main.storyboard in Resources */,
 			);
@@ -535,6 +526,7 @@
 				FA382AAC2632D1D9005AEB46 /* AppDelegate.swift in Sources */,
 				FA14A746264DAD8800CF05F2 /* Song.swift in Sources */,
 				FA1758D2265E53AC00DC83B0 /* RecomendationResponse.swift in Sources */,
+				FA18B3C32661DB4800E20AEE /* PlayerPresenter.swift in Sources */,
 				FA6D29F42660EB800045BE8F /* AlbumHeaderCollectionReusableView.swift in Sources */,
 				FA1758CF265E030500DC83B0 /* FeaturedPlaylistResponse.swift in Sources */,
 				FAFCB490265BB5C1000606FC /* PaddingTextField.swift in Sources */,

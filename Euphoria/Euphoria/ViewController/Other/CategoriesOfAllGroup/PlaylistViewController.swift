@@ -16,6 +16,7 @@ class PlaylistViewController: UIViewController, GradientBackground {
     
     var playlistTitle = ""
     private var viewModels =  [RecommendationCellViewModel]()
+    private var tracks = [Track]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,7 @@ class PlaylistViewController: UIViewController, GradientBackground {
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let model):
+                        self?.tracks = model.tracks.items.compactMap({ $0.track })
                         self?.viewModels = model.tracks.items.compactMap({
                             return RecommendationCellViewModel(
                                 name: $0.track.name,
@@ -92,6 +94,8 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
             creatorName: playlist?.owner.display_name,
             playlistDescription: playlist?.description,
             imageUrl: URL(string: playlist?.images.first?.url ?? ""))
+        
+        header.delegate = self
         header.configure(with: headerModel)
         
         return header
@@ -100,6 +104,7 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         // Play song
+        PlayerPresenter.shared.startPlayer(from: self, track: tracks[indexPath.row])
     }
     
     private func layout() -> UICollectionViewCompositionalLayout {
@@ -133,5 +138,12 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
         layout.configuration = config
         
         return layout
+    }
+}
+
+extension PlaylistViewController: PlaylistHeaderCollectionReusableViewDelegate {
+    func playlistHeaderCollectionReusableViewDelegateDidTapPlayAll(_ header: PlaylistHeaderCollectionReusableView) {
+        // start playing
+        PlayerPresenter.shared.startPlayer(from: self, tracks: tracks)
     }
 }

@@ -247,7 +247,8 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 self.present(PlaylistVC, animated: true, completion: nil)
             }
         case .recommendedTracks:
-            break
+            let track = tracks[indexPath.row]
+            PlayerPresenter.shared.startPlayer(from: self, track: track)
         }
     }
     

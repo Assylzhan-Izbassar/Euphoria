@@ -8,8 +8,14 @@
 import UIKit
 import SDWebImage
 
+protocol PlaylistHeaderCollectionReusableViewDelegate: AnyObject  {
+    func playlistHeaderCollectionReusableViewDelegateDidTapPlayAll(_ header: PlaylistHeaderCollectionReusableView)
+}
+
 final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
     static let identifier = "PlaylistHeaderCollectionReusableView"
+    
+    weak var delegate: PlaylistHeaderCollectionReusableViewDelegate?
     
     @IBOutlet weak var headerImage: UIImageView!
     @IBOutlet weak var title: UILabel!
@@ -24,6 +30,7 @@ final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
     }
     
     @IBAction func playBtnPressed(_ sender: UIButton) {
-        // Play the Playlist)
+        // Play the Playlist
+        delegate?.playlistHeaderCollectionReusableViewDelegateDidTapPlayAll(self)
     }
 }

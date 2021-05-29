@@ -20,6 +20,8 @@ class PlayerViewController: UIViewController, GradientBackground {
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var previousBtn: UIButton!
     
+    weak var dataSource: PlayerDataSource?
+    
     private var player = AVAudioPlayer()
     private var timer: Timer?
     private var playingIndex = 0
@@ -28,6 +30,12 @@ class PlayerViewController: UIViewController, GradientBackground {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        decorate()
+        configurePlayer()
+    }
+    
+    private func decorate() {
         playPauseBtn.layer.shadowColor = UIColor.black.cgColor
         playPauseBtn.layer.shadowOffset = CGSize(width: 10, height: 10)
         playPauseBtn.layer.shadowRadius = 35
@@ -47,12 +55,14 @@ class PlayerViewController: UIViewController, GradientBackground {
         self.setGradientBackground(view: view)
     }
     
+    private func configurePlayer() {
+        songTitle.text = dataSource?.songTitle
+        artistName.text = dataSource?.artistName
+        songPoster.sd_setImage(with: dataSource?.imageURL, completed: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
-        
-        
         // about player
         setRounded(image: songPoster)
 //        if let album = album {

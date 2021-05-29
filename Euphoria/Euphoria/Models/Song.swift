@@ -20,6 +20,7 @@ struct Track: Codable {
     let track_number: Int?
     let popularity: Int?
     let type: String?
+    let preview_url: String?
 }
 
 struct Song: Codable {
