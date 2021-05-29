@@ -8,6 +8,12 @@
 import UIKit
 import AVKit
 
+protocol PlayerViewControllerDelegate: AnyObject {
+    func didTapPlayPause()
+    func didTapForward()
+    func didTapBackward()
+    
+}
 class PlayerViewController: UIViewController, GradientBackground {
     
     @IBOutlet weak var songPoster: UIImageView!
@@ -19,7 +25,7 @@ class PlayerViewController: UIViewController, GradientBackground {
     @IBOutlet weak var playPauseBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var previousBtn: UIButton!
-    
+    weak var delegate: PlayerViewControllerDelegate?
     weak var dataSource: PlayerDataSource?
     
     private var player = AVAudioPlayer()
@@ -155,9 +161,7 @@ class PlayerViewController: UIViewController, GradientBackground {
     }
     
     private func setPlayPauseIcon(isPlaying: Bool) {
-//        let config = UIImage.SymbolConfiguration(pointSize: 120)
-        
-        // ! here we also should change
+
         playPauseBtn.setImage(UIImage(named: isPlaying ? "play" : "pause"), for: .normal)
     }
     
@@ -215,4 +219,19 @@ extension PlayerViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         nextPressed(nextBtn)
     }
+    
+    func playerControlsViewDidTapPlayPauseButton(_ playerControlsView:  AVAudioPlayer){
+        delegate?.didTapPlayPause()
+    }
+    
+    func playerControlsViewDidTapBackwardButton(_ playerControlsView:  AVAudioPlayer){
+        delegate?.didTapBackward()
+    }
+    
+    func playerControlsViewDidTapTapForwardButton(_ playerControlsView:  AVAudioPlayer){
+        delegate?.didTapForward()
+    }
 }
+
+
+

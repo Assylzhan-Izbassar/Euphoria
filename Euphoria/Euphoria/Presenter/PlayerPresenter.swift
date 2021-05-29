@@ -15,7 +15,7 @@ protocol PlayerDataSource: AnyObject {
     var imageURL: URL? { get }
 }
 
-final class PlayerPresenter: PlayerDataSource {
+final class PlayerPresenter: PlayerDataSource, PlayerViewControllerDelegate {
     var songTitle: String? {
         return currentTrack?.name
     }
@@ -29,6 +29,7 @@ final class PlayerPresenter: PlayerDataSource {
     }
     
     static let shared = PlayerPresenter()
+    
     
     private var track: Track?
     private var tracks = [Track]()
@@ -46,6 +47,40 @@ final class PlayerPresenter: PlayerDataSource {
     
     private init() {}
     
+    func didTapBackward() {
+        if tracks.isEmpty{
+            player?.pause()
+            player?.play()
+        }
+        
+        else{
+            
+        }
+    }
+    
+    func didTapForward() {
+        if tracks.isEmpty{
+            player?.pause()
+        }
+        
+        else{
+            
+        }
+    }
+    
+    func didTapPlayPause() {
+        if let player = player{
+            if player.timeControlStatus == .playing{
+                player.pause()
+            }
+            
+            else if player.timeControlStatus == .paused{
+                player.play()
+            }
+        }
+        
+    }
+    
     func startPlayer(from viewController: UIViewController, track: Track) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let playerVC = storyboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController {
@@ -53,9 +88,11 @@ final class PlayerPresenter: PlayerDataSource {
                 return
             }
             player = AVPlayer(url: url)
+            player?.volume = 0.5
             self.tracks = []
             self.track = track
             playerVC.dataSource = self
+            playerVC.delegate = self
             viewController.present(playerVC, animated: true) { [weak self] () in
                 self?.player?.play()
             }
@@ -72,3 +109,5 @@ final class PlayerPresenter: PlayerDataSource {
         }
     }
 }
+
+
