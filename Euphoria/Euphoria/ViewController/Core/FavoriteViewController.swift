@@ -24,11 +24,14 @@ enum MyMediaSectionType {
 class FavoriteViewController: UIViewController, GradientBackground {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var cancelBtn: UIButton!
     private var sections = [MyMediaSectionType]()
     
 //    let albums = Album.getAlbums()
     var playlists = [Playlist]()
     var albums = [Album]()
+    
+    public var selectionHandler: ((Playlist) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,15 @@ class FavoriteViewController: UIViewController, GradientBackground {
         
         MyMediaHeaderCollectionReusableView.delegate = self
         
+        if selectionHandler != nil {
+            cancelBtn.isHidden = false
+        } else {
+            cancelBtn.isHidden = true
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         fetchData()
     }
     
@@ -90,6 +102,11 @@ class FavoriteViewController: UIViewController, GradientBackground {
 //                                            numberOfTracks: $0.total_tracks,
 //                                            artistName: $0.artists.first?.name ?? "No name")
 //        })))
+    }
+    
+    
+    @IBAction func dismissVC(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -147,15 +164,18 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
     
     // here we can observe by clicking the cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         
-        if let parentVC = self.parent as? TabBarViewController {
-            guard
-                let playerVC = parentVC.viewControllers?[3] as? PlayerViewController
-            else {
-                return
-            }
-            playerVC.album = albums[0]
-            parentVC.selectedIndex = 3
+        guard selectionHandler == nil else {
+            selectionHandler?(playlists[indexPath.row])
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        if let playlistVC = storyboard?.instantiateViewController(identifier: "PlaylistViewController") as? PlaylistViewController {
+            playlistVC.playlist = playlists[indexPath.row]
+            playlistVC.modalPresentationStyle = .fullScreen
+            self.present(playlistVC, animated: true, completion: nil)
         }
     }
     

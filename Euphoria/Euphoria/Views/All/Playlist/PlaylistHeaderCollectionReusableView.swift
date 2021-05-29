@@ -26,7 +26,7 @@ final class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
         title.text = viewModel.title
         playlistDescription.text = viewModel.playlistDescription
         creator.text = viewModel.creatorName
-        headerImage.sd_setImage(with: viewModel.imageUrl, completed: nil)
+        headerImage.sd_setImage(with: viewModel.imageUrl, placeholderImage: UIImage(named: "ellipse"), completed: nil)
     }
     
     @IBAction func playBtnPressed(_ sender: UIButton) {

@@ -378,13 +378,13 @@
         <!--Favorite View Controller-->
         <scene sceneID="mso-Ju-f2F">
             <objects>
-                <viewController id="SSf-Ye-zk3" customClass="FavoriteViewController" customModule="Euphoria" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteViewController" id="SSf-Ye-zk3" customClass="FavoriteViewController" customModule="Euphoria" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YFo-4v-gak">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My media" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sB7-5i-mEA">
-                                <rect key="frame" x="20" y="76" width="183" height="48.5"/>
+                                <rect key="frame" x="20" y="76" width="182.5" height="48.5"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="42"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -478,21 +478,34 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7L-i6-bnR">
+                                <rect key="frame" x="328" y="82" width="66" height="37"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissVC:" destination="SSf-Ye-zk3" eventType="touchUpInside" id="EDP-bU-Ccu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Grs-PG-KLC"/>
                         <color key="backgroundColor" red="0.47592943910000002" green="0.44788664579999998" blue="0.90200114249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6QF-n5-s60" firstAttribute="top" secondItem="sB7-5i-mEA" secondAttribute="bottom" constant="8.5" id="8Lh-45-0w5"/>
                             <constraint firstItem="6QF-n5-s60" firstAttribute="bottom" secondItem="Grs-PG-KLC" secondAttribute="bottom" id="9mU-4P-NOQ"/>
+                            <constraint firstItem="Grs-PG-KLC" firstAttribute="trailing" secondItem="O7L-i6-bnR" secondAttribute="trailing" constant="20" id="Dey-JR-3ax"/>
                             <constraint firstItem="sB7-5i-mEA" firstAttribute="top" secondItem="Grs-PG-KLC" secondAttribute="top" constant="32" id="FZx-Jd-7UF"/>
-                            <constraint firstItem="Grs-PG-KLC" firstAttribute="trailing" secondItem="sB7-5i-mEA" secondAttribute="trailing" constant="211" id="V4M-Kn-LXg"/>
+                            <constraint firstItem="O7L-i6-bnR" firstAttribute="top" secondItem="Grs-PG-KLC" secondAttribute="top" constant="38" id="QDL-cE-LD7"/>
                             <constraint firstItem="6QF-n5-s60" firstAttribute="trailing" secondItem="Grs-PG-KLC" secondAttribute="trailing" id="dZK-nC-2mN"/>
                             <constraint firstItem="sB7-5i-mEA" firstAttribute="leading" secondItem="Grs-PG-KLC" secondAttribute="leading" constant="20" id="hTg-NW-1Sc"/>
+                            <constraint firstItem="O7L-i6-bnR" firstAttribute="leading" secondItem="sB7-5i-mEA" secondAttribute="trailing" constant="125.5" id="iea-sx-4jJ"/>
                             <constraint firstItem="6QF-n5-s60" firstAttribute="leading" secondItem="Grs-PG-KLC" secondAttribute="leading" id="zY4-TK-5UV"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="fav_icon" id="wch-ab-GDD"/>
                     <connections>
+                        <outlet property="cancelBtn" destination="O7L-i6-bnR" id="TBl-Qg-fbL"/>
                         <outlet property="collectionView" destination="6QF-n5-s60" id="wYe-mq-gMa"/>
                     </connections>
                 </viewController>
