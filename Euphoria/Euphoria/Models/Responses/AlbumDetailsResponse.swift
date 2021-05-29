@@ -20,8 +20,3 @@ struct AlbumDetailsResponse: Codable {
     let tracks: TracksResponse
     let type: String
 }
-
-struct TracksResponse: Codable {
-    let items: [Track]
-    let total: Int
-}

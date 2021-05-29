@@ -106,7 +106,11 @@ extension PlayerPresenter: PlayerViewControllerDelegate {
         if tracks.isEmpty{
             player?.pause()
             player?.play()
-//        } else if let player = playerQueue {
+        } else if let firstItem = playerQueue?.items().first {
+            playerQueue?.pause()
+            playerQueue?.removeAllItems()
+            playerQueue = AVQueuePlayer(items: [firstItem])
+            playerQueue?.play()
         }
     }
     
