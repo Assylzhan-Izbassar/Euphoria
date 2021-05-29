@@ -31,6 +31,7 @@ class PlayerViewController: UIViewController, GradientBackground {
     private var player = AVAudioPlayer()
     private var timer: Timer?
     private var playingIndex = 0
+    private var isPlaying = true
     
     var album: Album?
 
@@ -161,22 +162,25 @@ class PlayerViewController: UIViewController, GradientBackground {
     }
     
     private func setPlayPauseIcon(isPlaying: Bool) {
-
         playPauseBtn.setImage(UIImage(named: isPlaying ? "play" : "pause"), for: .normal)
     }
     
     @IBAction func pause(_ sender: UIButton) {
-        if player.isPlaying {
-            player.pause()
-        } else {
-            player.play()
-        }
-        setPlayPauseIcon(isPlaying: player.isPlaying)
+        
+        delegate?.didTapPlayPause()
+//        if player.isPlaying {
+//            player.pause()
+//        } else {
+//            player.play()
+//        }
+        self.isPlaying = !isPlaying
+        setPlayPauseIcon(isPlaying: isPlaying)
     }
     
     @IBAction func nextPressed(_ sender: UIButton) {
         
-        playingIndex += 1
+//        playingIndex += 1
+        delegate?.didTapForward()
         
 //        if let album = album {
 //            if playingIndex >= album.songs.count {
@@ -189,8 +193,9 @@ class PlayerViewController: UIViewController, GradientBackground {
     }
     
     @IBAction func previousPressed(_ sender: UIButton) {
-        
-        playingIndex -= 1
+
+        delegate?.didTapBackward()
+//        playingIndex -= 1
         
 //        if let album = album {
 //            if playingIndex < 0 {
