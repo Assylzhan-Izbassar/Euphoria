@@ -9,6 +9,7 @@ import UIKit
 
 class AlbumDetailsCollectionViewCell: UICollectionViewCell, GradientBackground {
     static let identifier = "AlbumDetailsCollectionViewCell"
+    
     @IBOutlet weak var trackName: UILabel!
     @IBOutlet weak var artistName: UILabel!
 

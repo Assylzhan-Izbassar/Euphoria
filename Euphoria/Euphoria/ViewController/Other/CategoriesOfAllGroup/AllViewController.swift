@@ -35,6 +35,7 @@ class AllViewController: UIViewController, GradientBackground {
         super.viewDidLoad()
         setGradientBackground(view: view)
         
+       
         configureCollectionView()
         
         fetchData()

@@ -45,6 +45,7 @@ class AlbumViewController: UIViewController, GradientBackground {
                             return AlbumDetailsCellViewModel(
                                 name: $0.name,
                                 artistName: $0.artists.first?.name ?? "No name")
+                                
                         })
                         self?.collectionView.reloadData()
                     case .failure(let error):

@@ -12,4 +12,5 @@ struct AlbumHeaderViewModel {
     let artistName: String?
     let releasedDate: String?
     let imageUrl: URL?
+    
 }
