@@ -91,13 +91,15 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let track = tracks[indexPath.row]
-        
-        var trackWithAlbum: [Track] = []
-        trackWithAlbum.append(track)
+        tableView.deselectRow(at: indexPath, animated: true)
+//        let track = tracks[indexPath.row]
+//        
+//        var trackWithAlbum: [Track] = []
+//        trackWithAlbum.append(track)
         
         if let playerVC = storyboard?.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController {
-            playerVC.tracks = trackWithAlbum
+            playerVC.startingIndex = indexPath.row
+            playerVC.tracks = tracks
             present(playerVC, animated: true, completion: nil)
         }
     }

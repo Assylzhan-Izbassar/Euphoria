@@ -175,24 +175,26 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let type = sections[indexPath.section]
-        
-        switch type {
-        case .playlists(let viewModels):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCollectionViewCell", for: indexPath) as? FavoriteCollectionViewCell
-            else {
-                return UICollectionViewCell()
+        if let type = sections[safe: indexPath.section] {
+            switch type {
+            case .playlists(let viewModels):
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCollectionViewCell", for: indexPath) as? FavoriteCollectionViewCell
+                else {
+                    return UICollectionViewCell()
+                }
+                cell.makeRoundedCorners(30.0, 10.0, CGSize(width: 5, height: 10))
+                cell.configure(with: viewModels[indexPath.row])
+                return cell
+            case .albums(let viewModels):
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyMediaAlbumCollectionViewCell.identifier, for: indexPath) as? MyMediaAlbumCollectionViewCell
+                else {
+                    return UICollectionViewCell()
+                }
+                cell.configure(with: viewModels[indexPath.row])
+                return cell
             }
-            cell.makeRoundedCorners(30.0, 10.0, CGSize(width: 5, height: 10))
-            cell.configure(with: viewModels[indexPath.row])
-            return cell
-        case .albums(let viewModels):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyMediaAlbumCollectionViewCell.identifier, for: indexPath) as? MyMediaAlbumCollectionViewCell
-            else {
-                return UICollectionViewCell()
-            }
-            cell.configure(with: viewModels[indexPath.row])
-            return cell
+        } else {
+            return UICollectionViewCell()
         }
     }
     

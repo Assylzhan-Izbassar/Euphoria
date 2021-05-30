@@ -73,6 +73,7 @@
 		FA890E492663D135003DFB1D /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA890E482663D135003DFB1D /* SearchResultResponse.swift */; };
 		FA890E4C2663D61A003DFB1D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA890E4B2663D619003DFB1D /* SearchResult.swift */; };
 		FA890E502663DCF9003DFB1D /* SearchSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA890E4F2663DCF9003DFB1D /* SearchSection.swift */; };
+		FA890E5326640ED9003DFB1D /* SafeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA890E5226640ED9003DFB1D /* SafeIndex.swift */; };
 		FAC03E602652CE1E003C7A30 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E5F2652CE1E003C7A30 /* Genre.swift */; };
 		FAC03E632652CE8D003C7A30 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */; };
 		FAD0F4972661450E00093FD3 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0F4962661450E00093FD3 /* CategoryViewController.swift */; };
@@ -154,6 +155,7 @@
 		FA890E482663D135003DFB1D /* SearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
 		FA890E4B2663D619003DFB1D /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		FA890E4F2663DCF9003DFB1D /* SearchSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSection.swift; sourceTree = "<group>"; };
+		FA890E5226640ED9003DFB1D /* SafeIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeIndex.swift; sourceTree = "<group>"; };
 		FAC03E5F2652CE1E003C7A30 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		FAC03E622652CE8D003C7A30 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAD0F4962661450E00093FD3 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 			children = (
 				FA382ACA2632EF47005AEB46 /* GradientBackground.swift */,
 				FA6CEF79265A85D50041116A /* CollectionCellDecoration.swift */,
+				FA890E5226640ED9003DFB1D /* SafeIndex.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				FA07E58C265FE395008981AE /* AlbumViewController.swift in Sources */,
 				FA5B81DD263B15700046F48A /* SettingsViewController.swift in Sources */,
 				FA2E6909265CD3380009020D /* APICaller.swift in Sources */,
+				FA890E5326640ED9003DFB1D /* SafeIndex.swift in Sources */,
 				FA382AAC2632D1D9005AEB46 /* AppDelegate.swift in Sources */,
 				FA14A746264DAD8800CF05F2 /* Song.swift in Sources */,
 				FA1758D2265E53AC00DC83B0 /* RecomendationResponse.swift in Sources */,

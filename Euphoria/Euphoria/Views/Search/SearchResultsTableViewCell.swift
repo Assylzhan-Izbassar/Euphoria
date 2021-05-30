@@ -23,7 +23,7 @@ class SearchResultsTableViewCell: UITableViewCell {
     
     private func decorate() {
         poster.layer.masksToBounds = false
-        poster.layer.cornerRadius = poster.frame.height/2
+        poster.layer.cornerRadius = poster.frame.height/4
         poster.clipsToBounds = true
     }
 }
