@@ -11,6 +11,6 @@ class PopularCollectionViewCell: BaseCollectionViewCell {
     @IBOutlet weak var genreName: UILabel!
     
     func configure(with genre: Category) {
-        genreName.text = genre.name
+        genreName.text = NSLocalizedString(genre.name, comment: "")
     }
 }

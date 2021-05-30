@@ -226,6 +226,7 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
             }
             if let playlistVC = storyboard?.instantiateViewController(identifier: "PlaylistViewController") as? PlaylistViewController {
                 playlistVC.playlist = playlists[indexPath.row]
+                playlistVC.isOwner = true
                 playlistVC.modalPresentationStyle = .fullScreen
                 self.present(playlistVC, animated: true, completion: nil)
             }

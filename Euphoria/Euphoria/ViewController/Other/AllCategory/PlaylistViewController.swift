@@ -18,6 +18,8 @@ class PlaylistViewController: UIViewController, GradientBackground {
     private var viewModels =  [RecommendationCellViewModel]()
     private var tracks = [Track]()
     
+    public var isOwner = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground(view: view)
@@ -25,6 +27,9 @@ class PlaylistViewController: UIViewController, GradientBackground {
         playlistTitleLabel.text = playlistTitle
         configureCollectionView()
         fetchPlaylistDetail()
+        
+        let gesture = UILongPressGestureRecognizer(target: collectionView, action: #selector(didLongPress))
+        collectionView.addGestureRecognizer(gesture)
     }
     
     private func configureCollectionView() {
@@ -32,6 +37,39 @@ class PlaylistViewController: UIViewController, GradientBackground {
         collectionView.dataSource = self
         collectionView.collectionViewLayout = layout()
         collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
+    }
+    
+    @objc func didLongPress(_ gesture: UILongPressGestureRecognizer) {
+        guard gesture.state == .began else {
+            return
+        }
+        let touchPoint = gesture.location(in: collectionView)
+        guard let indexPath = collectionView.indexPathForItem(at: touchPoint) else {
+            return
+        }
+        
+        let trackToDelete = tracks[indexPath.row]
+        
+        let actionSheet = UIAlertController(title: trackToDelete.name, message: NSLocalizedString("Whould you like to delete this track in playlist?", comment: ""), preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Remove", comment: ""), style: .destructive, handler: { [weak self] _ in
+            guard let StrongSelf = self else {
+                return
+            }
+            APICaller.shared.remove(track: trackToDelete, from: (StrongSelf.playlist)!) { (success) in
+                DispatchQueue.main.async {
+                    if success {
+                        StrongSelf.tracks.remove(at: indexPath.row)
+                        StrongSelf.viewModels.remove(at: indexPath.row)
+                        StrongSelf.collectionView.reloadData()
+                    } else {
+                        print("Failed to remove")
+                    }
+                }
+            }
+        }))
+        present(actionSheet, animated: true, completion: nil)
     }
     
     private func fetchPlaylistDetail() {
@@ -71,6 +109,7 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModels.count
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlaylistDetailsCollectionViewCell.identifier, for: indexPath) as! PlaylistDetailsCollectionViewCell

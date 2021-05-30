@@ -82,17 +82,11 @@ class PlayerViewController: UIViewController, GradientBackground {
     private func setupPlayer(with song: Track) {
         guard let url = song.preview_url
         else {
-            if playingIndex >= tracks!.count {
-                dismiss(animated: true, completion: nil)
-                return
-            } else {
-                setupPlayer(with: tracks![playingIndex+1])
-            }
+            dismiss(animated: true, completion: nil)
+            let alert = UIAlertController(title: NSLocalizedString("Oops", comment: ""), message: NSLocalizedString("Track hasn't have a URL.", comment: ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Close", comment: ""), style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
             return
-        }
-        
-        if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 0.0001, target: self, selector: #selector(updateProgressBar), userInfo: nil, repeats: true)
         }
         
         songTitle.text = song.name
@@ -116,18 +110,29 @@ class PlayerViewController: UIViewController, GradientBackground {
     }
     
     func downloadFileFromURL(url: NSURL){
+        
+        let group = DispatchGroup()
+        group.enter()
 
         var downloadTask: URLSessionDownloadTask
         downloadTask = URLSession.shared.downloadTask(
             with: url as URL, completionHandler: { [weak self](URL, response, error) -> Void in
+                defer {
+                    group.leave()
+                }
                 self?.start(url: URL! as NSURL)
         })
         downloadTask.resume()
+        
+        group.notify(queue: .main) { [weak self] in
+            if self?.timer == nil {
+                self?.timer = Timer.scheduledTimer(timeInterval: 0.0001, target: self!, selector: #selector(self?.updateProgressBar), userInfo: nil, repeats: true)
+            }
+            self?.play()
+        }
     }
     
     func start(url:NSURL) {
-        print("playing \(url)")
-        
         do {
             self.player = try AVAudioPlayer(contentsOf: url as URL)
             player.delegate = self
@@ -141,9 +146,8 @@ class PlayerViewController: UIViewController, GradientBackground {
             //self.player = nil
             print(error.localizedDescription)
         } catch {
-            print("AVAudioPlayer init failed")
+            print(NSLocalizedString("AVAudioPlayer init failed", comment: ""))
         }
-        
     }
     
     // MARK: - Player Actions
