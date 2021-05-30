@@ -41,6 +41,7 @@ class WelcomeViewController: UIViewController, GradientBackground {
         if let secondVC = storyboard?.instantiateViewController(identifier: "TabBarViewController") {
             AuthManager.shared.refreshAccessToken(completion: nil)
             secondVC.modalPresentationStyle = .fullScreen
+            dismiss(animated: true, completion: nil)
             self.present(secondVC, animated: true, completion: nil)
         }
     }

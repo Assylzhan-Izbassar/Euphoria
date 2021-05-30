@@ -27,7 +27,6 @@ class FavoriteViewController: UIViewController, GradientBackground {
     @IBOutlet weak var cancelBtn: UIButton!
     private var sections = [MyMediaSectionType]()
     
-//    let albums = Album.getAlbums()
     var playlists = [Playlist]()
     var albums = [Album]()
     
