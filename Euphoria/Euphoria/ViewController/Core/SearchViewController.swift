@@ -18,19 +18,26 @@ class SearchViewController: UIViewController, GradientBackground {
         super.viewDidLoad()
         
         self.setGradientBackground(view: view)
-        
+        configure()
+        decorate()
+    }
+    
+    private func configure() {
         // setting up the collectionView
         collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
+        self.searchTextField.delegate = self
+    }
+    
+    private func decorate() {
         // setting up the text field
         if let searchFieldImage = UIImage(named: "search_img") {
             searchTextField.setLeftIcon(searchFieldImage)
             makeRoundedTextField()
         }
-        searchTextField.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
     }
     
     private func makeRoundedTextField() {
@@ -117,10 +124,21 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
 }
 
 extension SearchViewController: UITextFieldDelegate {
-    @objc func myTargetFunction(textField: UITextField) {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let query = searchTextField.text, !query.trimmingCharacters(in: .whitespaces).isEmpty else {
+            return false
+        }
+        textField.resignFirstResponder()  //if desired
+        performAction()
+        
+        return true
+    }
+
+    func performAction() {
         if let searchResultVC = storyboard?.instantiateViewController(identifier: "SearchResultViewController") as? SearchResultViewController {
             searchResultVC.modalPresentationStyle = .fullScreen
-            self.present(searchResultVC, animated: true, completion: nil)
+            searchResultVC.searchedString = searchTextField.text
+            present(searchResultVC, animated: true, completion: nil)
         }
     }
 }

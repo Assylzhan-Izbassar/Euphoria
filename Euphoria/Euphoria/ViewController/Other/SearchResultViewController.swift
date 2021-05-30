@@ -7,132 +7,142 @@
 
 import UIKit
 
-class SearchResultViewController: UIViewController {
+class SearchResultViewController: UIViewController, GradientBackground {
 
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    private var sections: [SearchSection] = []
+    var searchedString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let searchFieldImage = UIImage(named: "search_img") {
-            searchTextField.setLeftIcon(searchFieldImage)
-            makeRoundedTextField()
+        setGradientBackground(view: view)
+        configureTableView()
+        
+        fetchData()
+    }
+    
+    private func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = UIColor.clear.withAlphaComponent(0)
+    }
+    
+    private func fetchData() {
+        APICaller.shared.search(with: searchedString!) { [weak self] (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let models):
+                    self?.configure(models: models)
+                    self?.tableView.isHidden = (self?.sections.isEmpty ?? (0 != 0))
+                    self?.tableView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
         }
-        
-        searchTextField.delegate = self
     }
     
-    private func makeRoundedTextField() {
-        
-        //Basic texfield Setup
-        searchTextField.borderStyle = .none
-        searchTextField.backgroundColor = .white
-
-        //To apply corner radius
-        searchTextField.layer.cornerRadius = searchTextField.frame.size.height / 2
-
-        //To apply border
-        searchTextField.layer.borderWidth = 0.25
-        searchTextField.layer.borderColor = UIColor.white.cgColor
-
-        //To apply Shadow
-        searchTextField.layer.shadowOpacity = 1
-        searchTextField.layer.shadowRadius = 0.0
-        searchTextField.layer.shadowPath = UIBezierPath(roundedRect: searchTextField.bounds, cornerRadius: searchTextField.layer.cornerRadius).cgPath
-        searchTextField.layer.shadowOffset = CGSize(width: 10.0, height: 15.0)
-        searchTextField.layer.shadowColor = UIColor(red: 255/255.0, green: 181/255.0, blue: 211/255.0, alpha: 1.0).cgColor
+    private func configure(models result: [SearchResult]) {
+        let artists = result.filter({
+            switch $0 {
+            case .artist:
+                return true
+            default:
+                return false
+            }
+        })
+        let albums = result.filter({
+            switch $0 {
+            case .album:
+                return true
+            default:
+                return false
+            }
+        })
+        let tracks = result.filter({
+            switch $0 {
+            case .track:
+                return true
+            default:
+                return false
+            }
+        })
+        sections = [
+            SearchSection(title: "Artists", results: artists),
+            SearchSection(title: "Tracks", results: tracks),
+            SearchSection(title: "Albums", results: albums)
+        ]
     }
-    
-    private func configureCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.collectionViewLayout = layout()
-        collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
-    }
-    
-    private func searchedResults() {
+
+    @IBAction func backBtnPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 }
 
-extension SearchResultViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections[section].results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        cell.configure(with: viewModels[indexPath.row])
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultsTableViewCell") as? SearchResultsTableViewCell
+        else {
+            return UITableViewCell()
+        }
         
+        let result = sections[indexPath.section].results[indexPath.row]
+        
+        switch result {
+        case .album(let model):
+            cell.configure(with: RecommendationCellViewModel(name: model.name, artistName: model.artists.first?.name, artworkURL: URL(string: model.images.first?.url ?? "")))
+        case .artist(let model):
+            cell.backgroundColor = .white
+        case .track(let model):
+            cell.configure(with: RecommendationCellViewModel(name: model.name, artistName: model.artists.first?.name, artworkURL: URL(string: model.album?.images.first?.url ?? "")))
+        }
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        guard let header = collectionView.dequeueReusableSupplementaryView(
-//                ofKind: kind,
-//                withReuseIdentifier: AlbumHeaderCollectionReusableView.identifier,
-//                for: indexPath) as? AlbumHeaderCollectionReusableView,
-//              kind == UICollectionView.elementKindSectionHeader
-//        else {
-//            return UICollectionReusableView()
-//        }
-//        let headerModel = AlbumHeaderViewModel(title: album?.name,
-//                                               artistName: album?.artists.first?.name,
-//                                               releasedDate: album?.release_date,
-//                                               imageUrl: URL(string: album?.images.first?.url ?? ""))
-//        header.configure(with: headerModel)
-//
-//        return header
-//    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        // Play song
-    }
-    
-    private func layout() -> UICollectionViewCompositionalLayout {
-        let layout = UICollectionViewCompositionalLayout { sectionIndex, environment -> NSCollectionLayoutSection? in
-            // Item
-            let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0)))
-            
-            item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-            
-            // Group
-            let group = NSCollectionLayoutGroup.vertical(layoutSize:
-                                                            NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(80)),
-                                                         subitem: item,
-                                                         count: 1)
-            
-            // Section
-            let section = NSCollectionLayoutSection(group: group)
-            // Needed for collection header
-            section.boundarySupplementaryItems = [
-                NSCollectionLayoutBoundarySupplementaryItem(
-                    layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50)),
-                    elementKind: UICollectionView.elementKindSectionHeader,
-                    alignment: .top)
-            ]
-            return section
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = 8
-        layout.configuration = config
+        let result = sections[indexPath.section].results[indexPath.row]
         
-        return layout
-    }
-}
-
-extension SearchResultViewController: UITextFieldDelegate {
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        if searchTextField.text?.count ?? 0 > 0 {
-            self.dismiss(animated: true, completion: nil)
+        switch result {
+        case .album(let model):
+            if let albumVC = storyboard?.instantiateViewController(identifier: "AlbumViewController") as? AlbumViewController {
+                albumVC.album = model
+                albumVC.modalPresentationStyle = .fullScreen
+                self.present(albumVC, animated: true, completion: nil)
+            }
+        case .artist(let model):
+            break
+        case .track(let model):
+            var trackWithAlbum: [Track] = []
+            trackWithAlbum.append(model)
+            
+            if let playerVC = storyboard?.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController {
+                playerVC.tracks = trackWithAlbum
+                present(playerVC, animated: true, completion: nil)
+            }
         }
-        return true
     }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].title
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(red: 255/255, green: 150/255, blue: 178/255, alpha: 1.0)
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
     }
 }

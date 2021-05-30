@@ -339,6 +339,36 @@ final class APICaller {
         }
     }
     
+    // MARK: - Search
+    
+    public func search(with query: String, completion: @escaping (Result<[SearchResult], Error>) -> Void) {
+        createRequest(
+            with: URL(string: "\(Constants.baseApiUrl)/search?limit=10&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&type=album,track,artist"),
+            type: .GET)
+        { baseRequest in
+            let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(SearchResultResponse.self, from: data)
+                    var searchResult: [SearchResult] = []
+                    searchResult.append(contentsOf: result.albums.items.compactMap({ SearchResult.album(model: $0) }))
+                    searchResult.append(contentsOf: result.tracks.items.compactMap({ SearchResult.track(model: $0) }))
+                    searchResult.append(contentsOf: result.artists.items.compactMap({ SearchResult.artist(model: $0) }))
+                    
+                    completion(.success(searchResult))
+                } catch {
+                    print(error.localizedDescription)
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
     // MARK: - Categories / Genres
     
     public func getCategories(completion: @escaping (Result<AllCategories, Error>) -> Void) {
