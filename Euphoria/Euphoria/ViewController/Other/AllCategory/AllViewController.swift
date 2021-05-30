@@ -291,13 +291,14 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                 self.present(PlaylistVC, animated: true, completion: nil)
             }
         case .recommendedTracks:
-            let track = tracks[indexPath.row]
-            
-            var trackWithAlbum: [Track] = []
-            trackWithAlbum.append(track)
-            
+//            let track = tracks[indexPath.row]
+//            
+//            var trackWithAlbum: [Track] = []
+//            trackWithAlbum.append(track)
+//            
             if let playerVC = storyboard?.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController {
-                playerVC.tracks = trackWithAlbum
+                playerVC.startingIndex = indexPath.row
+                playerVC.tracks = tracks
                 present(playerVC, animated: true, completion: nil)
             }
         }

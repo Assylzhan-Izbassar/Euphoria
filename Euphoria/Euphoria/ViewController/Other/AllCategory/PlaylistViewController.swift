@@ -28,7 +28,7 @@ class PlaylistViewController: UIViewController, GradientBackground {
         configureCollectionView()
         fetchPlaylistDetail()
         
-        let gesture = UILongPressGestureRecognizer(target: collectionView, action: #selector(didLongPress))
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress))
         collectionView.addGestureRecognizer(gesture)
     }
     
@@ -40,6 +40,9 @@ class PlaylistViewController: UIViewController, GradientBackground {
     }
     
     @objc func didLongPress(_ gesture: UILongPressGestureRecognizer) {
+        if !isOwner {
+            return
+        }
         guard gesture.state == .began else {
             return
         }

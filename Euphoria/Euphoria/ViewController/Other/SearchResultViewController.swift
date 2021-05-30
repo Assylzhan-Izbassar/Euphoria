@@ -109,6 +109,9 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         case .track(let model):
             cell.configure(with: RecommendationCellViewModel(name: model.name, artistName: model.artists.first?.name, artworkURL: URL(string: model.album?.images.first?.url ?? "")))
         }
+        
+        cell.backgroundColor = UIColor.clear.withAlphaComponent(0)
+        
         return cell
     }
     

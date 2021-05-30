@@ -24,9 +24,9 @@ class PlayerViewController: UIViewController, GradientBackground {
     private var timer: Timer?
     private var playingIndex = 0
     
-    var tracks: [Track]?
+    public var startingIndex: Int?
     
-    var album: Album?
+    var tracks: [Track]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +60,7 @@ class PlayerViewController: UIViewController, GradientBackground {
         // about player
         setRounded(image: songPoster)
         if let tracks = tracks {
+            playingIndex = startingIndex ?? 0
             setupPlayer(with: tracks[playingIndex])
         }
     }
