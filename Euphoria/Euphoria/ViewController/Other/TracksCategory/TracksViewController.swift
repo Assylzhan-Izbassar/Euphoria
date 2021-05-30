@@ -92,6 +92,13 @@ extension TracksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let track = tracks[indexPath.row]
-        PlayerPresenter.shared.startPlayer(from: self, track: track)
+        
+        var trackWithAlbum: [Track] = []
+        trackWithAlbum.append(track)
+        
+        if let playerVC = storyboard?.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController {
+            playerVC.tracks = trackWithAlbum
+            present(playerVC, animated: true, completion: nil)
+        }
     }
 }

@@ -8,12 +8,6 @@
 import UIKit
 import AVKit
 
-protocol PlayerViewControllerDelegate: AnyObject {
-    func didTapPlayPause()
-    func didTapForward()
-    func didTapBackward()
-    
-}
 class PlayerViewController: UIViewController, GradientBackground {
     
     @IBOutlet weak var songPoster: UIImageView!
@@ -25,21 +19,18 @@ class PlayerViewController: UIViewController, GradientBackground {
     @IBOutlet weak var playPauseBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var previousBtn: UIButton!
-    weak var delegate: PlayerViewControllerDelegate?
-    weak var dataSource: PlayerDataSource?
     
     private var player = AVAudioPlayer()
     private var timer: Timer?
     private var playingIndex = 0
-    private var isPlaying = true
+    
+    var tracks: [Track]?
     
     var album: Album?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         decorate()
-        configurePlayer()
     }
     
     private func decorate() {
@@ -59,22 +50,18 @@ class PlayerViewController: UIViewController, GradientBackground {
         previousBtn.layer.shadowOffset = CGSize(width: 10, height: 10)
         previousBtn.layer.shadowRadius = 35
         previousBtn.layer.shadowOpacity = 0.25
+        
         self.setGradientBackground(view: view)
-    }
-    
-    private func configurePlayer() {
-        songTitle.text = dataSource?.songTitle
-        artistName.text = dataSource?.artistName
-        songPoster.sd_setImage(with: dataSource?.imageURL, completed: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         // about player
         setRounded(image: songPoster)
-//        if let album = album {
-//            setupPlayer(with: album.songs[playingIndex])
-//        }
+        if let tracks = tracks {
+            setupPlayer(with: tracks[playingIndex])
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,9 +79,15 @@ class PlayerViewController: UIViewController, GradientBackground {
     // MARK: - Setup the Player
     
     // method that setting up the player with url
-    private func setupPlayer(with song: Song) {
-        guard let url = Bundle.main.url(forResource: song.fileName, withExtension: "mp3")
+    private func setupPlayer(with song: Track) {
+        guard let url = song.preview_url
         else {
+            if playingIndex >= tracks!.count {
+                dismiss(animated: true, completion: nil)
+                return
+            } else {
+                setupPlayer(with: tracks![playingIndex+1])
+            }
             return
         }
         
@@ -103,19 +96,52 @@ class PlayerViewController: UIViewController, GradientBackground {
         }
         
         songTitle.text = song.name
-        artistName.text = song.artistName
-        songPoster.image = UIImage(named: song.posterUrl)
+        artistName.text = song.artists.first?.name
+        songPoster.sd_setImage(with: URL(string: song.album?.images.first?.url ?? ""), completed: nil)
+        
+        let url_ = NSURL(string: url)
+        downloadFileFromURL(url: url_!)
+        
+//        do {
+//            player = try AVAudioPlayer(contentsOf: url)
+//            player.delegate = self
+//            player.prepareToPlay()
+//
+//            // if phone is not in silence then it will be play
+//            try AVAudioSession.sharedInstance().setCategory(.playback)
+//            try AVAudioSession.sharedInstance().setActive(true)
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+    }
+    
+    func downloadFileFromURL(url: NSURL){
+
+        var downloadTask: URLSessionDownloadTask
+        downloadTask = URLSession.shared.downloadTask(
+            with: url as URL, completionHandler: { [weak self](URL, response, error) -> Void in
+                self?.start(url: URL! as NSURL)
+        })
+        downloadTask.resume()
+    }
+    
+    func start(url:NSURL) {
+        print("playing \(url)")
         
         do {
-            player = try AVAudioPlayer(contentsOf: url)
+            self.player = try AVAudioPlayer(contentsOf: url as URL)
             player.delegate = self
+            player.volume = 0.5
             player.prepareToPlay()
             
             // if phone is not in silence then it will be play
             try AVAudioSession.sharedInstance().setCategory(.playback)
             try AVAudioSession.sharedInstance().setActive(true)
-        } catch let error {
+        } catch let error as NSError {
+            //self.player = nil
             print(error.localizedDescription)
+        } catch {
+            print("AVAudioPlayer init failed")
         }
         
     }
@@ -167,44 +193,39 @@ class PlayerViewController: UIViewController, GradientBackground {
     
     @IBAction func pause(_ sender: UIButton) {
         
-        delegate?.didTapPlayPause()
-//        if player.isPlaying {
-//            player.pause()
-//        } else {
-//            player.play()
-//        }
-        self.isPlaying = !isPlaying
-        setPlayPauseIcon(isPlaying: isPlaying)
+        if player.isPlaying {
+            player.pause()
+        } else {
+            player.play()
+        }
+        setPlayPauseIcon(isPlaying: player.isPlaying)
     }
     
     @IBAction func nextPressed(_ sender: UIButton) {
         
-//        playingIndex += 1
-        delegate?.didTapForward()
+        playingIndex += 1
         
-//        if let album = album {
-//            if playingIndex >= album.songs.count {
-//                playingIndex = 0
-//            }
-//            setupPlayer(with: album.songs[playingIndex])
-//            play()
-//            setPlayPauseIcon(isPlaying: player.isPlaying)
-//        }
+        if let tracks = tracks {
+            if playingIndex >= tracks.count {
+                playingIndex = 0
+            }
+            setupPlayer(with: tracks[playingIndex])
+            play()
+            setPlayPauseIcon(isPlaying: player.isPlaying)
+        }
     }
     
     @IBAction func previousPressed(_ sender: UIButton) {
-
-        delegate?.didTapBackward()
-//        playingIndex -= 1
+        playingIndex -= 1
         
-//        if let album = album {
-//            if playingIndex < 0 {
-//                playingIndex = album.songs.count - 1
-//            }
-//            setupPlayer(with: album.songs[playingIndex])
-//            play()
-//            setPlayPauseIcon(isPlaying: player.isPlaying)
-//        }
+        if let tracks = tracks {
+            if playingIndex < 0 {
+                playingIndex = tracks.count - 1
+            }
+            setupPlayer(with: tracks[playingIndex])
+            play()
+            setPlayPauseIcon(isPlaying: player.isPlaying)
+        }
     }
     
     @IBAction func progressBar(_ sender: UISlider) {
@@ -223,18 +244,6 @@ class PlayerViewController: UIViewController, GradientBackground {
 extension PlayerViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         nextPressed(nextBtn)
-    }
-    
-    func playerControlsViewDidTapPlayPauseButton(_ playerControlsView:  AVAudioPlayer){
-        delegate?.didTapPlayPause()
-    }
-    
-    func playerControlsViewDidTapBackwardButton(_ playerControlsView:  AVAudioPlayer){
-        delegate?.didTapBackward()
-    }
-    
-    func playerControlsViewDidTapTapForwardButton(_ playerControlsView:  AVAudioPlayer){
-        delegate?.didTapForward()
     }
 }
 

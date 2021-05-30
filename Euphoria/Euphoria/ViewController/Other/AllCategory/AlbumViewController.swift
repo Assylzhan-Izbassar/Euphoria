@@ -112,7 +112,14 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
         // Play song
         var track = tracks[indexPath.row]
         track.album = self.album
-        PlayerPresenter.shared.startPlayer(from: self, track: track)
+        
+        var trackWithAlbum: [Track] = []
+        trackWithAlbum.append(track)
+        
+        if let playerVC = storyboard?.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController {
+            playerVC.tracks = trackWithAlbum
+            present(playerVC, animated: true, completion: nil)
+        }
     }
     
     private func layout() -> UICollectionViewCompositionalLayout {
@@ -155,6 +162,10 @@ extension AlbumViewController: AlbumHeaderCollectionReusableViewDelegate {
             track.album = self.album
             return track
         })
-        PlayerPresenter.shared.startPlayer(from: self, tracks: trackWithAlbum)
+        
+        if let playerVC = storyboard?.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController {
+            playerVC.tracks = trackWithAlbum
+            present(playerVC, animated: true, completion: nil)
+        }
     }
 }

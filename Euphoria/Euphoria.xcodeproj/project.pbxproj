@@ -27,7 +27,6 @@
 		FA1758DF265E7E5800DC83B0 /* RecommendedTrackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1758DE265E7E5800DC83B0 /* RecommendedTrackCollectionViewCell.swift */; };
 		FA1758E3265E7EA500DC83B0 /* NewReleasesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1758E2265E7EA500DC83B0 /* NewReleasesCellViewModel.swift */; };
 		FA1758E6265EB15C00DC83B0 /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1758E5265EB15C00DC83B0 /* AllViewController.swift */; };
-		FA18B3C32661DB4800E20AEE /* PlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA18B3C22661DB4800E20AEE /* PlayerPresenter.swift */; };
 		FA2E6902265CD22D0009020D /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6901265CD22D0009020D /* AuthViewController.swift */; };
 		FA2E6906265CD3210009020D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6905265CD3210009020D /* AuthManager.swift */; };
 		FA2E6909265CD3380009020D /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E6908265CD3380009020D /* APICaller.swift */; };
@@ -104,7 +103,6 @@
 		FA1758DE265E7E5800DC83B0 /* RecommendedTrackCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTrackCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA1758E2265E7EA500DC83B0 /* NewReleasesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesCellViewModel.swift; sourceTree = "<group>"; };
 		FA1758E5265EB15C00DC83B0 /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
-		FA18B3C22661DB4800E20AEE /* PlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPresenter.swift; sourceTree = "<group>"; };
 		FA2E6901265CD22D0009020D /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FA2E6905265CD3210009020D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FA2E6908265CD3380009020D /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -254,14 +252,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		FA18B3C12661DB2000E20AEE /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				FA18B3C22661DB4800E20AEE /* PlayerPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		FA2E68FE265CD1C80009020D /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,7 +312,6 @@
 		FA382AAA2632D1D9005AEB46 /* Euphoria */ = {
 			isa = PBXGroup;
 			children = (
-				FA18B3C12661DB2000E20AEE /* Presenter */,
 				FA14A744264DAD6F00CF05F2 /* Models */,
 				FA6CEF74265A54820041116A /* Interfaces */,
 				FA2E6904265CD3000009020D /* Managers */,
@@ -586,7 +575,6 @@
 				FA382AAC2632D1D9005AEB46 /* AppDelegate.swift in Sources */,
 				FA14A746264DAD8800CF05F2 /* Song.swift in Sources */,
 				FA1758D2265E53AC00DC83B0 /* RecomendationResponse.swift in Sources */,
-				FA18B3C32661DB4800E20AEE /* PlayerPresenter.swift in Sources */,
 				FA79F74026634F0F00A44A05 /* MyMediaAlbumCollectionViewCell.swift in Sources */,
 				FA6D29F42660EB800045BE8F /* AlbumHeaderCollectionReusableView.swift in Sources */,
 				FA1758CF265E030500DC83B0 /* FeaturedPlaylistResponse.swift in Sources */,

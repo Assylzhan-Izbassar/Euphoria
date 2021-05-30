@@ -104,7 +104,16 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         // Play song
-        PlayerPresenter.shared.startPlayer(from: self, track: tracks[indexPath.row])
+        
+        let track = tracks[indexPath.row]
+        
+        var trackWithAlbum: [Track] = []
+        trackWithAlbum.append(track)
+        
+        if let playerVC = storyboard?.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController {
+            playerVC.tracks = trackWithAlbum
+            present(playerVC, animated: true, completion: nil)
+        }
     }
     
     private func layout() -> UICollectionViewCompositionalLayout {
@@ -144,6 +153,9 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
 extension PlaylistViewController: PlaylistHeaderCollectionReusableViewDelegate {
     func playlistHeaderCollectionReusableViewDelegateDidTapPlayAll(_ header: PlaylistHeaderCollectionReusableView) {
         // start playing
-        PlayerPresenter.shared.startPlayer(from: self, tracks: tracks)
+        if let playerVC = storyboard?.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController {
+            playerVC.tracks = tracks
+            present(playerVC, animated: true, completion: nil)
+        }
     }
 }
