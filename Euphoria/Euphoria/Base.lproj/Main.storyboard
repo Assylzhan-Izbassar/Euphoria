@@ -398,7 +398,7 @@
                                                         <color key="titleColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="addNewPlaylist:" destination="1PW-PW-mGW" eventType="touchUpInside" id="eDj-uk-s2H"/>
+                                                        <action selector="addNewPlaylist:" destination="1PW-PW-mGW" eventType="touchUpInside" id="eDE-xo-cgl"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

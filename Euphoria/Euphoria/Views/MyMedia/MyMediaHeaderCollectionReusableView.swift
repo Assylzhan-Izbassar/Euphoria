@@ -9,6 +9,7 @@ import UIKit
 
 protocol MyMediaHeaderCollectionReusableViewDelegate {
     func addNewPlaylist()
+    func addNewAlbum()
 }
 
 class MyMediaHeaderCollectionReusableView: UICollectionReusableView {
@@ -23,14 +24,11 @@ class MyMediaHeaderCollectionReusableView: UICollectionReusableView {
         titleLabel.text = title
     }
     
-    @IBAction func addNewPlaylist(_ sender: UIButton, section: Int) {
-        switch section {
-        case 0:
+    @IBAction func addNewPlaylist(_ sender: UIButton) {
+        if titleLabel.text == "Playlists" {
             MyMediaHeaderCollectionReusableView.delegate?.addNewPlaylist()
-        case 1:
-            break
-        default:
-            break
+        } else if titleLabel.text == "Albums"{
+            MyMediaHeaderCollectionReusableView.delegate?.addNewAlbum()
         }
     }
 }

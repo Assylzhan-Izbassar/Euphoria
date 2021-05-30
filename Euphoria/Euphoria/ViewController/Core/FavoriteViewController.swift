@@ -148,6 +148,13 @@ extension FavoriteViewController: MyMediaHeaderCollectionReusableViewDelegate {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    func addNewAlbum() {
+        if let AlbumsVC = storyboard?.instantiateViewController(identifier: "BrowersAlbumViewController") as? BrowersAlbumViewController {
+            AlbumsVC.modalPresentationStyle = .fullScreen
+            self.present(AlbumsVC, animated: true, completion: nil)
+        }
+    }
 }
 
 extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
