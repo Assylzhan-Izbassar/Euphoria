@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA050226266268B90080C57B /* LibraryPlaylistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA050225266268B90080C57B /* LibraryPlaylistResponse.swift */; };
+		FA05022926626E4C0080C57B /* MyMediaHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA05022826626E4C0080C57B /* MyMediaHeaderCollectionReusableView.swift */; };
 		FA07E584265FA9B2008981AE /* FeaturedPlaylistCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07E583265FA9B2008981AE /* FeaturedPlaylistCellViewModel.swift */; };
 		FA07E587265FAB11008981AE /* RecommendationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07E586265FAB11008981AE /* RecommendationCellViewModel.swift */; };
 		FA07E58C265FE395008981AE /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07E58B265FE395008981AE /* AlbumViewController.swift */; };
@@ -74,6 +76,8 @@
 		72393E7473C8C18AA415204B /* Pods_Euphoria.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Euphoria.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D098A1155C47A84593F64C36 /* Pods-Euphoria.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euphoria.release.xcconfig"; path = "Target Support Files/Pods-Euphoria/Pods-Euphoria.release.xcconfig"; sourceTree = "<group>"; };
 		E209D2BAF707286E9C15AA2C /* Pods-Euphoria.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euphoria.debug.xcconfig"; path = "Target Support Files/Pods-Euphoria/Pods-Euphoria.debug.xcconfig"; sourceTree = "<group>"; };
+		FA050225266268B90080C57B /* LibraryPlaylistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPlaylistResponse.swift; sourceTree = "<group>"; };
+		FA05022826626E4C0080C57B /* MyMediaHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMediaHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FA07E583265FA9B2008981AE /* FeaturedPlaylistCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistCellViewModel.swift; sourceTree = "<group>"; };
 		FA07E586265FAB11008981AE /* RecommendationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCellViewModel.swift; sourceTree = "<group>"; };
 		FA07E58B265FE395008981AE /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 				FA1758D1265E53AC00DC83B0 /* RecomendationResponse.swift */,
 				FA07E598265FF95A008981AE /* AlbumDetailsResponse.swift */,
 				FA07E59C26600128008981AE /* PlaylistDetailsResponse.swift */,
+				FA050225266268B90080C57B /* LibraryPlaylistResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				FA1758DB265E7E3E00DC83B0 /* FeaturedPlaylistCollectionViewCell.swift */,
 				FA1758DE265E7E5800DC83B0 /* RecommendedTrackCollectionViewCell.swift */,
 				FA6D29EC2660CE250045BE8F /* TitleHeaderCollectionReusableView.swift */,
+				FA05022826626E4C0080C57B /* MyMediaHeaderCollectionReusableView.swift */,
 			);
 			path = All;
 			sourceTree = "<group>";
@@ -499,6 +505,7 @@
 				FA6D29E62660B71C0045BE8F /* PlaylistHeaderCollectionReusableView.swift in Sources */,
 				FA6D29FB26610E620045BE8F /* SearchResultViewController.swift in Sources */,
 				FA07E5BC26601AAD008981AE /* PlaylistDetailsCollectionViewCell.swift in Sources */,
+				FA050226266268B90080C57B /* LibraryPlaylistResponse.swift in Sources */,
 				FA6CEF7A265A85D50041116A /* CollectionCellDecoration.swift in Sources */,
 				FA07E596265FF465008981AE /* PlaylistViewController.swift in Sources */,
 				FAEA2506264E3FB700D814D0 /* FavoriteCollectionViewCell.swift in Sources */,
@@ -513,6 +520,7 @@
 				FA07E587265FAB11008981AE /* RecommendationCellViewModel.swift in Sources */,
 				FA6CEF82265A8CA50041116A /* TabBarViewController.swift in Sources */,
 				FA1758E6265EB15C00DC83B0 /* AllViewController.swift in Sources */,
+				FA05022926626E4C0080C57B /* MyMediaHeaderCollectionReusableView.swift in Sources */,
 				FA6D29E92660BB5E0045BE8F /* PlaylistHeaderViewModel.swift in Sources */,
 				FA1758DC265E7E3E00DC83B0 /* FeaturedPlaylistCollectionViewCell.swift in Sources */,
 				FAD0F4972661450E00093FD3 /* CategoryViewController.swift in Sources */,

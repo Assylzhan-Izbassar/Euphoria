@@ -11,7 +11,7 @@ class FavoriteCollectionViewCell: BaseCollectionViewCell{
     
     @IBOutlet weak var albumName: UILabel!
     
-    func setup(with album: Album) {
-        albumName.text = album.name
+    func setup(with playlist: Playlist) {
+        albumName.text = playlist.name
     }
 }

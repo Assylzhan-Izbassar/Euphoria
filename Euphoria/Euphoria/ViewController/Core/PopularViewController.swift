@@ -16,13 +16,15 @@ class PopularViewController: UIViewController, GradientBackground {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setGradientBackground(view: view)
-        
+        configureCollectionView()
+        fetchData()
+    }
+    
+    private func configureCollectionView() {
         collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        
-        fetchData()
     }
     
     private func fetchData() {
