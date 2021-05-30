@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class SearchResultViewController: UIViewController, GradientBackground {
 
@@ -104,7 +105,7 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         case .album(let model):
             cell.configure(with: RecommendationCellViewModel(name: model.name, artistName: model.artists.first?.name, artworkURL: URL(string: model.images.first?.url ?? "")))
         case .artist(let model):
-            cell.backgroundColor = .white
+            cell.configure(with: RecommendationCellViewModel(name: model.name, artistName: model.genres?.first, artworkURL: URL(string: model.images?.first?.url ?? "")))
         case .track(let model):
             cell.configure(with: RecommendationCellViewModel(name: model.name, artistName: model.artists.first?.name, artworkURL: URL(string: model.album?.images.first?.url ?? "")))
         }
@@ -124,7 +125,12 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
                 self.present(albumVC, animated: true, completion: nil)
             }
         case .artist(let model):
-            break
+            guard let url = URL(string: model.external_urls["spotify"] ?? "") else {
+//                make some action
+                return
+            }
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true, completion: nil)
         case .track(let model):
             var trackWithAlbum: [Track] = []
             trackWithAlbum.append(model)
