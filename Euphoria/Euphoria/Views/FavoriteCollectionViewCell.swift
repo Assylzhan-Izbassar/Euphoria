@@ -11,7 +11,7 @@ class FavoriteCollectionViewCell: BaseCollectionViewCell{
     
     @IBOutlet weak var albumName: UILabel!
     
-    func setup(with playlist: Playlist) {
+    func configure(with playlist: MyMediaPlaylistViewModel) {
         albumName.text = playlist.name
     }
 }

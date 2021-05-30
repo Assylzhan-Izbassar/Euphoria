@@ -8,8 +8,8 @@
 import UIKit
 
 enum MyMediaSectionType {
-    case playlists(viewModels: [FeaturedPlaylistCellViewModel]) // 0
-    case albums(viewModels: [NewReleasesCellViewModel]) // 1
+    case playlists(viewModels: [MyMediaPlaylistViewModel]) // 0
+    case albums(viewModels: [MyMediaAlbumViewModel]) // 1
     
     var title: String {
         switch self {
@@ -27,8 +27,7 @@ class FavoriteViewController: UIViewController, GradientBackground {
     @IBOutlet weak var cancelBtn: UIButton!
     private var sections = [MyMediaSectionType]()
     
-    var playlists = [Playlist]()
-    var albums = [Album]()
+    private var playlists: [Playlist] = [], albums: [Album] = []
     
     public var selectionHandler: ((Playlist) -> Void)?
 
@@ -61,17 +60,36 @@ class FavoriteViewController: UIViewController, GradientBackground {
     
     private func fetchData() {
         
+        sections.removeAll()
+        playlists.removeAll()
+        albums.removeAll()
+        
         let group = DispatchGroup()
         group.enter()
+        group.enter()
         
+        // Getting user's playlists
         APICaller.shared.getCurrentUserPlaylists { [weak self] (result) in
             defer {
                 group.leave()
             }
             switch result {
-            case .success(let models):
-                self?.playlists = models
+            case .success(let playlists):
+                self?.playlists = playlists
             case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        // Getting user's albums
+        APICaller.shared.getCurrentUserAlbums { [weak self] (result) in
+            defer {
+                group.leave()
+            }
+            switch result {
+            case .success(let albums):
+                self?.albums = albums
+            case .failure(let error):
                 print(error.localizedDescription)
             }
         }
@@ -84,23 +102,16 @@ class FavoriteViewController: UIViewController, GradientBackground {
     
     private func configureModels(with playlists: [Playlist], albums: [Album]) {
         
-        self.playlists = playlists
-//        self.albums = albums
-        
         // Configure models
         sections.append(.playlists(viewModels: playlists.compactMap({
-            return FeaturedPlaylistCellViewModel(
-                name: $0.name,
-                imageUrl: URL(string: $0.images.first?.url ?? ""),
-                creatorName: $0.owner.display_name)
+            return MyMediaPlaylistViewModel(
+                name: $0.name
+            )
         })))
         
-//        sections.append(.albums(viewModels: albums.compactMap({
-//            return NewReleasesCellViewModel(name: $0.name,
-//                                            artWorkUrl: URL(string: $0.images.first?.url ?? ""),
-//                                            numberOfTracks: $0.total_tracks,
-//                                            artistName: $0.artists.first?.name ?? "No name")
-//        })))
+        sections.append(.albums(viewModels: albums.compactMap({
+            return MyMediaAlbumViewModel(name: $0.name, imageUrl: URL(string: $0.images.first?.url ?? ""), creatorName: $0.artists.first?.name)
+        })))
     }
     
     
@@ -142,39 +153,39 @@ extension FavoriteViewController: MyMediaHeaderCollectionReusableViewDelegate {
 extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return playlists.count
+        let type = sections[section]
+        switch type {
+        case .playlists(let viewModels):
+            return viewModels.count
+        case .albums(let viewModels):
+            return viewModels.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCollectionViewCell", for: indexPath) as? FavoriteCollectionViewCell
-        else {
-            return UICollectionViewCell()
-        }
         
-        cell.makeRoundedCorners(30.0, 10.0, CGSize(width: 5, height: 10))
-        cell.setup(with: playlists[indexPath.row])
+        let type = sections[indexPath.section]
         
-        return cell
-    }
-    
-    // here we can observe by clicking the cell
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        
-        guard selectionHandler == nil else {
-            selectionHandler?(playlists[indexPath.row])
-            dismiss(animated: true, completion: nil)
-            return
-        }
-        
-        if let playlistVC = storyboard?.instantiateViewController(identifier: "PlaylistViewController") as? PlaylistViewController {
-            playlistVC.playlist = playlists[indexPath.row]
-            playlistVC.modalPresentationStyle = .fullScreen
-            self.present(playlistVC, animated: true, completion: nil)
+        switch type {
+        case .playlists(let viewModels):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCollectionViewCell", for: indexPath) as? FavoriteCollectionViewCell
+            else {
+                return UICollectionViewCell()
+            }
+            cell.makeRoundedCorners(30.0, 10.0, CGSize(width: 5, height: 10))
+            cell.configure(with: viewModels[indexPath.row])
+            return cell
+        case .albums(let viewModels):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyMediaAlbumCollectionViewCell.identifier, for: indexPath) as? MyMediaAlbumCollectionViewCell
+            else {
+                return UICollectionViewCell()
+            }
+            cell.configure(with: viewModels[indexPath.row])
+            return cell
         }
     }
     
@@ -187,11 +198,37 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
             return UICollectionReusableView()
         }
         
-//        let section = indexPath.section
-        
-//        header.configure(with: sections[section].title, section: section)
+        let section = indexPath.section
+        header.configure(with: sections[section].title)
         
         return header
+    }
+    
+    // here we can observe by clicking the cell
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let section = sections[indexPath.section]
+        
+        switch section {
+        case .playlists:
+            guard selectionHandler == nil else {
+                selectionHandler?(playlists[indexPath.row])
+                dismiss(animated: true, completion: nil)
+                return
+            }
+            if let playlistVC = storyboard?.instantiateViewController(identifier: "PlaylistViewController") as? PlaylistViewController {
+                playlistVC.playlist = playlists[indexPath.row]
+                playlistVC.modalPresentationStyle = .fullScreen
+                self.present(playlistVC, animated: true, completion: nil)
+            }
+        case .albums:
+            if let albumVC = storyboard?.instantiateViewController(identifier: "AlbumViewController") as? AlbumViewController {
+                albumVC.album = albums[indexPath.row]
+                albumVC.modalPresentationStyle = .fullScreen
+                self.present(albumVC, animated: true, completion: nil)
+            }
+        }
     }
     
     // to have diffrent section behave differently
@@ -239,11 +276,11 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
                 // Group
                 // Vertical group inside the horizontal group
                 let verticalGroup = NSCollectionLayoutGroup.vertical(layoutSize:
-                                                                        NSCollectionLayoutSize(widthDimension: .absolute(320), heightDimension: .absolute(320)),
+                                                                        NSCollectionLayoutSize(widthDimension: .absolute(400), heightDimension: .absolute(266)),
                                                                      subitem: item,
                                                                      count: 1)
                 let horizontalGroup = NSCollectionLayoutGroup.horizontal(layoutSize:
-                                                                            NSCollectionLayoutSize(widthDimension: .absolute(320), heightDimension: .absolute(320)),
+                                                                            NSCollectionLayoutSize(widthDimension: .absolute(400), heightDimension: .absolute(266)),
                                                                          subitem: verticalGroup,
                                                                          count: 2)
                 
@@ -274,7 +311,7 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
         }
         
         let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = 10
+        config.interSectionSpacing = 5
         layout.configuration = config
         
         return layout

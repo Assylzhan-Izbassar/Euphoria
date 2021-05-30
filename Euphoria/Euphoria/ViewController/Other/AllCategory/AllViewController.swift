@@ -156,7 +156,7 @@ class AllViewController: UIViewController, GradientBackground {
             }
         })
         
-        group.notify(queue: .main) { [self] in
+        group.notify(queue: .main) { [weak self] in
             guard
                 let newAlbums  = newReleases?.albums.items,
                 let playlists = featuredPlaylist?.playlists.items,
@@ -165,9 +165,9 @@ class AllViewController: UIViewController, GradientBackground {
                 return
             }
             
-            self.configureModels(with: newAlbums, playlists: playlists, tracks: tracks)
+            self?.configureModels(with: newAlbums, playlists: playlists, tracks: tracks)
             
-            collectionView.reloadData()
+            self?.collectionView.reloadData()
         }
     }
     

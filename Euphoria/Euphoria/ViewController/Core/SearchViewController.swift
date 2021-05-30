@@ -89,11 +89,15 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             AllVC.modalPresentationStyle = .fullScreen
             self.present(AllVC, animated: true, completion: nil)
         case "Tracks":
-            break
+            let TracksVC = storyboard.instantiateViewController(identifier: "TracksViewController")
+            TracksVC.modalPresentationStyle = .fullScreen
+            self.present(TracksVC, animated: true, completion: nil)
         case "Artists":
             break
         case "Albums":
-            break
+            let AlbumsVC = storyboard.instantiateViewController(identifier: "BrowersAlbumViewController")
+            AlbumsVC.modalPresentationStyle = .fullScreen
+            self.present(AlbumsVC, animated: true, completion: nil)
         default:
             break
         }

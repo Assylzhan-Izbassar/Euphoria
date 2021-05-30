@@ -19,14 +19,18 @@ class MyMediaHeaderCollectionReusableView: UICollectionReusableView {
     
     static var delegate: MyMediaHeaderCollectionReusableViewDelegate?
     
-    func configure(with title: String, section: Int) {
+    func configure(with title: String) {
         titleLabel.text = title
-        if section == 1 {
-            addBtn.isHidden = true
-        }
     }
     
-    @IBAction func addNewPlaylist(_ sender: UIButton) {
-        MyMediaHeaderCollectionReusableView.delegate?.addNewPlaylist()
+    @IBAction func addNewPlaylist(_ sender: UIButton, section: Int) {
+        switch section {
+        case 0:
+            MyMediaHeaderCollectionReusableView.delegate?.addNewPlaylist()
+        case 1:
+            break
+        default:
+            break
+        }
     }
 }
