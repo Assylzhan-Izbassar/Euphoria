@@ -15,8 +15,15 @@ class SearchResultsTableViewCell: UITableViewCell {
     @IBOutlet weak var creator: UILabel!
     
     func configure(with viewModel: RecommendationCellViewModel) {
+        decorate()
         title.text = viewModel.name
         creator.text = viewModel.artistName
-        poster.sd_setImage(with: viewModel.artworkURL, completed: nil)
+        poster.sd_setImage(with: viewModel.artworkURL, placeholderImage: UIImage(named: "ellipse"), completed: nil)
+    }
+    
+    private func decorate() {
+        poster.layer.masksToBounds = false
+        poster.layer.cornerRadius = poster.frame.height/2
+        poster.clipsToBounds = true
     }
 }
