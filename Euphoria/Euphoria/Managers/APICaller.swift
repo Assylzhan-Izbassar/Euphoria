@@ -86,8 +86,27 @@ final class APICaller {
         }
     }
     
-    public func saveAlbumToCurrentUser(album: Album, completion: @escaping (Bool) -> Void ) {
+    public func saveAlbumToCurrentUser(album: Album, completion: @escaping (Bool) -> Void) {
         createRequest(with: URL(string: "\(Constants.baseApiUrl)/me/albums?ids=\(album.id)"), type: .PUT) { baseRequest in
+            var request = baseRequest
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard
+                      let code = (response as? HTTPURLResponse)?.statusCode,
+                      error == nil
+                else {
+                    completion(false)
+                    return
+                }
+                
+                completion(code == 200)
+            }
+            task.resume()
+        }
+    }
+    
+    public func removeAlbumFromCurrentUser(id: String, completion: @escaping (Bool) -> Void) {
+        createRequest(with: URL(string: "\(Constants.baseApiUrl)/me/albums?ids=\(id)"), type: .DELETE) { baseRequest in
             var request = baseRequest
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             let task = URLSession.shared.dataTask(with: request) { data, response, error in

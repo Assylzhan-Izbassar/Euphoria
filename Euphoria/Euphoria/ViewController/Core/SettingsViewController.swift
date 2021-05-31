@@ -14,8 +14,10 @@ class SettingsViewController: UIViewController, GradientBackground {
         self.setGradientBackground(view: view)
     }
     @IBAction func profilePressed(_ sender: UIButton) {
-        let vc = ProfileViewController()
-        present(vc, animated: true, completion: nil)
+        if let profileVC = storyboard?.instantiateViewController(identifier: "ProfileViewController") as? ProfileViewController{
+            profileVC.modalPresentationStyle = .fullScreen
+            present(profileVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func signOutButtonPressed(_ sender: UIButton) {
@@ -40,4 +42,10 @@ class SettingsViewController: UIViewController, GradientBackground {
         present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func didShareToFriendPressed(_ sender: UIButton) {
+        let external_url = "https://github.com/Assylzhan-Izbassar/Euphoria"
+        
+        let vc = UIActivityViewController(activityItems: ["Check out the feeling of euphoria!", external_url], applicationActivities: [])
+        present(vc, animated: true, completion: nil)
+    }
 }

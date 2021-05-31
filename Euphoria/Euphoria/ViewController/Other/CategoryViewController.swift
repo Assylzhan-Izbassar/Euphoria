@@ -18,6 +18,7 @@ class CategoryViewController: UIViewController, GradientBackground {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setGradientBackground(view: view)
         headerTitle.text = category!.name
         configureCollectionView()
         

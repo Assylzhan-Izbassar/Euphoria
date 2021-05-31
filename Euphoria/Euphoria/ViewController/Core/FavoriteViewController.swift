@@ -44,6 +44,8 @@ class FavoriteViewController: UIViewController, GradientBackground {
         } else {
             cancelBtn.isHidden = true
         }
+        
+        addLongTapGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,11 +53,55 @@ class FavoriteViewController: UIViewController, GradientBackground {
         fetchData()
     }
     
+    private func addLongTapGesture() {
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:)))
+        collectionView.addGestureRecognizer(gesture)
+    }
+    
+    @objc func didLongPress(_ gesture: UILongPressGestureRecognizer) {
+        guard gesture.state == .began else {
+            return
+        }
+        let touchPoint = gesture.location(in: collectionView)
+        
+        guard let indexPath = collectionView.indexPathForItem(at: touchPoint),
+              indexPath.section == 1 else {
+            return
+        }
+        
+        let model = albums[indexPath.row]
+        let actionSheet = UIAlertController(title: model.name, message: NSLocalizedString("Would you like to remove album from the media?", comment: ""), preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Remove", comment: ""), style: .default, handler: { [weak self] _ in
+            self?.removeAlbum(with: indexPath.row)
+        }))
+        
+        present(actionSheet, animated: true)
+    }
+    
     private func configureCollectionView() {
         collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = layout()
+    }
+    
+    private func removeAlbum(with indexPath: Int) {
+        let group = DispatchGroup()
+        group.enter()
+        
+        APICaller.shared.removeAlbumFromCurrentUser(id: albums[indexPath].id) { (result) in
+            defer {
+                group.leave()
+            }
+            // Alert
+            print("Removed!")
+        }
+        
+        group.notify(queue: .main) { [weak self] in
+            self?.fetchData()
+        }
     }
     
     private func fetchData() {
