@@ -22,6 +22,7 @@ class TracksTableViewCell: UITableViewCell {
     
     private func decorate() {
         poster.layer.masksToBounds = false
+<<<<<<< HEAD
 
             
         //poster.layer.cornerRadius = poster.frame.size.width/2
@@ -29,6 +30,9 @@ class TracksTableViewCell: UITableViewCell {
         
         poster.layer.cornerRadius = poster.frame.size.width/4
 
+=======
+        poster.layer.cornerRadius = poster.frame.size.width/4
+>>>>>>> 42dcb43b2132f7c8e4cd0f11f4d4085f470e6c20
         poster.clipsToBounds = true
     }
 }

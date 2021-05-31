@@ -182,7 +182,7 @@ class PlayerViewController: UIViewController, GradientBackground {
     func play() {
         slider.value = 0.0
         slider.maximumValue = Float(player.duration)
-        player.play()
+//        player.play()
         setPlayPauseIcon(isPlaying: player.isPlaying)
     }
     
@@ -234,7 +234,9 @@ class PlayerViewController: UIViewController, GradientBackground {
     }
     
     @IBAction func progressBar(_ sender: UISlider) {
+        player.pause()
         player.currentTime = Float64(sender.value)
+        player.play()
     }
     
     @IBAction func back(_ sender: UIButton) {

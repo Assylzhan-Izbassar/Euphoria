@@ -99,9 +99,17 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             let TracksVC = storyboard.instantiateViewController(identifier: "TracksViewController")
             TracksVC.modalPresentationStyle = .fullScreen
             self.present(TracksVC, animated: true, completion: nil)
+<<<<<<< HEAD
         case NSLocalizedString("Artists", comment: ""):
             break
         case NSLocalizedString("Albums", comment: ""):
+=======
+        case "Artists":
+            let ArtistsVC = storyboard.instantiateViewController(identifier: "ArtistsViewController")
+            ArtistsVC.modalPresentationStyle = .fullScreen
+            self.present(ArtistsVC, animated: true, completion: nil)
+        case "Albums":
+>>>>>>> 42dcb43b2132f7c8e4cd0f11f4d4085f470e6c20
             let AlbumsVC = storyboard.instantiateViewController(identifier: "BrowersAlbumViewController")
             AlbumsVC.modalPresentationStyle = .fullScreen
             self.present(AlbumsVC, animated: true, completion: nil)
