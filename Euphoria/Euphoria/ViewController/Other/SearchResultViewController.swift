@@ -70,9 +70,9 @@ class SearchResultViewController: UIViewController, GradientBackground {
             }
         })
         sections = [
-            SearchSection(title: "Artists", results: artists),
-            SearchSection(title: "Tracks", results: tracks),
-            SearchSection(title: "Albums", results: albums)
+            SearchSection(title: NSLocalizedString("Artists", comment: ""), results: artists),
+            SearchSection(title: NSLocalizedString("Tracks", comment: ""), results: tracks),
+            SearchSection(title: NSLocalizedString("Albums", comment: ""), results: albums)
         ]
     }
 

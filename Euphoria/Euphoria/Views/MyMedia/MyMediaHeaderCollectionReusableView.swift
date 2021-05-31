@@ -25,9 +25,9 @@ class MyMediaHeaderCollectionReusableView: UICollectionReusableView {
     }
     
     @IBAction func addNewPlaylist(_ sender: UIButton) {
-        if titleLabel.text == "Playlists" {
+        if titleLabel.text == NSLocalizedString("Playlists", comment: "") {
             MyMediaHeaderCollectionReusableView.delegate?.addNewPlaylist()
-        } else if titleLabel.text == "Albums"{
+        } else if titleLabel.text == NSLocalizedString("Albums", comment: ""){
             MyMediaHeaderCollectionReusableView.delegate?.addNewAlbum()
         }
     }

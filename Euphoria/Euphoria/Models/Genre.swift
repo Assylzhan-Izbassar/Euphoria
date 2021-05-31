@@ -34,10 +34,10 @@ struct Category: Codable {
 extension Genre {
     static func getSearchGenre() -> [Genre] {
         return [
-            Genre(name: "All"),
-            Genre(name: "Tracks"),
-            Genre(name: "Artists"),
-            Genre(name: "Albums")
+            Genre(name: NSLocalizedString("All", comment: "")),
+            Genre(name: NSLocalizedString("Tracks", comment: "")),
+            Genre(name: NSLocalizedString("Artists", comment: "")),
+            Genre(name: NSLocalizedString("Albums", comment: ""))
         ]
     }
 }

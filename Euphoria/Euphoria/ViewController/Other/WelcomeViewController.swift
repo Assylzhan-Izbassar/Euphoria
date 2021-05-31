@@ -32,8 +32,8 @@ class WelcomeViewController: UIViewController, GradientBackground {
     private func handleSignIn(success: Bool) {
         // Log user in or yell at them for error
         guard success else {
-            let alert = UIAlertController(title: "Oops", message: "Something went wrong when signing in.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: "Oops", message: NSLocalizedString("Something went wrong when signing in.", comment: ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: ""), style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
             return
         }

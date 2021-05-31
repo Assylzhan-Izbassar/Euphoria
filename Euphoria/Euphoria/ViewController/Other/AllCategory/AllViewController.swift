@@ -15,11 +15,11 @@ enum AllSectionType {
     var title: String {
         switch self {
         case .newReleases:
-            return "New Released Albums"
+            return NSLocalizedString("New Released Albums", comment: "")
         case .featuredPlaylists:
-            return "Featured Playlists"
+            return NSLocalizedString("Featured Playlists", comment: "")
         case .recommendedTracks:
-            return "Recommended"
+            return NSLocalizedString("Recommended", comment: "")
         }
     }
 }
@@ -61,10 +61,10 @@ class AllViewController: UIViewController, GradientBackground {
         
         let model = tracks[indexPath.row]
         
-        let actionSheet = UIAlertController(title: model.name, message: "Would you like to add track to playlist?", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: model.name, message: NSLocalizedString("Would you like to add track to playlist?", comment: ""), preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Add", comment: ""), style: .default, handler: { [weak self] _ in
             DispatchQueue.main.async {
                 if let myMediaVC = self?.storyboard?.instantiateViewController(identifier: "FavoriteViewController") as? FavoriteViewController {
                     myMediaVC.modalPresentationStyle = .fullScreen

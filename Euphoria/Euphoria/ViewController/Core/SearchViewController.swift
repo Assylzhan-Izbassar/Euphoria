@@ -91,17 +91,17 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         switch categoryName {
-        case "All":
+        case NSLocalizedString("All", comment: ""):
             let AllVC = storyboard.instantiateViewController(identifier: "AllViewController")
             AllVC.modalPresentationStyle = .fullScreen
             self.present(AllVC, animated: true, completion: nil)
-        case "Tracks":
+        case NSLocalizedString("Tracks", comment: ""):
             let TracksVC = storyboard.instantiateViewController(identifier: "TracksViewController")
             TracksVC.modalPresentationStyle = .fullScreen
             self.present(TracksVC, animated: true, completion: nil)
-        case "Artists":
+        case NSLocalizedString("Artists", comment: ""):
             break
-        case "Albums":
+        case NSLocalizedString("Albums", comment: ""):
             let AlbumsVC = storyboard.instantiateViewController(identifier: "BrowersAlbumViewController")
             AlbumsVC.modalPresentationStyle = .fullScreen
             self.present(AlbumsVC, animated: true, completion: nil)

@@ -14,9 +14,9 @@ enum MyMediaSectionType {
     var title: String {
         switch self {
         case .playlists:
-            return "Playlists"
+            return NSLocalizedString("Playlists", comment: "")
         case .albums:
-            return "Albums"
+            return NSLocalizedString("Albums", comment: "")
         }
     }
 }
@@ -122,12 +122,13 @@ class FavoriteViewController: UIViewController, GradientBackground {
 
 extension FavoriteViewController: MyMediaHeaderCollectionReusableViewDelegate {
     func addNewPlaylist() {
-        let alert = UIAlertController(title:  "New Playlists", message: "Enter playlist title", preferredStyle: .alert)
+        let alert = UIAlertController(title:  NSLocalizedString("New Playlists", comment: ""), message: NSLocalizedString("Enter playlist title", comment: ""), preferredStyle: .alert)
         alert.addTextField { (textField) in
-            textField.placeholder = "Playlist..."
+            textField.placeholder = NSLocalizedString("Playlist...", comment: "")
+            
         }
         
-        alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Create", comment: ""), style: .default, handler: { (_) in
             guard
                 let field = alert.textFields?.first,
                 let text = field.text,
@@ -144,7 +145,7 @@ extension FavoriteViewController: MyMediaHeaderCollectionReusableViewDelegate {
                 }
             }
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
     }

@@ -84,7 +84,7 @@ class PlayerViewController: UIViewController, GradientBackground {
         guard let url = song.preview_url
         else {
             dismiss(animated: true, completion: nil)
-            let alert = UIAlertController(title: NSLocalizedString("Oops", comment: ""), message: NSLocalizedString("Track hasn't have a URL.", comment: ""), preferredStyle: .alert)
+            let alert = UIAlertController(title: "Oops", message: NSLocalizedString("Track hasn't have a URL.", comment: ""), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Close", comment: ""), style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
             return

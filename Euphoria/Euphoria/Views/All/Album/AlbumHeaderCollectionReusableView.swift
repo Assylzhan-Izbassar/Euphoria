@@ -23,7 +23,7 @@ class AlbumHeaderCollectionReusableView: UICollectionReusableView {
     
     func configure(with viewModel: AlbumHeaderViewModel) {
         albumTitle.text = viewModel.title
-        releasedDate.text = "Release date: \(viewModel.releasedDate ?? "")"
+        releasedDate.text = NSLocalizedString("Release date: \(viewModel.releasedDate ?? "")", comment: "")
         artistName.text = viewModel.artistName
         headerImage.sd_setImage(with: viewModel.imageUrl, completed: nil)
     }

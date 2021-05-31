@@ -18,7 +18,7 @@ class NewReleaseCollectionViewCell: UICollectionViewCell {
     func configure(with viewModel: NewReleasesCellViewModel) {
         albumTitle.text = viewModel.name
         artistName.text = viewModel.artistName
-        tracksCount.text = "Tracks: \(viewModel.numberOfTracks)"
+        tracksCount.text = NSLocalizedString("Tracks: \(viewModel.numberOfTracks)", comment: "")
         albumImage.sd_setImage(with: viewModel.artWorkUrl, completed: nil)
     }
 }

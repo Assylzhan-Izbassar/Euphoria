@@ -57,9 +57,9 @@ class AlbumViewController: UIViewController, GradientBackground {
     }
     
     @IBAction func addToMyMedia(_ sender: UIButton) {
-        let actionSheet = UIAlertController(title: album?.name, message: "Actions", preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self] _ in
+        let actionSheet = UIAlertController(title: album?.name, message: NSLocalizedString("Actions", comment: ""), preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Save", comment: ""), style: .default, handler: { [weak self] _ in
             guard let strongSelf = self else { return }
             APICaller.shared.saveAlbumToCurrentUser(album: strongSelf.album!) {
                 success in

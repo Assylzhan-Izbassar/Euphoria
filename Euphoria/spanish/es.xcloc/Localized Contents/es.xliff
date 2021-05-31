@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Euphoria/Base.lproj/Main.storyboard" source-language="en" target-language="es" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
+    </header>
+    <body>
+      <trans-unit id="0lH-ct-J4Y.text" xml:space="preserve">
+        <source>All</source>
+        <target>Todas</target>
+        <note>Class = "UILabel"; text = "All"; ObjectID = "0lH-ct-J4Y";</note>
+      </trans-unit>
+      <trans-unit id="0lq-ZI-Rhs.text" xml:space="preserve">
+        <source>the "forever is the sweetest con" chapter</source>
+        <target>the "forever is the sweetest con" chapter</target>
+        <note>Class = "UILabel"; text = "the \"forever is the sweetest con\" chapter"; ObjectID = "0lq-ZI-Rhs";</note>
+      </trans-unit>
+      <trans-unit id="2b1-g8-T52.text" xml:space="preserve">
+        <source>00:05</source>
+        <target>00:05</target>
+        <note>Class = "UILabel"; text = "00:05"; ObjectID = "2b1-g8-T52";</note>
+      </trans-unit>
+      <trans-unit id="2nP-Kx-nzP.text" xml:space="preserve">
+        <source>La camisa negra</source>
+        <target>La camisa negra</target>
+        <note>Class = "UILabel"; text = "La camisa negra"; ObjectID = "2nP-Kx-nzP";</note>
+      </trans-unit>
+      <trans-unit id="3ae-Vm-3px.normalTitle" xml:space="preserve">
+        <source>Sleep Timer</source>
+        <target>Tiempo de dormir</target>
+        <note>Class = "UIButton"; normalTitle = "Sleep Timer"; ObjectID = "3ae-Vm-3px";</note>
+      </trans-unit>
+      <trans-unit id="3uc-Kk-ew3.text" xml:space="preserve">
+        <source>Spotify</source>
+        <target>Spotify</target>
+        <note>Class = "UILabel"; text = "Spotify"; ObjectID = "3uc-Kk-ew3";</note>
+      </trans-unit>
+      <trans-unit id="4Og-iK-aFR.text" xml:space="preserve">
+        <source>Search</source>
+        <target>Buscar</target>
+        <note>Class = "UILabel"; text = "Search"; ObjectID = "4Og-iK-aFR";</note>
+      </trans-unit>
+      <trans-unit id="5Va-Gj-RsM.text" xml:space="preserve">
+        <source>Tracks</source>
+        <target>Pistas</target>
+        <note>Class = "UILabel"; text = "Tracks"; ObjectID = "5Va-Gj-RsM";</note>
+      </trans-unit>
+      <trans-unit id="5mK-dg-kl5.text" xml:space="preserve">
+        <source>the "forever is the sweetest con" chapter</source>
+        <target>the "forever is the sweetest con" chapter</target>
+        <note>Class = "UILabel"; text = "the \"forever is the sweetest con\" chapter"; ObjectID = "5mK-dg-kl5";</note>
+      </trans-unit>
+      <trans-unit id="6f5-Zh-lln.text" xml:space="preserve">
+        <source>crying on the bedroom floor</source>
+        <target>crying on the bedroom floor</target>
+        <note></note>
+      </trans-unit>
+      <trans-unit id="6q6-Nk-obI.text" xml:space="preserve">
+        <source>Spotify</source>
+        <target>Spotify</target>
+        <note>Class = "UILabel"; text = "Spotify"; ObjectID = "6q6-Nk-obI";</note>
+      </trans-unit>
+      <trans-unit id="7Zk-qk-Gje.text" xml:space="preserve">
+        <source>Taylor Swift</source>
+        <target>Taylor Swift</target>
+        <note>Class = "UILabel"; text = "Taylor Swift"; ObjectID = "7Zk-qk-Gje";</note>
+      </trans-unit>
+      <trans-unit id="9IA-Ui-dw4.text" xml:space="preserve">
+        <source>Tracks: 20</source>
+        <target>Pistas: 20</target>
+        <note>Class = "UILabel"; text = "Tracks: 20"; ObjectID = "9IA-Ui-dw4";</note>
+      </trans-unit>
+      <trans-unit id="9tU-hf-dOe.text" xml:space="preserve">
+        <source>Taylor Swift</source>
+        <target>Taylor Swift</target>
+        <note>Class = "UILabel"; text = "Taylor Swift"; ObjectID = "9tU-hf-dOe";</note>
+      </trans-unit>
+      <trans-unit id="94Y-5I-Kws.text" xml:space="preserve">
+        <source>of euphoria</source>
+        <target>de euforia</target>
+        <note>Class = "UILabel"; text = "of euphoria"; ObjectID = "94Y-5I-Kws";</note>
+      </trans-unit>
+      <trans-unit id="BIS-iL-ADI.text" xml:space="preserve">
+        <source>What Would You Do</source>
+        <target>What Would You Do</target>
+        <note>Class = "UILabel"; text = "What Would You Do"; ObjectID = "BIS-iL-ADI";</note>
+      </trans-unit>
+      <trans-unit id="Bv3-kw-aUS.normalTitle" xml:space="preserve">
+        <source>Privacy</source>
+        <target>Intimidad</target>
+        <note>Class = "UIButton"; normalTitle = "Privacy"; ObjectID = "Bv3-kw-aUS";</note>
+      </trans-unit>
+      <trans-unit id="CZq-yu-wLk.normalTitle" xml:space="preserve">
+        <source>Button</source>
+        <target>Button</target>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "CZq-yu-wLk";</note>
+      </trans-unit>
+      <trans-unit id="EQo-3y-S1K.text" xml:space="preserve">
+        <source>with us</source>
+        <target>con nosotras</target>
+        <note>Class = "UILabel"; text = "with us"; ObjectID = "EQo-3y-S1K";</note>
+      </trans-unit>
+      <trans-unit id="Ebb-iK-9hz.text" xml:space="preserve">
+        <source>the "forever is the sweetest con" chapter</source>
+        <target>the "forever is the sweetest con" chapter</target>
+        <note>Class = "UILabel"; text = "the \"forever is the sweetest con\" chapter"; ObjectID = "Ebb-iK-9hz";</note>
+      </trans-unit>
+      <trans-unit id="Fq9-eB-B5j.text" xml:space="preserve">
+        <source>Get lyrics of Crying on the bedroom floor song you love. List contains Crying on the bedroom floor song lyrics of older one songs and hot new releases. Get known every word of your favorite song or start your own karaoke party tonight </source>
+        <target>Obtén la letra de la canción Crying on the bedroom floor que te encanta. La lista contiene letras de canciones de Crying on the bedroom floor de canciones antiguas y nuevos lanzamientos. Conozca cada palabra de su canción favorita o comience su propia fiesta de karaoke esta noche </target>
+        <note>Class = "UILabel"; text = "Get lyrics of Crying on the bedroom floor song you love. List contains Crying on the bedroom floor song lyrics of older one songs and hot new releases. Get known every word of your favorite song or start your own karaoke party tonight "; ObjectID = "Fq9-eB-B5j";</note>
+      </trans-unit>
+      <trans-unit id="GDi-C2-6y2.text" xml:space="preserve">
+        <source>Track</source>
+        <target>Pista</target>
+        <note>Class = "UILabel"; text = "Track"; ObjectID = "GDi-C2-6y2";</note>
+      </trans-unit>
+      <trans-unit id="GFT-Rc-vWQ.text" xml:space="preserve">
+        <source>Feel the feeling</source>
+        <target>Siente el sentimiento</target>
+        <note>Class = "UILabel"; text = "Feel the feeling"; ObjectID = "GFT-Rc-vWQ";</note>
+      </trans-unit>
+      <trans-unit id="Irt-PF-Ab8.text" xml:space="preserve">
+        <source>For training</source>
+        <target>Para entrenamiento</target>
+        <note>Class = "UILabel"; text = "For training"; ObjectID = "Irt-PF-Ab8";</note>
+      </trans-unit>
+      <trans-unit id="JZF-sh-Lob.normalTitle" xml:space="preserve">
+        <source>Share to friends</source>
+        <target>Compartir con amigos</target>
+        <note>Class = "UIButton"; normalTitle = "Share to friends"; ObjectID = "JZF-sh-Lob";</note>
+      </trans-unit>
+      <trans-unit id="KPb-Wv-z5O.text" xml:space="preserve">
+        <source>crying on the bedroom floor</source>
+        <target>crying on the bedroom floor</target>
+        <note>Class = "UILabel"; text = "crying on the bedroom floor"; ObjectID = "KPb-Wv-z5O";</note>
+      </trans-unit>
+      <trans-unit id="MHQ-MM-Bss.title" xml:space="preserve">
+        <source>Sign In</source>
+        <target>Iniciar sesión</target>
+        <note>Class = "UINavigationItem"; title = "Sign In"; ObjectID = "MHQ-MM-Bss";</note>
+      </trans-unit>
+      <trans-unit id="N6k-eW-Y76.text" xml:space="preserve">
+        <source>the "forever is the sweetest con" chapter</source>
+        <target>the "forever is the sweetest con" chapter</target>
+        <note>Class = "UILabel"; text = "the \"forever is the sweetest con\" chapter"; ObjectID = "N6k-eW-Y76";</note>
+      </trans-unit>
+      <trans-unit id="O4N-dv-hth.text" xml:space="preserve">
+        <source>Popular</source>
+        <target>Popular</target>
+        <note>Class = "UILabel"; text = "Popular"; ObjectID = "O4N-dv-hth";</note>
+      </trans-unit>
+      <trans-unit id="O7L-i6-bnR.normalTitle" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancelar</target>
+        <note>Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "O7L-i6-bnR";</note>
+      </trans-unit>
+      <trans-unit id="Prv-xr-YHu.text" xml:space="preserve">
+        <source>Taylor Swift</source>
+        <target>Taylor Swift</target>
+        <note>Class = "UILabel"; text = "Taylor Swift"; ObjectID = "Prv-xr-YHu";</note>
+      </trans-unit>
+      <trans-unit id="T6j-Ag-e9w.text" xml:space="preserve">
+        <source>Euphoria</source>
+        <target>Euforia</target>
+        <note>Class = "UILabel"; text = "Euphoria"; ObjectID = "T6j-Ag-e9w";</note>
+      </trans-unit>
+      <trans-unit id="UOa-5I-sim.placeholder" xml:space="preserve">
+        <source>Artist, song or playlist</source>
+        <target>Artista, canción o lista de reproducción</target>
+        <note>Class = "UITextField"; placeholder = "Artist, song or playlist"; ObjectID = "UOa-5I-sim";</note>
+      </trans-unit>
+      <trans-unit id="Uqt-zR-gjN.text" xml:space="preserve">
+        <source>Taylor Swift</source>
+        <target>Taylor Swift</target>
+        <note>Class = "UILabel"; text = "Taylor Swift"; ObjectID = "Uqt-zR-gjN";</note>
+      </trans-unit>
+      <trans-unit id="VKa-2d-jbG.text" xml:space="preserve">
+        <source>City High</source>
+        <target>City High</target>
+        <note>Class = "UILabel"; text = "City High"; ObjectID = "VKa-2d-jbG";</note>
+      </trans-unit>
+      <trans-unit id="VnX-SV-jSh.text" xml:space="preserve">
+        <source>Turn music off after you go to sleep</source>
+        <target>Apaga la música después de irte a dormir</target>
+        <note>Class = "UILabel"; text = "Turn music off after you go to sleep"; ObjectID = "VnX-SV-jSh";</note>
+      </trans-unit>
+      <trans-unit id="YeP-92-hIh.text" xml:space="preserve">
+        <source>Taylor Swift</source>
+        <target>Taylor Swift</target>
+        <note>Class = "UILabel"; text = "Taylor Swift"; ObjectID = "YeP-92-hIh";</note>
+      </trans-unit>
+      <trans-unit id="Zm6-rM-Zab.text" xml:space="preserve">
+        <source>crying on the bedroom floor</source>
+        <target>crying on the bedroom floor</target>
+        <note>Class = "UILabel"; text = "crying on the bedroom floor"; ObjectID = "Zm6-rM-Zab";</note>
+      </trans-unit>
+      <trans-unit id="a0T-h1-iK5.text" xml:space="preserve">
+        <source>crying on the bedroom floor</source>
+        <target>crying on the bedroom floor</target>
+        <note>Class = "UILabel"; text = "crying on the bedroom floor"; ObjectID = "a0T-h1-iK5";</note>
+      </trans-unit>
+      <trans-unit id="b27-aO-B94.text" xml:space="preserve">
+        <source>03:45</source>
+        <target>03:45</target>
+        <note>Class = "UILabel"; text = "03:45"; ObjectID = "b27-aO-B94";</note>
+      </trans-unit>
+      <trans-unit id="eXT-gt-hbz.text" xml:space="preserve">
+        <source>Track</source>
+        <target>Pista</target>
+        <note>Class = "UILabel"; text = "Track"; ObjectID = "eXT-gt-hbz";</note>
+      </trans-unit>
+      <trans-unit id="el1-sy-VLp.text" xml:space="preserve">
+        <source>La camisa negra</source>
+        <target>La camisa negra</target>
+        <note>Class = "UILabel"; text = "La camisa negra"; ObjectID = "el1-sy-VLp";</note>
+      </trans-unit>
+      <trans-unit id="fJC-ui-gHK.text" xml:space="preserve">
+        <source>crying on the bedroom floor Spotify</source>
+        <target>crying on the bedroom floor Spotify</target>
+        <note>Class = "UILabel"; text = "crying on the bedroom floor Spotify"; ObjectID = "fJC-ui-gHK";</note>
+      </trans-unit>
+      <trans-unit id="fgm-rB-MTr.normalTitle" xml:space="preserve">
+        <source>    Sign in with Spotify</source>
+        <target>    Iniciar sesión con Spotify</target>
+        <note>Class = "UIButton"; normalTitle = "    Sign in with Spotify"; ObjectID = "fgm-rB-MTr";</note>
+      </trans-unit>
+      <trans-unit id="h2P-EK-ukK.text" xml:space="preserve">
+        <source>Spotify</source>
+        <target>Spotify</target>
+        <note>Class = "UILabel"; text = "Spotify"; ObjectID = "h2P-EK-ukK";</note>
+      </trans-unit>
+      <trans-unit id="iBh-If-Q9x.normalTitle" xml:space="preserve">
+        <source>Button</source>
+        <target>Button</target>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "iBh-If-Q9x";</note>
+      </trans-unit>
+      <trans-unit id="iEd-fm-kLl.text" xml:space="preserve">
+        <source>Creator</source>
+        <target>Creadora</target>
+        <note>Class = "UILabel"; text = "Creator"; ObjectID = "iEd-fm-kLl";</note>
+      </trans-unit>
+      <trans-unit id="iXR-w8-amc.text" xml:space="preserve">
+        <source>Albums</source>
+        <target>Álbumes</target>
+        <note>Class = "UILabel"; text = "Albums"; ObjectID = "iXR-w8-amc";</note>
+      </trans-unit>
+      <trans-unit id="inn-VO-XiP.normalTitle" xml:space="preserve">
+        <source>Sign out</source>
+        <target>Desconectar</target>
+        <note>Class = "UIButton"; normalTitle = "Sign out"; ObjectID = "inn-VO-XiP";</note>
+      </trans-unit>
+      <trans-unit id="p5N-l1-LL0.text" xml:space="preserve">
+        <source>Evermore</source>
+        <target>Evermore</target>
+        <note>Class = "UILabel"; text = "Evermore"; ObjectID = "p5N-l1-LL0";</note>
+      </trans-unit>
+      <trans-unit id="pjz-gY-Z1h.text" xml:space="preserve">
+        <source>All</source>
+        <target>Todas</target>
+        <note>Class = "UILabel"; text = "All"; ObjectID = "pjz-gY-Z1h";</note>
+      </trans-unit>
+      <trans-unit id="r7O-Rt-BF1.text" xml:space="preserve">
+        <source>New Releases</source>
+        <target>Nuevos lanzamientos</target>
+        <note>Class = "UILabel"; text = "New Releases"; ObjectID = "r7O-Rt-BF1";</note>
+      </trans-unit>
+      <trans-unit id="rAv-UP-H7q.text" xml:space="preserve">
+        <source>Playlists</source>
+        <target>Listas de reproducción</target>
+        <note>Class = "UILabel"; text = "Playlists"; ObjectID = "rAv-UP-H7q";</note>
+      </trans-unit>
+      <trans-unit id="s7O-QI-grx.text" xml:space="preserve">
+        <source>the "forever is the sweetest con" chapter</source>
+        <target>the "forever is the sweetest con" chapter</target>
+        <note>Class = "UILabel"; text = "the \"forever is the sweetest con\" chapter"; ObjectID = "s7O-QI-grx";</note>
+      </trans-unit>
+      <trans-unit id="sB7-5i-mEA.text" xml:space="preserve">
+        <source>My media</source>
+        <target>Mis medios</target>
+        <note>Class = "UILabel"; text = "My media"; ObjectID = "sB7-5i-mEA";</note>
+      </trans-unit>
+      <trans-unit id="sfu-Rg-JkD.text" xml:space="preserve">
+        <source>crying on the bedroom floor</source>
+        <target>crying on the bedroom floor</target>
+        <note>Class = "UILabel"; text = "crying on the bedroom floor"; ObjectID = "sfu-Rg-JkD";</note>
+      </trans-unit>
+      <trans-unit id="shy-Z3-YFh.text" xml:space="preserve">
+        <source>Browse in</source>
+        <target>Navegar en</target>
+        <note>Class = "UILabel"; text = "Browse in"; ObjectID = "shy-Z3-YFh";</note>
+      </trans-unit>
+      <trans-unit id="stw-Cd-7b8.text" xml:space="preserve">
+        <source>Release date: Jan 28, 2021</source>
+        <target>Fecha de lanzamiento: 28 de enero de 2021</target>
+        <note>Class = "UILabel"; text = "Release date: Jan 28, 2021"; ObjectID = "stw-Cd-7b8";</note>
+      </trans-unit>
+      <trans-unit id="tf9-Lf-Jug.text" xml:space="preserve">
+        <source>Taylor Swift</source>
+        <target>Taylor Swift</target>
+        <note>Class = "UILabel"; text = "Taylor Swift"; ObjectID = "tf9-Lf-Jug";</note>
+      </trans-unit>
+      <trans-unit id="u1Y-6y-O51.text" xml:space="preserve">
+        <source>the "forever is the sweetest con" chapter</source>
+        <target>the "forever is the sweetest con" chapter</target>
+        <note>Class = "UILabel"; text = "the \"forever is the sweetest con\" chapter"; ObjectID = "u1Y-6y-O51";</note>
+      </trans-unit>
+      <trans-unit id="vF2-8j-mlW.text" xml:space="preserve">
+        <source>Settings</source>
+        <target>Ajustes</target>
+        <note>Class = "UILabel"; text = "Settings"; ObjectID = "vF2-8j-mlW";</note>
+      </trans-unit>
+      <trans-unit id="wQx-Kw-CPm.text" xml:space="preserve">
+        <source>All genres</source>
+        <target>Todos los generos</target>
+        <note>Class = "UILabel"; text = "All genres"; ObjectID = "wQx-Kw-CPm";</note>
+      </trans-unit>
+      <trans-unit id="zLe-Q0-6lJ.normalTitle" xml:space="preserve">
+        <source>Change the language</source>
+        <target>Cambia el idioma</target>
+        <note>Class = "UIButton"; normalTitle = "Change the language"; ObjectID = "zLe-Q0-6lJ";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Euphoria/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="es">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>Euphoria</source>
+        <target>Euforia</target>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Euphoria/en.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="es">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
+    </header>
+    <body>
+      <trans-unit id="AVAudioPlayer init failed" xml:space="preserve">
+        <source>AVAudioPlayer init failed</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Cancel" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancelar</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Close" xml:space="preserve">
+        <source>Close</source>
+        <target>Cerca</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Oops" xml:space="preserve">
+        <source>Oops</source>
+        <target>UPS</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Remove" xml:space="preserve">
+        <source>Remove</source>
+        <target>Eliminar</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Track hasn't have a URL." xml:space="preserve">
+        <source>Track hasn't have a URL.</source>
+        <target>La pista no tiene URL.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Whould you like to delete this track in playlist?" xml:space="preserve">
+        <source>Whould you like to delete this track in playlist?</source>
+        <target>¿Le gustaría eliminar esta pista de la lista de reproducción?</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
