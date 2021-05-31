@@ -20,6 +20,31 @@ final class APICaller {
     
     private init() {}
     
+    // MARK: - Artists
+    
+    public func getArtists(ids: Set<String>, completion: @escaping (Result<[Artist], Error>) -> Void) {
+        let seeds = ids.joined(separator: ",")
+//        print(seeds)
+        createRequest(with: URL(string: "\(Constants.baseApiUrl)/artists?ids=\(seeds)"), type: .GET) { (request) in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(ArtistsResponse.self, from: data)
+                    completion(.success(result.artists))
+                } catch {
+                    print(error.localizedDescription)
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    
     // MARK: - Albums
     
     public func getAlbumDetails(for album: Album, completion: @escaping (Result<AlbumDetailsResponse, Error>) -> Void) {
@@ -259,7 +284,7 @@ final class APICaller {
     // MARK: - Browse
     
     public func getNewReleases(completion: @escaping (Result<NewReleasesResponse, Error>) -> Void) {
-        createRequest(with: URL(string: "\(Constants.baseApiUrl)/browse/new-releases?limit=20"), type: .GET) { (request) in
+        createRequest(with: URL(string: "\(Constants.baseApiUrl)/browse/new-releases?limit=30"), type: .GET) { (request) in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))

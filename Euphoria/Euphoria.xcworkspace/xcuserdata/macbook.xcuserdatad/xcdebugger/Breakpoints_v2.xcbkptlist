@@ -78,8 +78,8 @@
             filePath = "Euphoria/Managers/APICaller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "createPlaylist(with:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "Euphoria/Managers/APICaller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "createPlaylist(with:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "Euphoria/Managers/APICaller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "add(track:to:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             filePath = "Euphoria/Managers/APICaller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "search(with:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,8 +398,8 @@
             filePath = "Euphoria/Managers/APICaller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
             landmarkName = "search(with:completion:)"
             landmarkType = "7">
             <Locations>
@@ -446,8 +446,8 @@
             filePath = "Euphoria/Managers/APICaller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "search(with:completion:)"
             landmarkType = "7">
             <Locations>
@@ -494,8 +494,8 @@
             filePath = "Euphoria/Managers/APICaller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
+            startingLineNumber = "369"
+            endingLineNumber = "369"
             landmarkName = "search(with:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -529,6 +529,70 @@
             startingLineNumber = "51"
             endingLineNumber = "51"
             landmarkName = "didLongPress(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3AB0C6FE-B369-4D7F-AC5B-1F5748BD1E98"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Euphoria/Managers/APICaller.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "getArtists(ids:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3AB0C6FE-B369-4D7F-AC5B-1F5748BD1E98 - 1efe993f206fa062"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Euphoria.APICaller.getArtists(ids: Swift.Set&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.Array&lt;Euphoria.Artist&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Euphoria"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Desktop/Courses/IOS%20development/Tasks/Euphoria/Euphoria/Euphoria/Managers/APICaller.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "558">
+               </Location>
+               <Location
+                  uuid = "3AB0C6FE-B369-4D7F-AC5B-1F5748BD1E98 - 5f5a0126ffd1ce24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.URLRequest) -&gt; () in Euphoria.APICaller.getArtists(ids: Swift.Set&lt;Swift.String&gt;, completion: (Swift.Result&lt;Swift.Array&lt;Euphoria.Artist&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Euphoria"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Desktop/Courses/IOS%20development/Tasks/Euphoria/Euphoria/Euphoria/Managers/APICaller.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "109">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D46DD10B-D580-462A-91B4-D806F72D621D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Euphoria/Managers/APICaller.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "getArtists(ids:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
